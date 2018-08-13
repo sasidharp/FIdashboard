@@ -1,0 +1,9 @@
+mat-grid-tile {
+    background:lightslategrey;
+  }
+  p.thick {
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 12px;
+    
+}
