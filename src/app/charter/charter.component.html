@@ -7,6 +7,7 @@
       <canvas baseChart
                   [data]="doughnutChartData"
                   [chartType]="doughnutChartType"
+                  [colors]='doughnutChartColors'
                   (chartHover)="chartHovered($event)"
                   (chartClick)="chartClicked($event)">
       </canvas>
@@ -101,6 +102,7 @@
         
         
 </mat-grid-list>
+<p class="small">DATA LAST UPDATED FROM SAP AT 14-JAN-1400 12:!22:12Z</p>
 <p class="thick" > X OF TOTAL Y JOBS COMPLETED</p>
 <mat-progress-bar mode="determinate" value =40 ></mat-progress-bar>
 

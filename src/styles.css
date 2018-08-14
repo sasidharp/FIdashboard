@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+/* @import '~@angular/material/prebuilt-themes/deeppurple-amber.css'; */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
 p.thick {
     font-weight: bold;
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -8,4 +9,8 @@ p.thick {
 }
 p.small{
     font-size: 10px;
+}
+
+body {
+    background-color:white;
 }
