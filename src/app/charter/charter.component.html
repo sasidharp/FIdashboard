@@ -1,114 +1,115 @@
 
-<mat-grid-list cols="4" rowHeight="1.5:1" >
+<mat-grid-list cols="4" rowHeight="1.3:1" >
+ 
   <mat-grid-tile>
   <mat-grid-tile-header>
-   <p class="thick"> ASSETS MANAGEMENT </p> </mat-grid-tile-header>
+   <p class="thick"> {{ apProcessing }} </p> </mat-grid-tile-header>
    <div>
-      <canvas baseChart
-                  [data]="doughnutChartData"
-                  [chartType]="doughnutChartType"
-                  [colors]='doughnutChartColors'
-                  (chartHover)="chartHovered($event)"
-                  (chartClick)="chartClicked($event)">
-      </canvas>
-    </div>
+    <canvas baseChart
+    [data]="doughnutChartData"
+    [labels]="doughnutChartLabels"
+    [chartType]="doughnutChartType"
+    (chartHover)="chartHovered($event)"
+    (chartClick)="chartClicked($event)"
+    [options]="barChartOptions">
+</canvas>
+</div>
  </mat-grid-tile>
  <mat-grid-tile>
-    <mat-grid-tile-header>
-     <p> ASSETS MANAGEMENT </p> </mat-grid-tile-header>
-     <div>
-        <canvas baseChart
-                    [data]="doughnutChartData"
-                    [chartType]="doughnutChartType"
-                    (chartHover)="chartHovered($event)"
-                    (chartClick)="chartClicked($event)">
-        </canvas>
-      </div>
-   </mat-grid-tile>
+  <mat-grid-tile-header>
+   <p class="thick"> {{ assetAccounting }}  </p> </mat-grid-tile-header>
+   <div>
+    <canvas baseChart
+    [data]="doughnutChartData"
+    [labels]="doughnutChartLabels"
+    [chartType]="doughnutChartType"
+    (chartHover)="chartHovered($event)"
+    (chartClick)="chartClicked($event)"
+    [options]="barChartOptions">
+</canvas>
+</div>
+ </mat-grid-tile>
+ <mat-grid-tile>
+  <mat-grid-tile-header>
+   <p class="thick"> {{ consolidation }} </p> </mat-grid-tile-header>
+   <div>
+    <canvas baseChart
+    [data]="doughnutChartData"
+    [labels]="doughnutChartLabels"
+    [chartType]="doughnutChartType"
+    (chartHover)="chartHovered($event)"
+    (chartClick)="chartClicked($event)"
+    [options]="barChartOptions">
+</canvas>
+</div>
+ </mat-grid-tile>
+ <mat-grid-tile>
+  <mat-grid-tile-header>
+   <p class="thick"> {{ treasury}} </p> </mat-grid-tile-header>
+   <div>
+    <canvas baseChart
+    [data]="doughnutChartData"
+    [labels]="doughnutChartLabels"
+    [chartType]="doughnutChartType"
+    (chartHover)="chartHovered($event)"
+    (chartClick)="chartClicked($event)"
+    [options]="barChartOptions">
+</canvas>
+</div>
+ </mat-grid-tile>
+ <mat-grid-tile>
+  <mat-grid-tile-header>
+   <p class="thick"> {{ finExtract }} </p> </mat-grid-tile-header>
+   <div>
+    <canvas baseChart
+    [data]="doughnutChartData"
+    [labels]="doughnutChartLabels"
+    [chartType]="doughnutChartType"
+    (chartHover)="chartHovered($event)"
+    (chartClick)="chartClicked($event)"
+    [options]="barChartOptions">
+</canvas>
+</div>
+ </mat-grid-tile>
+ <mat-grid-tile>
+  <mat-grid-tile-header>
+   <p class="thick">  {{ periodClose }} </p> </mat-grid-tile-header>
+   <div>
+    <canvas baseChart
+    [data]="doughnutChartData"
+    [labels]="doughnutChartLabels"
+    [chartType]="doughnutChartType"
+    (chartHover)="chartHovered($event)"
+    (chartClick)="chartClicked($event)"
+    [options]="barChartOptions">
+</canvas>
+</div>
+ </mat-grid-tile>
+ <mat-grid-tile>
+  <mat-grid-tile-header>
+   <p class="thick"> {{ projectAccounting }}  </p> </mat-grid-tile-header>
+   <div>
+    <canvas baseChart
+    [data]="doughnutChartData"
+    [labels]="doughnutChartLabels"
+    [chartType]="doughnutChartType"
+    (chartHover)="chartHovered($event)"
+    (chartClick)="chartClicked($event)"
+    [options]="barChartOptions">
+</canvas>
+</div>
+ </mat-grid-tile>
+ <mat-grid-tile>
+  <mat-grid-tile-header>
+   <p class="thick"> SNAPSHOT </p> </mat-grid-tile-header>
+ </mat-grid-tile>
 
-   <mat-grid-tile>
-      <mat-grid-tile-header>
-       <p class="thick"> ASSETS MANAGEMENT </p> </mat-grid-tile-header>
-       <div>
-          <canvas baseChart
-                      [data]="doughnutChartData"
-                      [chartType]="doughnutChartType"
-                      (chartHover)="chartHovered($event)"
-                      (chartClick)="chartClicked($event)">
-          </canvas>
-        </div>
-     </mat-grid-tile>
-     <mat-grid-tile>
-        <mat-grid-tile-header>
-         <p class="thick"> ASSETS MANAGEMENT </p> </mat-grid-tile-header>
-         <div>
-            <canvas baseChart
-                        [data]="doughnutChartData"
-                        [chartType]="doughnutChartType"
-                        (chartHover)="chartHovered($event)"
-                        (chartClick)="chartClicked($event)">
-            </canvas>
-          </div>
-       </mat-grid-tile>
-            
-       <mat-grid-tile>
-          <mat-grid-tile-header>
-           <p class="thick"> ASSETS MANAGEMENT </p> </mat-grid-tile-header>
-           <div>
-              <canvas baseChart
-                          [data]="doughnutChartData"
-                          [chartType]="doughnutChartType"
-                          (chartHover)="chartHovered($event)"
-                          (chartClick)="chartClicked($event)">
-              </canvas>
-            </div>
-         </mat-grid-tile>
-         <mat-grid-tile>
-            <mat-grid-tile-header>
-             <p class="thick"> ASSETS MANAGEMENT </p> </mat-grid-tile-header>
-             <div>
-                <canvas baseChart
-                            [data]="doughnutChartData"
-                            [chartType]="doughnutChartType"
-                            (chartHover)="chartHovered($event)"
-                            (chartClick)="chartClicked($event)">
-                </canvas>
-              </div>
-           </mat-grid-tile>
-           <mat-grid-tile>
-              <mat-grid-tile-header>
-               <p class="thick"> ASSETS MANAGEMENT </p> </mat-grid-tile-header>
-               <div>
-                  <canvas baseChart
-                              [data]="doughnutChartData"
-                              [chartType]="doughnutChartType"
-                              (chartHover)="chartHovered($event)"
-                              (chartClick)="chartClicked($event)">
-                  </canvas>
-                </div>
-             </mat-grid-tile>
-             <mat-grid-tile>
-                <mat-grid-tile-header>
-                 <p class="thick"> ASSETS MANAGEMENT </p> </mat-grid-tile-header>
-                 <div>
-                    <canvas baseChart
-                                [data]="doughnutChartData"
-                                [chartType]="doughnutChartType"
-                                (chartHover)="chartHovered($event)"
-                                (chartClick)="chartClicked($event)">
-                    </canvas>
-                  </div>
-               </mat-grid-tile>
-        
         
 </mat-grid-list>
-<p class="small">DATA LAST UPDATED FROM SAP AT 14-JAN-1400 12:!22:12Z</p>
+<p class="thick">DATA LAST UPDATED FROM SAP AT 14-JAN-1400 12:!22:12Z</p>
 <p class="thick" > X OF TOTAL Y JOBS COMPLETED</p>
 <mat-progress-bar mode="determinate" value =40 ></mat-progress-bar>
 
-
-
-  
 
 <!-- <mat-tab-group>
     <mat-tab label="Current Status"> Content 2 </mat-tab>

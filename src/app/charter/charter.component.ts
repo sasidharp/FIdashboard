@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-charter',
   templateUrl: './charter.component.html',
@@ -11,6 +12,16 @@ export class CharterComponent implements OnInit {
     public doughnutChartData: number[] = [350, 450, 100];
     public doughnutChartType = 'doughnut';
     public doughnutChartColors = [{backgroundColor: ['#e84351', '#434a54', '#3ebf9b', '#4d86dc', '#f3af37']}];
+    public barChartOptions: any = { legend: {position: 'right' , labels: {'fontSize': 10 , 'fontStyle': 'bold' }}};
+
+    apProcessing = 'AP Processing';,
+    assetAccounting = 'Asset Accounting';
+    consolidation = 'Consolidation';
+    treasury = 'Treaury';
+    finExtract = 'Finance Extract';
+    periodClose = 'Period Close';
+    projectAccounting = 'Project Accounting';
+
     constructor() { }
     // events
     public chartClicked(e: any): void {

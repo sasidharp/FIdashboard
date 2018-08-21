@@ -1,13 +1,3 @@
-// btc_running       LIKE tbtco-status VALUE 'R',
-// btc_ready         LIKE tbtco-status VALUE 'Y',
-// btc_scheduled     LIKE tbtco-status VALUE 'P',
-// btc_intercepted   TYPE btcstatus VALUE btc_scheduled,
-// btc_released      LIKE tbtco-status VALUE 'S',
-// btc_aborted       LIKE tbtco-status VALUE 'A',
-// btc_finished      LIKE tbtco-status VALUE 'F',
-// btc_put_active    LIKE tbtco-status VALUE 'Z',
-// btc_unknown_state LIKE tbtco-status VALUE 'X'.
-
 {
     "jobdetails": [
       {
