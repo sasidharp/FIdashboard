@@ -10,11 +10,13 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
-
+import { MessagesComponent } from './messages/messages.component';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
     CharterComponent,
+    MessagesComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,7 +27,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatProgressBarModule,
     MatTabsModule,
     MatDividerModule,
-    MatButtonModule
+    MatButtonModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
