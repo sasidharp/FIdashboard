@@ -46,10 +46,13 @@ export class CharterComponent implements OnInit {
       switch (jobx.status) {
         case 'R':
         this.released = this.released + 1;
+        break;
         case 'Y':
         this.scheduled = this.scheduled + 1;
+        break;
         case 'S':
         this.completed = this.completed + 1;
+        break;
         case 'A':
         case 'F':
         case 'Z':
