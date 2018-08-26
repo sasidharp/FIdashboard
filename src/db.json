@@ -1,53 +1,53 @@
 {
     "jobdetails": [
       {
-        "jobname": " Z_SCM_R4C_ERROR_NOTIF",
-        "subarea": "ASSTMGMT",
+        "jobname": " ZHELLO",
+        "subarea": "apProcessing",
         "jobcount": "00000100",
         "sdldate": "20180811",
-        "status": "R"     
+        "status": "Released"     
       },
       {
         "jobname": " Z_SCM_R4C_ERROR_NOTIF",
-        "subarea": "ASSTMGMT",
+        "subarea": "apProcessing",
         "jobcount": "00000100",
         "sdldate": "20180811",
-        "status": "Y"     
+        "status": "Released"     
       },
       {
         "jobname": " Z_SCM_R4C_ERROR_NOTIF",
-        "subarea": "ASSTMGMT",
+        "subarea": "apProcessing",
         "jobcount": "00000100",
         "sdldate": "20180811",
-        "status": "S"     
+        "status": "Released"     
       },
       {
         "jobname": " Z_SCM_R4C_ERROR_NOTIF",
-        "subarea": "ASSTMGMT",
+        "subarea": "apProcessing",
         "jobcount": "00000100",
         "sdldate": "20180811",
-        "status": "A"     
+        "status": "Scheduled"     
       },
       {
         "jobname": " Z_SCM_R4C_ERROR_NOTIF",
-        "subarea": "ASSTMGMT",
+        "subarea": "apProcessing",
         "jobcount": "00000100",
         "sdldate": "20180811",
-        "status": "F"     
+        "status": "Scheduled"     
       },
       {
         "jobname": " Z_SCM_R4C_ERROR_NOTIF",
-        "subarea": "ASSTMGMT",
+        "subarea": "apProcessing",
         "jobcount": "00000100",
         "sdldate": "20180811",
-        "status": "Z"     
+        "status": "Completed"     
       },
       {
         "jobname": " Z_SCM_R4C_ERROR_NOTIF",
-        "subarea": "ASSTMGMT",
+        "subarea": "apProcessing",
         "jobcount": "00000100",
         "sdldate": "20180811",
-        "status": "X"     
+        "status": "Completed"     
       }
          
     ]

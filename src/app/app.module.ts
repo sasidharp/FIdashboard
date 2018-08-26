@@ -7,16 +7,22 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
 import { MessagesComponent } from './messages/messages.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './/app-routing.module';
+import { TableDisplayComponent } from './table-display/table-display.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
     CharterComponent,
     MessagesComponent,
+    TableDisplayComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -28,7 +34,10 @@ import { HttpClientModule } from '@angular/common/http';
     MatTabsModule,
     MatDividerModule,
     MatButtonModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule,
+    BrowserAnimationsModule
+,   MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

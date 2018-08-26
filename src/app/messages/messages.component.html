@@ -2,3 +2,7 @@
 <h2>messages</h2>
 <div *ngFor='let message of messageService.messages'> {{message}} </div>
 </div>
+<div *ngIf="messageService.job_data.length">
+    <h2>messages</h2>
+    <div *ngFor='let job of messageService.job_data'> {{job.subarea }} </div>
+</div>

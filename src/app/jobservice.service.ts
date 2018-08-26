@@ -9,17 +9,17 @@ import { catchError, map, tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class JobserviceService {
-  private sapServiceURL = 'http://localhost:3000/jobdetails';
+  private sapServiceURL = 'https://1c692cab-9bbc-4e27-968f-9d8a8f236efd.mock.pstmn.io/jobs';
   public jobs:Job[];
 
   constructor(private http:HttpClient, private messageService:MessageService) { }
 
   getJobs():Observable<Job[]>  {
-    return this.http.get<Job[]>(this.sapServiceURL).pipe(
-                        tap(jobs => this.log('Fetched Jobs')),
-                        catchError(this.handleError<Job[]>('SAP Service', [])
-                      )
-                    );
+      return this.http.get<Job[]>(this.sapServiceURL).pipe(
+        tap(jobs => this.log('Fetched Jobs')),
+        catchError(this.handleError<Job[]>('SAP Service', [])
+      )
+    );
   }
 
   private log(message: string) {
