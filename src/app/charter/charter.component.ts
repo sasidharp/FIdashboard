@@ -111,7 +111,9 @@ export class CharterComponent implements OnInit {
         }
     }
   }
+  chartHovered( e: any) {
 
+  }
 }
 
 
