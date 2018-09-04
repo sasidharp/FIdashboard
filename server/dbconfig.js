@@ -15,18 +15,21 @@ request(options, function (error, response, body) {
   obj = JSON.parse(body);
   token = 'Bearer'+ ' ' + obj.access_token;
 });
-console.log(token);
+
 
 var options = { method: 'POST',
   url: 'https://sapdevws.trafficmanager.net/MS1/MSFIJobTelemetry/api/Sap/JobDetails',
   headers: 
-   { 'content-type': 'application/json' ,
-     'Authorization': token ,
-     'X-CorrelationID':'STR11082017180723',
-     'Ocp-Apim-Subscription-Key':'2c1196a6d5304fbfa0bb44206d641e2b'} };
+   { 
+     'Content-Type': 'application/json',
+     'X-CorrelationId': '724e8920-c5b8-4dcd-9585-ec211d89d6e3',
+     'Ocp-Apim-Subscription-Key': '2c1196a6d5304fbfa0bb44206d641e2b',
+      'Authorization': token },
+  body: { PRCSAREA: 'sample string 1' },
+  json: true };
 
 request(options, function (error, response, body) {
   if (error) throw new Error(error);
-  console.log(token);
+
   console.log(body);
 });
