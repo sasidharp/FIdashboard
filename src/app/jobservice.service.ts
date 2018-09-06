@@ -10,11 +10,11 @@ import { catchError, map, tap } from 'rxjs/operators';
 })
 export class JobserviceService {
   private sapServiceURL = 'https://1c692cab-9bbc-4e27-968f-9d8a8f236efd.mock.pstmn.io/jobs';
-  public jobs:Job[];
+  public jobs: Job[];
 
   constructor(private http:HttpClient, private messageService:MessageService) { }
 
-  getJobs():Observable<Job[]>  {
+  getJobs(): Observable<Job[]>  {
       return this.http.get<Job[]>(this.sapServiceURL).pipe(
         tap(jobs => this.log('Fetched Jobs')),
         catchError(this.handleError<Job[]>('SAP Service', [])
