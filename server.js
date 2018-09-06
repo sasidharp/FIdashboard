@@ -27,7 +27,7 @@ app.get('/jobs',function(err,res){
   });
 })
 
-var server = app.listen( process.env.PORT | 3000 , function (req,res) {
+var server = app.listen( process.env.PORT , function (req,res) {
     var port = server.address().port;
     console.log('App running on 3000');
 });
