@@ -1,0 +1,62 @@
+
+<div class="example-container mat-elevation-z8">
+  <mat-table #table [dataSource]="dataSource">
+      <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+      <!-- Position Column -->
+    <ng-container matColumnDef="subprocess">
+      <mat-header-cell *matHeaderCellDef> Functional Area </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.subprocess}} </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="running">
+      <mat-header-cell *matHeaderCellDef> Running </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.running }} </mat-cell>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="ready">
+      <mat-header-cell *matHeaderCellDef> Ready </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.ready }} </mat-cell>
+    </ng-container>
+
+    Symbol Column -->
+    <ng-container matColumnDef="scheduled">
+      <mat-header-cell *matHeaderCellDef> Scheduled </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.scheduled}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="released">
+      <mat-header-cell *matHeaderCellDef> Released </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.released}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="aborted">
+      <mat-header-cell *matHeaderCellDef> Aborted </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.aborted}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="finished">
+      <mat-header-cell *matHeaderCellDef> Finished </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.finished}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="putactive">
+      <mat-header-cell *matHeaderCellDef> putactive </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.putactive}} </mat-cell>
+    </ng-container>
+    
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>
+
+
+
+<!-- <mat-tab-group>
+  <mat-tab label="Current Status"> Content 2 </mat-tab>
+  <mat-tab label="Failed Jobs"> Content 2 </mat-tab>
+  <mat-tab label="Contact"> Content 3 </mat-tab>
+</mat-tab-group>
+ -->

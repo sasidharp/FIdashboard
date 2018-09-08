@@ -1,7 +1,10 @@
 export interface Job {
-    job: string;
-    subarea: string;
-    count: string;
-    sdldate: string;
-    status: string;
+    subprocess: string;
+    running: string;
+    ready: string;
+    scheduled: string;
+    released: string;
+    aborted: string;
+    finished: string;
+    putactive: string;
 }

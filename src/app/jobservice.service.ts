@@ -3,19 +3,19 @@ import { Job } from '../job';
 import { Observable, of , pipe } from 'rxjs';
 import { MessageService  } from './message.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError, map, tap , share} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class JobserviceService {
-  private sapServiceURL = 'https://1c692cab-9bbc-4e27-968f-9d8a8f236efd.mock.pstmn.io/jobs';
+  private sapServiceURL = '/jobs';
   public jobs: Job[];
 
   constructor(private http:HttpClient, private messageService:MessageService) { }
 
   getJobs(): Observable<Job[]>  {
-      return this.http.get<Job[]>(this.sapServiceURL).pipe(
+      return this.http.get<Job[]>(this.sapServiceURL).pipe(share(),
         tap(jobs => this.log('Fetched Jobs')),
         catchError(this.handleError<Job[]>('SAP Service', [])
       )

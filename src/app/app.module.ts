@@ -16,12 +16,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './/app-routing.module';
 import { TableDisplayComponent } from './table-display/table-display.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CharterTableViewComponent } from './charter-table-view/charter-table-view.component';
+import { Ng2Webstorage } from 'ngx-webstorage';
+
 @NgModule({
   declarations: [
     AppComponent,
     CharterComponent,
     MessagesComponent,
     TableDisplayComponent,
+    CharterTableViewComponent,
 
   ],
   imports: [
@@ -36,8 +40,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatButtonModule,
     HttpClientModule,
     AppRoutingModule,
-    BrowserAnimationsModule
-,   MatTableModule
+    BrowserAnimationsModule,
+    MatTableModule,
+    Ng2Webstorage,
   ],
   providers: [],
   bootstrap: [AppComponent]

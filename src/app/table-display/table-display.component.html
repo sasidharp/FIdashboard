@@ -5,31 +5,73 @@
           The actual rendered columns are set as a property on the row definition" -->
 
     <!-- Position Column -->
-    <ng-container matColumnDef="jobname">
-      <mat-header-cell *matHeaderCellDef> Job Name. </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.jobname}} </mat-cell>
-    </ng-container>
-
-    <!-- Name Column -->
-    <ng-container matColumnDef="jobcount">
-      <mat-header-cell *matHeaderCellDef> Count </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.jobcount}} </mat-cell>
-    </ng-container>
-
-    <!-- Weight Column -->
-    <ng-container matColumnDef="status">
-      <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.status}} </mat-cell>
-    </ng-container>
-
-    Symbol Column -->
     <ng-container matColumnDef="subarea">
       <mat-header-cell *matHeaderCellDef> Subarea </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.subarea}} </mat-cell>
     </ng-container>
 
+    <!-- Name Column -->
+    <ng-container matColumnDef="jobname">
+      <mat-header-cell *matHeaderCellDef> Job Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.jobname }} </mat-cell>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="jobcount">
+      <mat-header-cell *matHeaderCellDef> Job Count </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.jobcount }} </mat-cell>
+    </ng-container>
+
+    Symbol Column -->
+    <ng-container matColumnDef="sdlstrdt">
+      <mat-header-cell *matHeaderCellDef> Scheduled start date </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.sdlstrdt }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="sdlstrttm">
+      <mat-header-cell *matHeaderCellDef> Schdeuled start time </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.sdlstrttm }} </mat-cell>
+    </ng-container>
+
+    Symbol Column -->
+    <ng-container matColumnDef="strtdate">
+      <mat-header-cell *matHeaderCellDef> Start Date </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.strtdate }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="strttime">
+      <mat-header-cell *matHeaderCellDef> Start time </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.strttime }} </mat-cell>
+    </ng-container>
+
+    Symbol Column -->
+    <ng-container matColumnDef="enddate">
+      <mat-header-cell *matHeaderCellDef> End date </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{ element.enddate }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="endtime">
+      <mat-header-cell *matHeaderCellDef> End time </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.endtime}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="sdldate">
+      <mat-header-cell *matHeaderCellDef> Scheduled date </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.sdldate}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="sdltime">
+      <mat-header-cell *matHeaderCellDef> Schdeuled time </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.sdltime}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+      <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.status}} </mat-cell>
+    </ng-container>
+
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    <mat-row (click)="getRecord(row)" *matRowDef="let row; columns: displayedColumns;" ></mat-row>
   </mat-table>
 </div>
 
