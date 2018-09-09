@@ -7,7 +7,7 @@
     <!-- Position Column -->
     <ng-container matColumnDef="subarea">
       <mat-header-cell *matHeaderCellDef> Subarea </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.subarea}} </mat-cell>
+      <mat-cell *matCellDef="let element"> {{element.subarea | customsubarea }} </mat-cell>
     </ng-container>
 
     <!-- Name Column -->
@@ -25,49 +25,49 @@
     Symbol Column -->
     <ng-container matColumnDef="sdlstrdt">
       <mat-header-cell *matHeaderCellDef> Scheduled start date </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{ element.sdlstrdt }} </mat-cell>
+      <mat-cell *matCellDef="let element"> {{ element.sdlstrdt | customdate }} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="sdlstrttm">
       <mat-header-cell *matHeaderCellDef> Schdeuled start time </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{ element.sdlstrttm }} </mat-cell>
+      <mat-cell *matCellDef="let element"> {{ element.sdlstrttm | customtime }} </mat-cell>
     </ng-container>
 
     Symbol Column -->
     <ng-container matColumnDef="strtdate">
       <mat-header-cell *matHeaderCellDef> Start Date </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{ element.strtdate }} </mat-cell>
+      <mat-cell *matCellDef="let element"> {{ element.strtdate | customdate }} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="strttime">
       <mat-header-cell *matHeaderCellDef> Start time </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{ element.strttime }} </mat-cell>
+      <mat-cell *matCellDef="let element"> {{ element.strttime | customtime }} </mat-cell>
     </ng-container>
 
     Symbol Column -->
     <ng-container matColumnDef="enddate">
       <mat-header-cell *matHeaderCellDef> End date </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{ element.enddate }} </mat-cell>
+      <mat-cell *matCellDef="let element"> {{ element.enddate | customdate }} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="endtime">
       <mat-header-cell *matHeaderCellDef> End time </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.endtime}} </mat-cell>
+      <mat-cell *matCellDef="let element"> {{element.endtime | customtime }} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="sdldate">
       <mat-header-cell *matHeaderCellDef> Scheduled date </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.sdldate}} </mat-cell>
+      <mat-cell *matCellDef="let element"> {{element.sdldate | customdate }} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="sdltime">
       <mat-header-cell *matHeaderCellDef> Schdeuled time </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.sdltime}} </mat-cell>
+      <mat-cell *matCellDef="let element"> {{element.sdltime | customtime }} </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="status">
       <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.status}} </mat-cell>
+      <mat-cell *matCellDef="let element"> {{element.status | customjob }} </mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

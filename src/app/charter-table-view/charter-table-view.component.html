@@ -6,7 +6,7 @@
       <!-- Position Column -->
     <ng-container matColumnDef="subprocess">
       <mat-header-cell *matHeaderCellDef> Functional Area </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.subprocess}} </mat-cell>
+      <mat-cell *matCellDef="let element"> {{element.subprocess | customsubarea }} </mat-cell>
     </ng-container>
 
     <!-- Name Column -->

@@ -18,6 +18,10 @@ import { TableDisplayComponent } from './table-display/table-display.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CharterTableViewComponent } from './charter-table-view/charter-table-view.component';
 import { Ng2Webstorage } from 'ngx-webstorage';
+import { Customdatepipe } from './customDatepipe';
+import { CustomTimepipe } from './CustomTimepipe';
+import { Customjobstatus } from './customJobstatus';
+import { Customsubarea } from './customSubarea';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,10 @@ import { Ng2Webstorage } from 'ngx-webstorage';
     MessagesComponent,
     TableDisplayComponent,
     CharterTableViewComponent,
-
+    Customdatepipe,
+    CustomTimepipe,
+    Customjobstatus,
+    Customsubarea
   ],
   imports: [
     BrowserModule,
@@ -47,4 +54,6 @@ import { Ng2Webstorage } from 'ngx-webstorage';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+
+}
