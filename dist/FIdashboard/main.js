@@ -408,7 +408,7 @@ module.exports = ".example-fill-remaining-space {\r\n    /* This fills the remai
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-toolbar class=\"mat-elevation-z8\" color =\"warn\" >\r\n    <p><span>FINANCE CLOSURE JOB STATUS </span></p>\r\n    <span class=\"example-fill-remaining-space\"></span>\r\n    <p><button mat-button (click)=\"toggleTabular()\"> {{ button_text }} </button>\r\n    </p>\r\n    <!-- <button mat-stroked-button color=\"warn\">Tabular View</button> -->\r\n</mat-toolbar>\r\n<br>\r\n<!-- <app-charter>{{title}}></app-charter> -->\r\n<!-- <br>\r\n<br> -->\r\n<router-outlet></router-outlet>\r\n<!-- <app-messages></app-messages> -->\r\n\r\n <p class=\"small\">contact:sapurana/saradas/sameersi </p>\r\n\r\n      "
+module.exports = "<mat-toolbar class=\"mat-elevation-z8\" color =\"warn\" >\r\n    <p><span>FINANCE CLOSURE JOB STATUS </span></p>\r\n    <span class=\"example-fill-remaining-space\"></span>\r\n    <p><button mat-button (click)=\"toggleTabular()\"> {{ button_text }} </button>\r\n    </p>\r\n    <!-- <button mat-stroked-button color=\"warn\">Tabular View</button> -->\r\n</mat-toolbar>\r\n<br>\r\n<!-- <app-charter>{{title}}></app-charter> -->\r\n<!-- <br>\r\n<br> -->\r\n<router-outlet></router-outlet>\r\n<!-- <app-messages></app-messages> -->\r\n <p class=\"small\">contact:sapurana/saradas/sameersi </p>\r\n\r\n      "
 
 /***/ }),
 
@@ -501,12 +501,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _CustomTimepipe__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./CustomTimepipe */ "./src/app/CustomTimepipe.ts");
 /* harmony import */ var _customJobstatus__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./customJobstatus */ "./src/app/customJobstatus.ts");
 /* harmony import */ var _customSubarea__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./customSubarea */ "./src/app/customSubarea.ts");
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/esm5/dialog.es5.js");
+/* harmony import */ var _dialog_dialog_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./dialog/dialog.component */ "./src/app/dialog/dialog.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -545,7 +549,8 @@ var AppModule = /** @class */ (function () {
                 _customDatepipe__WEBPACK_IMPORTED_MODULE_20__["Customdatepipe"],
                 _CustomTimepipe__WEBPACK_IMPORTED_MODULE_21__["CustomTimepipe"],
                 _customJobstatus__WEBPACK_IMPORTED_MODULE_22__["Customjobstatus"],
-                _customSubarea__WEBPACK_IMPORTED_MODULE_23__["Customsubarea"]
+                _customSubarea__WEBPACK_IMPORTED_MODULE_23__["Customsubarea"],
+                _dialog_dialog_component__WEBPACK_IMPORTED_MODULE_25__["DialogComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -562,7 +567,9 @@ var AppModule = /** @class */ (function () {
                 _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_17__["BrowserAnimationsModule"],
                 _angular_material_table__WEBPACK_IMPORTED_MODULE_9__["MatTableModule"],
                 ngx_webstorage__WEBPACK_IMPORTED_MODULE_19__["Ng2Webstorage"],
+                _angular_material_dialog__WEBPACK_IMPORTED_MODULE_24__["MatDialogModule"],
             ],
+            entryComponents: [_dialog_dialog_component__WEBPACK_IMPORTED_MODULE_25__["DialogComponent"]],
             providers: [],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
         })
@@ -652,7 +659,7 @@ var CharterTableViewComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "mat-grid-tile {\r\n    background:ivory;\r\n  }\r\n  \r\n  p.thick {\r\n    font-weight: bold;\r\n    font-family: Georgia, 'Times New Roman', Times, serif;\r\n    font-size: 15px;\r\n    color:black;\r\n    text-align: center;\r\n    \r\n}"
+module.exports = "mat-grid-tile {\r\n    background:ivory;\r\n  }\r\n  \r\n  p.thick {\r\n    font-weight: bold;\r\n    font-family: Roboto, \"Helvetica Neue\", sans-serif;\r\n    font-size: 15px;\r\n    color:black;\r\n    text-align: center;\r\n    \r\n}"
 
 /***/ }),
 
@@ -767,8 +774,8 @@ var CharterComponent = /** @class */ (function () {
         console.log(xJobs);
         this.jobs = xJobs[0].job_summary;
         // this.jobs = JSON.parse(xJobs[0]).job_summary;
-        //  store the date for the table display later
-        // this.messageservice.add_jobdata(JSON.parse(xJobs[0]).jobs);
+        //     store the date for the table display later
+        this.messageservice.add_jobdata(xJobs[0].jobs);
         this.messageservice.add_jobsummarydata(this.jobs);
         this.dataSource = this.jobs;
         //  Set the data right as per the Webserive
@@ -1076,6 +1083,78 @@ var Customsubarea = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/dialog/dialog.component.css":
+/*!*********************************************!*\
+  !*** ./src/app/dialog/dialog.component.css ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/dialog/dialog.component.html":
+/*!**********************************************!*\
+  !*** ./src/app/dialog/dialog.component.html ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<h1 mat-dialog-title>Hi {{data.name}}</h1>\n<div mat-dialog-content>\n  <p>What's your favorite animal?</p>\n  <!-- <mat-form-field>\n    <input matInput [(ngModel)]=\"data.animal\">\n  </mat-form-field> -->\n</div>\n<!-- <div mat-dialog-actions>\n  <button mat-button (click)=\"onNoClick()\">No Thanks</button>\n  <button mat-button [mat-dialog-close]=\"data.animal\" cdkFocusInitial>Ok</button>\n</div> -->\n"
+
+/***/ }),
+
+/***/ "./src/app/dialog/dialog.component.ts":
+/*!********************************************!*\
+  !*** ./src/app/dialog/dialog.component.ts ***!
+  \********************************************/
+/*! exports provided: DialogComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DialogComponent", function() { return DialogComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/esm5/dialog.es5.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+var DialogComponent = /** @class */ (function () {
+    function DialogComponent(dialogRef, data) {
+        this.dialogRef = dialogRef;
+        this.data = data;
+    }
+    DialogComponent.prototype.onNoClick = function () {
+        this.dialogRef.close();
+    };
+    DialogComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-dialog',
+            template: __webpack_require__(/*! ./dialog.component.html */ "./src/app/dialog/dialog.component.html"),
+            styles: [__webpack_require__(/*! ./dialog.component.css */ "./src/app/dialog/dialog.component.css")]
+        }),
+        __param(1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material_dialog__WEBPACK_IMPORTED_MODULE_1__["MAT_DIALOG_DATA"])),
+        __metadata("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_1__["MatDialogRef"], Object])
+    ], DialogComponent);
+    return DialogComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/jobservice.service.ts":
 /*!***************************************!*\
   !*** ./src/app/jobservice.service.ts ***!
@@ -1311,7 +1390,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"example-container mat-elevation-z8\">\r\n  <mat-table #table [dataSource]=\"dataSource\">\r\n\r\n    <!--- Note that these columns can be defined in any order.\r\n          The actual rendered columns are set as a property on the row definition\" -->\r\n\r\n    <!-- Position Column -->\r\n    <ng-container matColumnDef=\"subarea\">\r\n      <mat-header-cell *matHeaderCellDef> Subarea </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"> {{element.subarea | customsubarea }} </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- Name Column -->\r\n    <ng-container matColumnDef=\"jobname\">\r\n      <mat-header-cell *matHeaderCellDef> Job Name </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"> {{ element.jobname }} </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- Weight Column -->\r\n    <ng-container matColumnDef=\"jobcount\">\r\n      <mat-header-cell *matHeaderCellDef> Job Count </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"> {{ element.jobcount }} </mat-cell>\r\n    </ng-container>\r\n\r\n    Symbol Column -->\r\n    <ng-container matColumnDef=\"sdlstrdt\">\r\n      <mat-header-cell *matHeaderCellDef> Scheduled start date </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"> {{ element.sdlstrdt | customdate }} </mat-cell>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"sdlstrttm\">\r\n      <mat-header-cell *matHeaderCellDef> Schdeuled start time </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"> {{ element.sdlstrttm | customtime }} </mat-cell>\r\n    </ng-container>\r\n\r\n    Symbol Column -->\r\n    <ng-container matColumnDef=\"strtdate\">\r\n      <mat-header-cell *matHeaderCellDef> Start Date </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"> {{ element.strtdate | customdate }} </mat-cell>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"strttime\">\r\n      <mat-header-cell *matHeaderCellDef> Start time </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"> {{ element.strttime | customtime }} </mat-cell>\r\n    </ng-container>\r\n\r\n    Symbol Column -->\r\n    <ng-container matColumnDef=\"enddate\">\r\n      <mat-header-cell *matHeaderCellDef> End date </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"> {{ element.enddate | customdate }} </mat-cell>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"endtime\">\r\n      <mat-header-cell *matHeaderCellDef> End time </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"> {{element.endtime | customtime }} </mat-cell>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"sdldate\">\r\n      <mat-header-cell *matHeaderCellDef> Scheduled date </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"> {{element.sdldate | customdate }} </mat-cell>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"sdltime\">\r\n      <mat-header-cell *matHeaderCellDef> Schdeuled time </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"> {{element.sdltime | customtime }} </mat-cell>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"status\">\r\n      <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"> {{element.status | customjob }} </mat-cell>\r\n    </ng-container>\r\n\r\n    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n    <mat-row (click)=\"getRecord(row)\" *matRowDef=\"let row; columns: displayedColumns;\" ></mat-row>\r\n  </mat-table>\r\n</div>\r\n\r\n\r\n<!-- Copyright 2018 Google Inc. All Rights Reserved.\r\n    Use of this source code is governed by an MIT-style license that\r\n    can be found in the LICENSE file at http://angular.io/license -->"
+module.exports = "<div class=\"example-container mat-elevation-z8\">\r\n  <mat-table #table [dataSource]=\"dataSource\">\r\n\r\n    <!--- Note that these columns can be defined in any order.\r\n          The actual rendered columns are set as a property on the row definition\" -->\r\n\r\n    <!-- Position Column -->\r\n    <ng-container matColumnDef=\"subarea\">\r\n      <mat-header-cell *matHeaderCellDef> Subarea </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"> {{element.subarea | customsubarea }} </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- Name Column -->\r\n    <ng-container matColumnDef=\"jobname\">\r\n      <mat-header-cell *matHeaderCellDef> Job Name </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"> {{ element.jobname }} </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- Weight Column -->\r\n    <ng-container matColumnDef=\"jobcount\">\r\n      <mat-header-cell *matHeaderCellDef> Job Count </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"> {{ element.jobcount }} </mat-cell>\r\n    </ng-container>\r\n\r\n    Symbol Column -->\r\n    <ng-container matColumnDef=\"sdlstrdt\">\r\n      <mat-header-cell *matHeaderCellDef> Scheduled start date </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"> {{ element.sdlstrdt | customdate }} </mat-cell>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"sdlstrttm\">\r\n      <mat-header-cell *matHeaderCellDef> Schdeuled start time </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"> {{ element.sdlstrttm | customtime }} </mat-cell>\r\n    </ng-container>\r\n\r\n    Symbol Column -->\r\n    <ng-container matColumnDef=\"strtdate\">\r\n      <mat-header-cell *matHeaderCellDef> Start Date </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"> {{ element.strtdate | customdate }} </mat-cell>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"strttime\">\r\n      <mat-header-cell *matHeaderCellDef> Start time </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"> {{ element.strttime | customtime }} </mat-cell>\r\n    </ng-container>\r\n\r\n    Symbol Column -->\r\n    <ng-container matColumnDef=\"enddate\">\r\n      <mat-header-cell *matHeaderCellDef> End date </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"> {{ element.enddate | customdate }} </mat-cell>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"endtime\">\r\n      <mat-header-cell *matHeaderCellDef> End time </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"> {{element.endtime | customtime }} </mat-cell>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"sdldate\">\r\n      <mat-header-cell *matHeaderCellDef> Scheduled date </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"> {{element.sdldate | customdate }} </mat-cell>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"sdltime\">\r\n      <mat-header-cell *matHeaderCellDef> Schdeuled time </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"> {{element.sdltime | customtime }} </mat-cell>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"status\">\r\n      <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"> {{element.status | customjob }} </mat-cell>\r\n    </ng-container>\r\n\r\n    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n    <mat-row (click)=\"openDialog(row)\" *matRowDef=\"let row; columns: displayedColumns;\" ></mat-row>\r\n  </mat-table>\r\n</div>\r\n\r\n\r\n<!-- Copyright 2018 Google Inc. All Rights Reserved.\r\n    Use of this source code is governed by an MIT-style license that\r\n    can be found in the LICENSE file at http://angular.io/license -->"
 
 /***/ }),
 
@@ -1329,6 +1408,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _jobservice_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../jobservice.service */ "./src/app/jobservice.service.ts");
 /* harmony import */ var _message_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../message.service */ "./src/app/message.service.ts");
+/* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/esm5/dialog.es5.js");
+/* harmony import */ var _dialog_dialog_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../dialog/dialog.component */ "./src/app/dialog/dialog.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1342,30 +1423,14 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
-// items: string;
-// subarea: string;
-// jobname: string;
-// jobcount: string;
-// sdlstrdt: string;
-// sdlstrttm: string;
-// strtdate: string;
-// strttime: string;
-// enddate: string;
-// endtime: string;
-// sdldate: string;
-// sdltime: string;
-// status: string;
-// line1: string;
-// line2: string;
-// line3: string;
-// line4: string;
-// line5: string;
-// line6: string;
+
+
 var TableDisplayComponent = /** @class */ (function () {
-    function TableDisplayComponent(messageService, route, jobService) {
+    function TableDisplayComponent(messageService, route, jobService, dialog) {
         this.messageService = messageService;
         this.route = route;
         this.jobService = jobService;
+        this.dialog = dialog;
         this.dataSource = [];
         this.dataSourceFiltered = [];
         this.displayedColumns = ['subarea',
@@ -1397,6 +1462,20 @@ var TableDisplayComponent = /** @class */ (function () {
             }
         });
     };
+    TableDisplayComponent.prototype.openDialog = function (e) {
+        var config = new _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialogConfig"]();
+        config = {
+            position: {
+                top: '100px',
+                left: '300px'
+            },
+            height: '100px',
+            width: '500px',
+        };
+        var dialogRef = this.dialog.open(_dialog_dialog_component__WEBPACK_IMPORTED_MODULE_5__["DialogComponent"], config);
+        dialogRef.afterClosed().subscribe(function (result) {
+        });
+    };
     TableDisplayComponent.prototype.getRecord = function (element) {
         console.log(element);
     };
@@ -1406,7 +1485,10 @@ var TableDisplayComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./table-display.component.html */ "./src/app/table-display/table-display.component.html"),
             styles: [__webpack_require__(/*! ./table-display.component.css */ "./src/app/table-display/table-display.component.css")]
         }),
-        __metadata("design:paramtypes", [_message_service__WEBPACK_IMPORTED_MODULE_3__["MessageService"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"], _jobservice_service__WEBPACK_IMPORTED_MODULE_2__["JobserviceService"]])
+        __metadata("design:paramtypes", [_message_service__WEBPACK_IMPORTED_MODULE_3__["MessageService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"],
+            _jobservice_service__WEBPACK_IMPORTED_MODULE_2__["JobserviceService"],
+            _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialog"]])
     ], TableDisplayComponent);
     return TableDisplayComponent;
 }());

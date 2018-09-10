@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material';
 import { ChartsModule } from 'ng2-charts';
 import { AppComponent } from './app.component';
 import { CharterComponent } from './charter/charter.component';
@@ -22,6 +23,8 @@ import { Customdatepipe } from './customDatepipe';
 import { CustomTimepipe } from './CustomTimepipe';
 import { Customjobstatus } from './customJobstatus';
 import { Customsubarea } from './customSubarea';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig, MatDialogModule, MatDialogTitle } from '@angular/material/dialog';
+import { DialogComponent } from './dialog/dialog.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,8 @@ import { Customsubarea } from './customSubarea';
     Customdatepipe,
     CustomTimepipe,
     Customjobstatus,
-    Customsubarea
+    Customsubarea,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -50,10 +54,12 @@ import { Customsubarea } from './customSubarea';
     BrowserAnimationsModule,
     MatTableModule,
     Ng2Webstorage,
+    MatDialogModule,
   ],
+  entryComponents: [DialogComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { 
+export class AppModule {
 
 }

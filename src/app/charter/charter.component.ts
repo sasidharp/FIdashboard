@@ -93,8 +93,7 @@ export class CharterComponent implements OnInit {
     this.jobs = xJobs[0].job_summary;
     // this.jobs = JSON.parse(xJobs[0]).job_summary;
 //     store the date for the table display later
-    // this.messageservice.add_jobdata(JSON.parse(xJobs[0]).jobs);
-    this.messageservice.add_jobdata( xJobs[0].jobdetails );
+    this.messageservice.add_jobdata(xJobs[0].jobs);
     this.messageservice.add_jobsummarydata( this.jobs );
     this.dataSource = this.jobs;
     //  Set the data right as per the Webserive

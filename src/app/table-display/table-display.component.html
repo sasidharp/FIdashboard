@@ -71,7 +71,7 @@
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row (click)="getRecord(row)" *matRowDef="let row; columns: displayedColumns;" ></mat-row>
+    <mat-row (click)="openDialog(row)" *matRowDef="let row; columns: displayedColumns;" ></mat-row>
   </mat-table>
 </div>
 

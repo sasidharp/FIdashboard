@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { DataSource } from '@angular/cdk/table';
 import { MessageService } from '../message.service';
 import { Job } from 'src/job';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+
 @Component({
   selector: 'app-charter-table-view',
   templateUrl: './charter-table-view.component.html',

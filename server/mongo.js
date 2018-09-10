@@ -57,10 +57,10 @@ function execute() {
     request(options, function (error, response, body) {
       if (error) throw new Error(error);
       console.log(response.statusCode);
+      console.log(body);
       // update cosmos dB
       if (response.statusCode === 200) {
         console.log('Calling MongoDB');
-        console.log(sapReturndata);
         /*  This code will get the entries from SAP and pushes into Mongo DB*/
         //Use connect method to connect to the server
         MongoClient.connect(url, function (err, client) {
@@ -73,8 +73,10 @@ function execute() {
           //Get the collections 'items' from database 'sapjobs'    
           const collection = db.collection('items');
           //Insert data
+          itemData = body.JOBDETAILS_JSON;
+          itemData = JSON.parse(itemData);
           collection.insertOne(itemData, (error, result) => {
-            if (error === null ? log_message('inserted') : log_message(error));
+            if (error === null ? console.log('Record inserted') : 'Failed');
           });
           client.close();
         });
