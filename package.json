@@ -1,6 +1,7 @@
 {
   "name": "fidashboard",
   "version": "0.0.0",
+  "engines":{"node": "8.0.0"},
   "scripts": {
     "build": "npm install",
     "start": "node server.js && worker.js"
