@@ -6,31 +6,10 @@ import { Jobdetails } from 'src/jobdetails';
 import { JobserviceService } from '../jobservice.service';
 import { MessageService } from '../message.service';
 import { filter } from 'rxjs/operators';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA , MatDialogConfig} from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig } from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
-// items: string;
-// subarea: string;
-// jobname: string;
-// jobcount: string;
-// sdlstrdt: string;
-// sdlstrttm: string;
-// strtdate: string;
-// strttime: string;
-// enddate: string;
-// endtime: string;
-// sdldate: string;
-// sdltime: string;
-// status: string;
-// line1: string;
-// line2: string;
-// line3: string;
-// line4: string;
-// line5: string;
-// line6: string;
-export interface DialogData {
-  animal: string;
-  name: string;
-}
+import { Dialogdata } from '../Dialogdata';
+
 
 @Component({
   selector: 'app-table-display',
@@ -38,10 +17,7 @@ export interface DialogData {
   styleUrls: ['./table-display.component.css']
 })
 export class TableDisplayComponent implements OnInit {
-
-  animal: string;
-  name: string;
-
+  // public dData = new Dialogdata();
   public dataSource: Jobdetails[] = [];
   public dataSourceFiltered: Jobdetails[] = [];
   public displayedColumns: string[] = ['subarea',
@@ -57,7 +33,6 @@ export class TableDisplayComponent implements OnInit {
     'sdltime',
     'status',
   ];
-  public DialogData;
   constructor(private messageService: MessageService,
     private route: ActivatedRoute,
     private jobService: JobserviceService,
@@ -78,6 +53,12 @@ export class TableDisplayComponent implements OnInit {
   }
   openDialog(e: any): void {
     let config = new MatDialogConfig();
+    // this.dData.line1 = e.line1;
+    // this.dData.line2 = e.line2;
+    // this.dData.line3 = e.line3;
+    // this.dData.line4 = e.line4;
+    // this.dData.line5 = e.line5;
+    // this.dData.line6 = e.line6;
     config = {
       position: {
         top: '100px',
@@ -85,15 +66,14 @@ export class TableDisplayComponent implements OnInit {
       },
       height: '100px',
       width: '500px',
+      // data: this.dData
+      data: { line1: 'line1', line2: 'line2', line3: 'line3' }
     };
-    const dialogRef = this.dialog.open(DialogComponent, config );
+    const dialogRef = this.dialog.open(DialogComponent, config);
 
     dialogRef.afterClosed().subscribe(result => {
     });
   }
 
-  getRecord(element: any) {
-    console.log(element);
-  }
 }
 

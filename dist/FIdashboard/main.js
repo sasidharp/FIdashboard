@@ -343,6 +343,26 @@ var CustomTimepipe = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/Dialogdata.ts":
+/*!*******************************!*\
+  !*** ./src/app/Dialogdata.ts ***!
+  \*******************************/
+/*! exports provided: Dialogdata */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Dialogdata", function() { return Dialogdata; });
+var Dialogdata = /** @class */ (function () {
+    function Dialogdata() {
+    }
+    return Dialogdata;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/app-routing.module.ts":
 /*!***************************************!*\
   !*** ./src/app/app-routing.module.ts ***!
@@ -729,7 +749,7 @@ var CharterComponent = /** @class */ (function () {
         this.S6 = label_strings.S6;
         this.S7 = label_strings.S7;
         this.S8 = label_strings.S8;
-        this.timer = 300000;
+        this.timer = 10000;
         this.doughnutChartLabels = [];
         this.doughnutChartType = 'doughnut';
         this.barChartOptions = { legend: { position: 'right', labels: { 'fontSize': 10, 'fontStyle': 'bold' } } };
@@ -742,7 +762,7 @@ var CharterComponent = /** @class */ (function () {
         this.doughnutChartData_s7 = [1, 1, 1, 1, 1, 1, 1];
         this.doughnutChartData_s8 = [1, 1, 1, 1, 1, 1, 1];
         this.dataSource = [];
-        var retrigger$ = Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["interval"])(300000);
+        var retrigger$ = Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["interval"])(10000);
         var secondsTimer$ = Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["interval"])(1000);
         var subscribe = retrigger$.subscribe(function (val) { return _this.get_fresh_data(); });
         var timer = secondsTimer$.subscribe(function (val) { return _this.add_counter(); });
@@ -768,6 +788,9 @@ var CharterComponent = /** @class */ (function () {
     CharterComponent.prototype.add_counter = function () {
         this.timer = this.timer - 1000;
         this.display = this.timer / 1000;
+        if (this.timer === 0) {
+            this.timer = 10000;
+        }
     };
     CharterComponent.prototype.resetStatus = function (xJobs) {
         var _this = this;
@@ -1101,7 +1124,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1 mat-dialog-title>Hi {{data.name}}</h1>\n<div mat-dialog-content>\n  <p>What's your favorite animal?</p>\n  <!-- <mat-form-field>\n    <input matInput [(ngModel)]=\"data.animal\">\n  </mat-form-field> -->\n</div>\n<!-- <div mat-dialog-actions>\n  <button mat-button (click)=\"onNoClick()\">No Thanks</button>\n  <button mat-button [mat-dialog-close]=\"data.animal\" cdkFocusInitial>Ok</button>\n</div> -->\n"
+module.exports = "<h1 mat-dialog-title>Hi {{data.line1 }}</h1>\n<div mat-dialog-content>\n  <p>{{data.line2}}</p>\n  <!-- <mat-form-field>\n    <input matInput [(ngModel)]=\"data.animal\">\n  </mat-form-field> -->\n</div>\n<!-- <div mat-dialog-actions>\n  <button mat-button (click)=\"onNoClick()\">No Thanks</button>\n  <button mat-button [mat-dialog-close]=\"data.animal\" cdkFocusInitial>Ok</button>\n</div> -->\n"
 
 /***/ }),
 
@@ -1117,6 +1140,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DialogComponent", function() { return DialogComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/esm5/dialog.es5.js");
+/* harmony import */ var _Dialogdata__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Dialogdata */ "./src/app/Dialogdata.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1129,6 +1153,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var __param = (undefined && undefined.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
+
 
 
 var DialogComponent = /** @class */ (function () {
@@ -1146,7 +1171,8 @@ var DialogComponent = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./dialog.component.css */ "./src/app/dialog/dialog.component.css")]
         }),
         __param(1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"])(_angular_material_dialog__WEBPACK_IMPORTED_MODULE_1__["MAT_DIALOG_DATA"])),
-        __metadata("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_1__["MatDialogRef"], Object])
+        __metadata("design:paramtypes", [_angular_material_dialog__WEBPACK_IMPORTED_MODULE_1__["MatDialogRef"],
+            _Dialogdata__WEBPACK_IMPORTED_MODULE_2__["Dialogdata"]])
     ], DialogComponent);
     return DialogComponent;
 }());
@@ -1191,8 +1217,7 @@ var JobserviceService = /** @class */ (function () {
         this.sapServiceURL = '/jobs';
     }
     JobserviceService.prototype.getJobs = function () {
-        var _this = this;
-        return this.http.get(this.sapServiceURL).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["share"])(), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (jobs) { return _this.log('Fetched Jobs'); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('SAP Service', [])));
+        return this.http.get(this.sapServiceURL).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["share"])(), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (jobs) { return console.log('Fetched Jobs'); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('SAP Service', [])));
     };
     JobserviceService.prototype.log = function (message) {
         this.messageService.add_messages('SAP Service:' + message);
@@ -1431,6 +1456,7 @@ var TableDisplayComponent = /** @class */ (function () {
         this.route = route;
         this.jobService = jobService;
         this.dialog = dialog;
+        // public dData = new Dialogdata();
         this.dataSource = [];
         this.dataSourceFiltered = [];
         this.displayedColumns = ['subarea',
@@ -1464,6 +1490,12 @@ var TableDisplayComponent = /** @class */ (function () {
     };
     TableDisplayComponent.prototype.openDialog = function (e) {
         var config = new _angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialogConfig"]();
+        // this.dData.line1 = e.line1;
+        // this.dData.line2 = e.line2;
+        // this.dData.line3 = e.line3;
+        // this.dData.line4 = e.line4;
+        // this.dData.line5 = e.line5;
+        // this.dData.line6 = e.line6;
         config = {
             position: {
                 top: '100px',
@@ -1471,13 +1503,12 @@ var TableDisplayComponent = /** @class */ (function () {
             },
             height: '100px',
             width: '500px',
+            // data: this.dData
+            data: { line1: 'line1', line2: 'line2', line3: 'line3' }
         };
         var dialogRef = this.dialog.open(_dialog_dialog_component__WEBPACK_IMPORTED_MODULE_5__["DialogComponent"], config);
         dialogRef.afterClosed().subscribe(function (result) {
         });
-    };
-    TableDisplayComponent.prototype.getRecord = function (element) {
-        console.log(element);
     };
     TableDisplayComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({

@@ -40,7 +40,7 @@ export class CharterComponent implements OnInit {
   public summary_jobs: Job[];
   public jobs_details: Jobdetails[];
 
-  public timer = 300000;
+  public timer = 10000;
   public display;
 
   public doughnutChartLabels: string[] = [];
@@ -60,7 +60,7 @@ export class CharterComponent implements OnInit {
   constructor(private jobService: JobserviceService,
     private router: Router,
     private messageservice: MessageService) {
-    const retrigger$ = interval(300000);
+    const retrigger$ = interval(10000);
     const secondsTimer$ = interval(1000);
     const subscribe = retrigger$.subscribe(val => this.get_fresh_data());
     const timer = secondsTimer$.subscribe(val => this.add_counter());
@@ -75,26 +75,30 @@ export class CharterComponent implements OnInit {
     this.doughnutChartLabels.push('PutActive');
     this.doughnutChartLabels.push('Finished');
     this.doughnutChartLabels.push('Aborted');
-    this.messageservice.invalidate_data(); // reset cache
-    this.jobService.getJobs().subscribe(returnData => this.resetStatus(returnData));
+      this.messageservice.invalidate_data(); // reset cache
+      this.jobService.getJobs().subscribe(returnData => this.resetStatus(returnData));
+
   }
 
   private get_fresh_data() {
-     this.messageservice.invalidate_data(); // reset cache
-     this.jobService.getJobs().subscribe(returnData => this.resetStatus(returnData));
-    }
+    this.messageservice.invalidate_data(); // reset cache
+    this.jobService.getJobs().subscribe(returnData => this.resetStatus(returnData));
+  }
   private add_counter() {
     this.timer = this.timer - 1000;
     this.display = this.timer / 1000;
+    if (this.timer === 0) {
+      this.timer = 10000;
+    }
   }
 
   public resetStatus(xJobs: any): void {
     console.log(xJobs);
     this.jobs = xJobs[0].job_summary;
     // this.jobs = JSON.parse(xJobs[0]).job_summary;
-//     store the date for the table display later
+    //     store the date for the table display later
     this.messageservice.add_jobdata(xJobs[0].jobs);
-    this.messageservice.add_jobsummarydata( this.jobs );
+    this.messageservice.add_jobsummarydata(this.jobs);
     this.dataSource = this.jobs;
     //  Set the data right as per the Webserive
     this.jobs.forEach(element => {
@@ -202,8 +206,8 @@ export class CharterComponent implements OnInit {
           this.router.navigate(['/table/' + charttype + '-Scheduled']);
           break;
         case 'Released':
-           this.router.navigate(['/table/' + charttype + '-Released']);
-           break;
+          this.router.navigate(['/table/' + charttype + '-Released']);
+          break;
         case 'Aborted':
           this.router.navigate(['/table/' + charttype + '-Aborted']);
           break;
