@@ -8,7 +8,7 @@ const express = require('express');
 const request = require('request');
 const MongoClient = require('mongodb').MongoClient;
 // var CronJob = require('cron').CronJob;
-// const job = new CronJob('0 */1 * * * *', function () {
+// const job = new CronJob('npm i, function () {
 //   try {
 //     execute();
 //   } catch (error) {
