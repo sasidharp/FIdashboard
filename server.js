@@ -28,7 +28,7 @@ app.get('/jobs',function(err,res){
 })
 app.get('/*',function( req ,res ){
     console.log(distDir);
-    res.sendFile(path.join( distDir + '\\index.html'))
+    res.sendFile(path.join( distDir + '/index.html'))
 })
 
 var server = app.listen( process.env.PORT, function (req,res) {
