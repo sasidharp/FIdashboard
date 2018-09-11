@@ -26,6 +26,7 @@ app.get('/jobs',function(err,res){
     
   });
 })
+// redo
 app.get('/*',function( req ,res ){
     console.log(distDir);
     res.sendFile(path.join( distDir + '/index.html'))
