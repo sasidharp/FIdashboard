@@ -4,8 +4,7 @@ const url = 'mongodb://fidashboard:942tbRxzQHX22qZPfS8BJlvFiodMGIeYYRvDU8GwsbzH5
 var path = require('path');
 // Create link to Angular build directory
 xJobs = [];
-// var distDir = __dirname + "/dist/FIdashboard";
-var distDir = __dirname + "\\dist\\FIdashboard";
+var distDir = __dirname + "/dist/FIdashboard";
 
 app.use(express.static(distDir));
 const MongoClient = require('mongodb').MongoClient;
