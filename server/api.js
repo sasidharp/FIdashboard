@@ -1,8 +1,6 @@
-// var sendgrid = require("sendgrid")("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");
 // using SendGrid's v3 Node.js Library
 // https://github.com/sendgrid/sendgrid-nodejs
 const sgMail = require('@sendgrid/mail');
-sgMail.setApiKey("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");
 const msg = {
   to: 'sapurana@microsoft.com',
   from: 'sasidharp@gmail.com',
