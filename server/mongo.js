@@ -1,23 +1,16 @@
 /*************************************************************************************
  *  import required                                                                   * 
  * ************************************************************************************/
-const url = 'mongodb://fidashboard:942tbRxzQHX22qZPfS8BJlvFiodMGIeYYRvDU8GwsbzH51txjCsgwU9ujmGdU7Qy79EjoaXUDjpY858kNBwMig%3D%3D@fidashboard.documents.azure.com:10255/?ssl=true&replicaSet=globaldb';
-const body = '';
-var itemData = '';
 const express = require('express');
 const request = require('request');
 const MongoClient = require('mongodb').MongoClient;
-// var CronJob = require('cron').CronJob;
-// const job = new CronJob('npm i, function () {
-//   try {
-//     execute();
-//   } catch (error) {
-//     console.log(error);
-//   }
-// });
-
-// job.start();
-export function execute() {
+const url = 'mongodb://fidashboard:942tbRxzQHX22qZPfS8BJlvFiodMGIeYYRvDU8GwsbzH51txjCsgwU9ujmGdU7Qy79EjoaXUDjpY858kNBwMig%3D%3D@fidashboard.documents.azure.com:10255/?ssl=true&replicaSet=globaldb';
+const body = '';
+var itemData = '';
+// *************************************************************************************/
+execute();
+// *************************************************************************************/
+function execute() {
   token = '';
   var options = {
     method: 'POST',
