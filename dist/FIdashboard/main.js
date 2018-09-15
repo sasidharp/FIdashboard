@@ -444,6 +444,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppComponent", function() { return AppComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -455,10 +456,14 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
 var AppComponent = /** @class */ (function () {
     function AppComponent(router) {
+        var _this = this;
         this.router = router;
         this.button_text = 'Tabular';
+        var retrigger$ = Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["interval"])(30000);
+        retrigger$.subscribe(function (val) { return _this.toggleTabular(); });
     }
     // Toggle to tabular
     AppComponent.prototype.toggleTabular = function () {
@@ -619,7 +624,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<div class=\"example-container mat-elevation-z8\">\n  <mat-table #table [dataSource]=\"dataSource\">\n      <!--- Note that these columns can be defined in any order.\n          The actual rendered columns are set as a property on the row definition\" -->\n      <!-- Position Column -->\n    <ng-container matColumnDef=\"subprocess\">\n      <mat-header-cell *matHeaderCellDef> Functional Area </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"> {{element.subprocess | customsubarea }} </mat-cell>\n    </ng-container>\n\n    <!-- Name Column -->\n    <ng-container matColumnDef=\"running\">\n      <mat-header-cell *matHeaderCellDef> Running </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"> {{element.running }} </mat-cell>\n    </ng-container>\n\n    <!-- Weight Column -->\n    <ng-container matColumnDef=\"ready\">\n      <mat-header-cell *matHeaderCellDef> Ready </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"> {{element.ready }} </mat-cell>\n    </ng-container>\n\n    Symbol Column -->\n    <ng-container matColumnDef=\"scheduled\">\n      <mat-header-cell *matHeaderCellDef> Scheduled </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"> {{element.scheduled}} </mat-cell>\n    </ng-container>\n\n    <ng-container matColumnDef=\"released\">\n      <mat-header-cell *matHeaderCellDef> Released </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"> {{element.released}} </mat-cell>\n    </ng-container>\n\n    <ng-container matColumnDef=\"aborted\">\n      <mat-header-cell *matHeaderCellDef> Aborted </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"> {{element.aborted}} </mat-cell>\n    </ng-container>\n\n    <ng-container matColumnDef=\"finished\">\n      <mat-header-cell *matHeaderCellDef> Finished </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"> {{element.finished}} </mat-cell>\n    </ng-container>\n\n    <ng-container matColumnDef=\"putactive\">\n      <mat-header-cell *matHeaderCellDef> putactive </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"> {{element.putactive}} </mat-cell>\n    </ng-container>\n    \n    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n    <mat-row *matRowDef=\"let row; columns: displayedColumns;\"></mat-row>\n  </mat-table>\n</div>\n\n\n\n<!-- <mat-tab-group>\n  <mat-tab label=\"Current Status\"> Content 2 </mat-tab>\n  <mat-tab label=\"Failed Jobs\"> Content 2 </mat-tab>\n  <mat-tab label=\"Contact\"> Content 3 </mat-tab>\n</mat-tab-group>\n -->"
+module.exports = "\n<div class=\"example-container mat-elevation-z8\">\n  <mat-table #table [dataSource]=\"dataSource\">\n      <!--- Note that these columns can be defined in any order.\n          The actual rendered columns are set as a property on the row definition\" -->\n      <!-- Position Column -->\n    <ng-container matColumnDef=\"subprocess\">\n      <mat-header-cell *matHeaderCellDef> <p class=\"small\">Functional Area</p>  </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"><p class=\"small\">{{element.subprocess | customsubarea }} </p> </mat-cell>\n    </ng-container>\n\n    <!-- Name Column -->\n    <ng-container matColumnDef=\"running\">\n      <mat-header-cell *matHeaderCellDef><p class=\"small\">Running </p> </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"> <p class=\"small\">{{element.running }}</p> </mat-cell>\n    </ng-container>\n\n    <!-- Weight Column -->\n    <ng-container matColumnDef=\"ready\">\n      <mat-header-cell *matHeaderCellDef> <p class=\"small\">Ready</p></mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"> <p class=\"small\">{{element.ready }}</p> </mat-cell>\n    </ng-container>\n\n    Symbol Column -->\n    <ng-container matColumnDef=\"scheduled\">\n      <mat-header-cell *matHeaderCellDef> <p class=\"small\">Scheduled</p></mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"> <p class=\"small\">{{element.scheduled}}</p> </mat-cell>\n    </ng-container>\n\n    <ng-container matColumnDef=\"released\">\n      <mat-header-cell *matHeaderCellDef> <p class=\"small\">Released</p></mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"><p class=\"small\">{{element.released}}</p>  </mat-cell>\n    </ng-container>\n\n    <ng-container matColumnDef=\"aborted\">\n      <mat-header-cell *matHeaderCellDef> <p class=\"small\">Aborted</p></mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"><p class=\"small\">{{element.aborted}}</p>  </mat-cell>\n    </ng-container>\n\n    <ng-container matColumnDef=\"finished\">\n      <mat-header-cell *matHeaderCellDef> <p class=\"small\">Finished</p></mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"> <p class=\"small\">{{element.finished}}</p> </mat-cell>\n    </ng-container>\n\n    <ng-container matColumnDef=\"putactive\">\n      <mat-header-cell *matHeaderCellDef> <p class=\"small\">putactive</p> </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"> <p class=\"small\">{{element.putactive}}</p> </mat-cell>\n    </ng-container>\n    \n    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n    <mat-row *matRowDef=\"let row; columns: displayedColumns;\"></mat-row>\n  </mat-table>\n</div>\n\n\n\n<!-- <mat-tab-group>\n  <mat-tab label=\"Current Status\"> Content 2 </mat-tab>\n  <mat-tab label=\"Failed Jobs\"> Content 2 </mat-tab>\n  <mat-tab label=\"Contact\"> Content 3 </mat-tab>\n</mat-tab-group>\n -->"
 
 /***/ }),
 
@@ -690,7 +695,7 @@ module.exports = "mat-grid-tile {\r\n    background:ivory;\r\n  }\r\n  \r\n  p.t
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-grid-list cols=\"4\" rowHeight=\"1:.75\">\r\n\r\n    <mat-grid-tile>\r\n        <mat-grid-tile-header style=\"background : ivory\">\r\n            <p class=\"thick\"> {{ S1 }} </p>\r\n        </mat-grid-tile-header>\r\n        <div style=\"width: 90%\">\r\n            <canvas baseChart [data]=\"doughnutChartData_s1\" [labels]=\"doughnutChartLabels\" [chartType]=\"doughnutChartType\" (chartHover)=\"chartHovered($event)\"\r\n                (chartClick)=\"showChardata($event ,'S1')\" [options]=\"barChartOptions\">\r\n            </canvas>\r\n        </div>\r\n        <mat-grid-tile-footer style=\"background : ivory \">\r\n            <p class=\"thick\"> </p>\r\n        </mat-grid-tile-footer>\r\n    </mat-grid-tile>\r\n    <mat-grid-tile>\r\n        <mat-grid-tile-header style=\"background : ivory\">\r\n            <p class=\"thick\">  {{ S2 }} </p>\r\n        </mat-grid-tile-header>\r\n        <div style=\"width: 90%\">\r\n            <canvas baseChart [data]=\"doughnutChartData_s2\" [labels]=\"doughnutChartLabels\" [chartType]=\"doughnutChartType\" (chartHover)=\"chartHovered($event)\"\r\n                (chartClick)=\"showChardata($event , 'S2') \" [options]=\"barChartOptions\">\r\n            </canvas>\r\n        </div>\r\n    </mat-grid-tile>\r\n    <mat-grid-tile>\r\n        <mat-grid-tile-header style=\"background : ivory\">\r\n            <p class=\"thick\">  {{ S3 }} </p>\r\n        </mat-grid-tile-header>\r\n        <div style=\"width: 90%\">\r\n            <canvas baseChart [data]=\"doughnutChartData_s3\" [labels]=\"doughnutChartLabels\" [chartType]=\"doughnutChartType\" (chartHover)=\"chartHovered($event)\"\r\n                (chartClick)=\"showChardata($event , 'S3')\" [options]=\"barChartOptions\">\r\n            </canvas>\r\n        </div>\r\n    </mat-grid-tile>\r\n    <mat-grid-tile>\r\n        <mat-grid-tile-header style=\"background : ivory\">\r\n            <p class=\"thick\">  {{ S4 }} </p>\r\n        </mat-grid-tile-header>\r\n        <div style=\"width: 90%\">\r\n            <canvas baseChart [data]=\"doughnutChartData_s4\" [labels]=\"doughnutChartLabels\" [chartType]=\"doughnutChartType\" (chartHover)=\"chartHovered($event)\"\r\n                (chartClick)=\"showChardata($event , 'S4')\" [options]=\"barChartOptions\">\r\n            </canvas>\r\n        </div>\r\n    </mat-grid-tile>\r\n    <mat-grid-tile>\r\n        <mat-grid-tile-header style=\"background : ivory\">\r\n            <p class=\"thick\">  {{ S5 }} </p>\r\n        </mat-grid-tile-header>\r\n        <div style=\"width: 90%\">\r\n            <canvas baseChart [data]=\"doughnutChartData_s5\" [labels]=\"doughnutChartLabels\" [chartType]=\"doughnutChartType\" (chartHover)=\"chartHovered($event)\"\r\n                (chartClick)=\"showChardata($event , 'S5')\" [options]=\"barChartOptions\">\r\n            </canvas>\r\n        </div>\r\n    </mat-grid-tile>\r\n    <mat-grid-tile>\r\n        <mat-grid-tile-header style=\"background : ivory\">\r\n            <p class=\"thick\">  {{ S6 }} </p>\r\n        </mat-grid-tile-header>\r\n        <div style=\"width: 90%\">\r\n            <canvas baseChart [data]=\"doughnutChartData_s6\" [labels]=\"doughnutChartLabels\" [chartType]=\"doughnutChartType\" (chartHover)=\"chartHovered($event)\"\r\n                (chartClick)=\"showChardata($event , 'S6')\" [options]=\"barChartOptions\">\r\n            </canvas>\r\n        </div>\r\n    </mat-grid-tile>\r\n    <mat-grid-tile>\r\n        <mat-grid-tile-header style=\"background : ivory\">\r\n            <p class=\"thick\">  {{ S7 }} </p>\r\n        </mat-grid-tile-header>\r\n        <div style=\"width: 90%\">\r\n            <canvas baseChart [data]=\"doughnutChartData_s7\" [labels]=\"doughnutChartLabels\" [chartType]=\"doughnutChartType\" (chartHover)=\"chartHovered($event)\"\r\n                (chartClick)=\"showChardata($event ,'S7')\" [options]=\"barChartOptions\">\r\n            </canvas>\r\n        </div>\r\n\r\n    </mat-grid-tile>\r\n    <mat-grid-tile>\r\n        <mat-grid-tile-header style=\"background : ivory\">\r\n            <p class=\"thick\">  {{ S8 }} </p>\r\n        </mat-grid-tile-header>\r\n        <div>\r\n            <mat-progress-bar mode=\"determinate\" value=40></mat-progress-bar>\r\n            <p class=\"thick\" > {{display}}</p>\r\n            <p class=\"thick\"> X of total Y scheduled jobs completed</p>\r\n            <br>\r\n            <br>\r\n            <p class=\"thick\">Data as valid on UNIX TIMESTAMP</p>\r\n        </div>\r\n    </mat-grid-tile>\r\n\r\n</mat-grid-list>\r\n<br>\r\n<br>\r\n"
+module.exports = "<mat-grid-list cols=\"4\" rowHeight=\"1:.75\">\r\n\r\n    <mat-grid-tile>\r\n        <mat-grid-tile-header style=\"background : ivory\">\r\n            <p class=\"thick\"> {{ S1 }} </p>\r\n        </mat-grid-tile-header>\r\n        <div style=\"width: 90%\">\r\n            <canvas baseChart [data]=\"doughnutChartData_s1\" [labels]=\"doughnutChartLabels\" [chartType]=\"doughnutChartType\" (chartHover)=\"chartHovered($event)\"\r\n                (chartClick)=\"showChardata($event ,'S1')\" [options]=\"barChartOptions\">\r\n            </canvas>\r\n        </div>\r\n        <mat-grid-tile-footer style=\"background : ivory \">\r\n            <p class=\"thick\"> </p>\r\n        </mat-grid-tile-footer>\r\n    </mat-grid-tile>\r\n    <mat-grid-tile>\r\n        <mat-grid-tile-header style=\"background : ivory\">\r\n            <p class=\"thick\">  {{ S2 }} </p>\r\n        </mat-grid-tile-header>\r\n        <div style=\"width: 90%\">\r\n            <canvas baseChart [data]=\"doughnutChartData_s2\" [labels]=\"doughnutChartLabels\" [chartType]=\"doughnutChartType\" (chartHover)=\"chartHovered($event)\"\r\n                (chartClick)=\"showChardata($event , 'S2') \" [options]=\"barChartOptions\">\r\n            </canvas>\r\n        </div>\r\n    </mat-grid-tile>\r\n    <mat-grid-tile>\r\n        <mat-grid-tile-header style=\"background : ivory\">\r\n            <p class=\"thick\">  {{ S3 }} </p>\r\n        </mat-grid-tile-header>\r\n        <div style=\"width: 90%\">\r\n            <canvas baseChart [data]=\"doughnutChartData_s3\" [labels]=\"doughnutChartLabels\" [chartType]=\"doughnutChartType\" (chartHover)=\"chartHovered($event)\"\r\n                (chartClick)=\"showChardata($event , 'S3')\" [options]=\"barChartOptions\">\r\n            </canvas>\r\n        </div>\r\n    </mat-grid-tile>\r\n    <mat-grid-tile>\r\n        <mat-grid-tile-header style=\"background : ivory\">\r\n            <p class=\"thick\">  {{ S4 }} </p>\r\n        </mat-grid-tile-header>\r\n        <div style=\"width: 90%\">\r\n            <canvas baseChart [data]=\"doughnutChartData_s4\" [labels]=\"doughnutChartLabels\" [chartType]=\"doughnutChartType\" (chartHover)=\"chartHovered($event)\"\r\n                (chartClick)=\"showChardata($event , 'S4')\" [options]=\"barChartOptions\">\r\n            </canvas>\r\n        </div>\r\n    </mat-grid-tile>\r\n    <mat-grid-tile>\r\n        <mat-grid-tile-header style=\"background : ivory\">\r\n            <p class=\"thick\">  {{ S5 }} </p>\r\n        </mat-grid-tile-header>\r\n        <div style=\"width: 90%\">\r\n            <canvas baseChart [data]=\"doughnutChartData_s5\" [labels]=\"doughnutChartLabels\" [chartType]=\"doughnutChartType\" (chartHover)=\"chartHovered($event)\"\r\n                (chartClick)=\"showChardata($event , 'S5')\" [options]=\"barChartOptions\">\r\n            </canvas>\r\n        </div>\r\n    </mat-grid-tile>\r\n    <mat-grid-tile>\r\n        <mat-grid-tile-header style=\"background : ivory\">\r\n            <p class=\"thick\">  {{ S6 }} </p>\r\n        </mat-grid-tile-header>\r\n        <div style=\"width: 90%\">\r\n            <canvas baseChart [data]=\"doughnutChartData_s6\" [labels]=\"doughnutChartLabels\" [chartType]=\"doughnutChartType\" (chartHover)=\"chartHovered($event)\"\r\n                (chartClick)=\"showChardata($event , 'S6')\" [options]=\"barChartOptions\">\r\n            </canvas>\r\n        </div>\r\n    </mat-grid-tile>\r\n    <mat-grid-tile>\r\n        <mat-grid-tile-header style=\"background : ivory\">\r\n            <p class=\"thick\">  {{ S7 }} </p>\r\n        </mat-grid-tile-header>\r\n        <div style=\"width: 90%\">\r\n            <canvas baseChart [data]=\"doughnutChartData_s7\" [labels]=\"doughnutChartLabels\" [chartType]=\"doughnutChartType\" (chartHover)=\"chartHovered($event)\"\r\n                (chartClick)=\"showChardata($event ,'S7')\" [options]=\"barChartOptions\">\r\n            </canvas>\r\n        </div>\r\n\r\n    </mat-grid-tile>\r\n    <mat-grid-tile>\r\n        <mat-grid-tile-header style=\"background : ivory\">\r\n            <p class=\"thick\">  {{ S8 }} </p>\r\n        </mat-grid-tile-header>\r\n        <div>\r\n            <mat-progress-bar mode=\"determinate\" value = \"{{ progress }} \"></mat-progress-bar>\r\n           <p class=\"thick\"> Last updated at </p>\r\n            <p class=\"thick\"> {{ d1 }} </p>\r\n        </div>\r\n    </mat-grid-tile>\r\n\r\n</mat-grid-list>\r\n<br>\r\n<br>\r\n"
 
 /***/ }),
 
@@ -710,6 +715,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _message_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../message.service */ "./src/app/message.service.ts");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var ngx_webstorage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-webstorage */ "./node_modules/ngx-webstorage/dist/app.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -719,6 +725,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -736,11 +743,12 @@ var label_strings;
     label_strings["S8"] = "Overall Status";
 })(label_strings || (label_strings = {}));
 var CharterComponent = /** @class */ (function () {
-    function CharterComponent(jobService, router, messageservice) {
+    function CharterComponent(jobService, router, messageservice, sessionStorage) {
         var _this = this;
         this.jobService = jobService;
         this.router = router;
         this.messageservice = messageservice;
+        this.sessionStorage = sessionStorage;
         this.S1 = label_strings.S1;
         this.S2 = label_strings.S2;
         this.S3 = label_strings.S3;
@@ -762,8 +770,9 @@ var CharterComponent = /** @class */ (function () {
         this.doughnutChartData_s7 = [1, 1, 1, 1, 1, 1, 1];
         this.doughnutChartData_s8 = [1, 1, 1, 1, 1, 1, 1];
         this.dataSource = [];
-        var retrigger$ = Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["interval"])(10000);
-        var secondsTimer$ = Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["interval"])(1000);
+        this.d1 = new Date(0);
+        var retrigger$ = Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["interval"])(60000);
+        var secondsTimer$ = Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["interval"])(60000);
         var subscribe = retrigger$.subscribe(function (val) { return _this.get_fresh_data(); });
         var timer = secondsTimer$.subscribe(function (val) { return _this.add_counter(); });
     }
@@ -813,6 +822,8 @@ var CharterComponent = /** @class */ (function () {
                     _this.doughnutChartData_s1.push(parseInt(element.putactive, 10));
                     _this.doughnutChartData_s1.push(parseInt(element.finished, 10));
                     _this.doughnutChartData_s1.push(parseInt(element.aborted, 10));
+                    _this.d1 = new Date(0);
+                    _this.d1.setUTCSeconds(parseInt(element.timestamp, 0));
                     break;
                 case 'S2':
                     _this.doughnutChartData_s2 = [];
@@ -886,6 +897,7 @@ var CharterComponent = /** @class */ (function () {
                     break;
             }
         });
+        this.progress = 30;
     };
     CharterComponent.prototype.showChardata = function (e, charttype) {
         if (e.active.length > 0) {
@@ -927,7 +939,8 @@ var CharterComponent = /** @class */ (function () {
         }),
         __metadata("design:paramtypes", [_jobservice_service__WEBPACK_IMPORTED_MODULE_1__["JobserviceService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-            _message_service__WEBPACK_IMPORTED_MODULE_3__["MessageService"]])
+            _message_service__WEBPACK_IMPORTED_MODULE_3__["MessageService"],
+            ngx_webstorage__WEBPACK_IMPORTED_MODULE_5__["SessionStorageService"]])
     ], CharterComponent);
     return CharterComponent;
 }());
@@ -1079,19 +1092,19 @@ var Customsubarea = /** @class */ (function () {
             case 'S1':
                 return _charter_charter_component__WEBPACK_IMPORTED_MODULE_1__["label_strings"].S1;
             case 'S2':
-                return _charter_charter_component__WEBPACK_IMPORTED_MODULE_1__["label_strings"].S1;
+                return _charter_charter_component__WEBPACK_IMPORTED_MODULE_1__["label_strings"].S2;
             case 'S3':
-                return _charter_charter_component__WEBPACK_IMPORTED_MODULE_1__["label_strings"].S1;
+                return _charter_charter_component__WEBPACK_IMPORTED_MODULE_1__["label_strings"].S3;
             case 'S4':
-                return _charter_charter_component__WEBPACK_IMPORTED_MODULE_1__["label_strings"].S1;
+                return _charter_charter_component__WEBPACK_IMPORTED_MODULE_1__["label_strings"].S4;
             case 'S5':
-                return _charter_charter_component__WEBPACK_IMPORTED_MODULE_1__["label_strings"].S1;
+                return _charter_charter_component__WEBPACK_IMPORTED_MODULE_1__["label_strings"].S5;
             case 'S6':
-                return _charter_charter_component__WEBPACK_IMPORTED_MODULE_1__["label_strings"].S1;
+                return _charter_charter_component__WEBPACK_IMPORTED_MODULE_1__["label_strings"].S6;
             case 'S7':
-                return _charter_charter_component__WEBPACK_IMPORTED_MODULE_1__["label_strings"].S1;
+                return _charter_charter_component__WEBPACK_IMPORTED_MODULE_1__["label_strings"].S7;
             case 'S8':
-                return _charter_charter_component__WEBPACK_IMPORTED_MODULE_1__["label_strings"].S1;
+                return _charter_charter_component__WEBPACK_IMPORTED_MODULE_1__["label_strings"].S8;
             default:
                 break;
         }

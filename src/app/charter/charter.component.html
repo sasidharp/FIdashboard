@@ -79,12 +79,9 @@
             <p class="thick">  {{ S8 }} </p>
         </mat-grid-tile-header>
         <div>
-            <mat-progress-bar mode="determinate" value=40></mat-progress-bar>
-            <p class="thick" > {{display}}</p>
-            <p class="thick"> X of total Y scheduled jobs completed</p>
-            <br>
-            <br>
-            <p class="thick">Data as valid on UNIX TIMESTAMP</p>
+            <mat-progress-bar mode="determinate" value = "{{ progress }} "></mat-progress-bar>
+           <p class="thick"> Last updated at </p>
+            <p class="thick"> {{ d1 }} </p>
         </div>
     </mat-grid-tile>
 

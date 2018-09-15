@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { Observable, interval } from 'rxjs';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 export class AppComponent {
   public button_text = 'Tabular';
   constructor(private router: Router) {
+    const retrigger$ = interval(30000);
+    retrigger$.subscribe(val => this.toggleTabular());
   }
   // Toggle to tabular
   toggleTabular() {

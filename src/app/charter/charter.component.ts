@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 import { MessageService } from '../message.service';
 import { Observable, interval } from 'rxjs';
 import { DataSource } from '@angular/cdk/table';
-
+import {LocalStorageService, SessionStorageService} from 'ngx-webstorage';
 export enum label_strings {
   S1 = 'AP Processing ',
   S2 = 'Asset Accounting',
@@ -39,7 +39,7 @@ export class CharterComponent implements OnInit {
   public jobs: Job[];
   public summary_jobs: Job[];
   public jobs_details: Jobdetails[];
-
+  public timestamp;
   public timer = 10000;
   public display;
 
@@ -56,14 +56,19 @@ export class CharterComponent implements OnInit {
   public doughnutChartData_s7: number[] = [1, 1, 1, 1, 1, 1, 1];
   public doughnutChartData_s8: number[] = [1, 1, 1, 1, 1, 1, 1];
   public dataSource: Job[] = [];
+  public d1 = new Date(0);
+  public progress;
+
 
   constructor(private jobService: JobserviceService,
     private router: Router,
-    private messageservice: MessageService) {
-    const retrigger$ = interval(10000);
-    const secondsTimer$ = interval(1000);
+    private messageservice: MessageService,
+    private sessionStorage: SessionStorageService) {
+    const retrigger$ = interval(60000);
+    const secondsTimer$ = interval(60000);
     const subscribe = retrigger$.subscribe(val => this.get_fresh_data());
     const timer = secondsTimer$.subscribe(val => this.add_counter());
+
   }
 
   ngOnInit() {
@@ -75,8 +80,8 @@ export class CharterComponent implements OnInit {
     this.doughnutChartLabels.push('PutActive');
     this.doughnutChartLabels.push('Finished');
     this.doughnutChartLabels.push('Aborted');
-      this.messageservice.invalidate_data(); // reset cache
-      this.jobService.getJobs().subscribe(returnData => this.resetStatus(returnData));
+    this.messageservice.invalidate_data(); // reset cache
+    this.jobService.getJobs().subscribe(returnData => this.resetStatus(returnData));
 
   }
 
@@ -112,6 +117,8 @@ export class CharterComponent implements OnInit {
           this.doughnutChartData_s1.push(parseInt(element.putactive, 10));
           this.doughnutChartData_s1.push(parseInt(element.finished, 10));
           this.doughnutChartData_s1.push(parseInt(element.aborted, 10));
+          this.d1 = new Date(0);
+          this.d1.setUTCSeconds(parseInt(element.timestamp, 0));
           break;
         case 'S2':
           this.doughnutChartData_s2 = [];
@@ -190,6 +197,7 @@ export class CharterComponent implements OnInit {
           break;
       }
     });
+    this.progress = 30;
   }
 
   showChardata(e: any, charttype: string) {

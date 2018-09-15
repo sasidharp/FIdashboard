@@ -5,46 +5,46 @@
           The actual rendered columns are set as a property on the row definition" -->
       <!-- Position Column -->
     <ng-container matColumnDef="subprocess">
-      <mat-header-cell *matHeaderCellDef> Functional Area </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.subprocess | customsubarea }} </mat-cell>
+      <mat-header-cell *matHeaderCellDef> <p class="small">Functional Area</p>  </mat-header-cell>
+      <mat-cell *matCellDef="let element"><p class="small">{{element.subprocess | customsubarea }} </p> </mat-cell>
     </ng-container>
 
     <!-- Name Column -->
     <ng-container matColumnDef="running">
-      <mat-header-cell *matHeaderCellDef> Running </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.running }} </mat-cell>
+      <mat-header-cell *matHeaderCellDef><p class="small">Running </p> </mat-header-cell>
+      <mat-cell *matCellDef="let element"> <p class="small">{{element.running }}</p> </mat-cell>
     </ng-container>
 
     <!-- Weight Column -->
     <ng-container matColumnDef="ready">
-      <mat-header-cell *matHeaderCellDef> Ready </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.ready }} </mat-cell>
+      <mat-header-cell *matHeaderCellDef> <p class="small">Ready</p></mat-header-cell>
+      <mat-cell *matCellDef="let element"> <p class="small">{{element.ready }}</p> </mat-cell>
     </ng-container>
 
     Symbol Column -->
     <ng-container matColumnDef="scheduled">
-      <mat-header-cell *matHeaderCellDef> Scheduled </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.scheduled}} </mat-cell>
+      <mat-header-cell *matHeaderCellDef> <p class="small">Scheduled</p></mat-header-cell>
+      <mat-cell *matCellDef="let element"> <p class="small">{{element.scheduled}}</p> </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="released">
-      <mat-header-cell *matHeaderCellDef> Released </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.released}} </mat-cell>
+      <mat-header-cell *matHeaderCellDef> <p class="small">Released</p></mat-header-cell>
+      <mat-cell *matCellDef="let element"><p class="small">{{element.released}}</p>  </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="aborted">
-      <mat-header-cell *matHeaderCellDef> Aborted </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.aborted}} </mat-cell>
+      <mat-header-cell *matHeaderCellDef> <p class="small">Aborted</p></mat-header-cell>
+      <mat-cell *matCellDef="let element"><p class="small">{{element.aborted}}</p>  </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="finished">
-      <mat-header-cell *matHeaderCellDef> Finished </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.finished}} </mat-cell>
+      <mat-header-cell *matHeaderCellDef> <p class="small">Finished</p></mat-header-cell>
+      <mat-cell *matCellDef="let element"> <p class="small">{{element.finished}}</p> </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="putactive">
-      <mat-header-cell *matHeaderCellDef> putactive </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.putactive}} </mat-cell>
+      <mat-header-cell *matHeaderCellDef> <p class="small">putactive</p> </mat-header-cell>
+      <mat-cell *matCellDef="let element"> <p class="small">{{element.putactive}}</p> </mat-cell>
     </ng-container>
     
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

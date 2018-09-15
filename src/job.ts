@@ -7,4 +7,5 @@ export interface Job {
     aborted: string;
     finished: string;
     putactive: string;
+    timestamp: string;
 }
