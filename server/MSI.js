@@ -1,6 +1,7 @@
 const request = require('request');
 const mjml2html = require("mjml");
 const Mustache = require('mustache');
+const sgMail = require('@sendgrid/mail');
 
 
 const MSI_KEY_VAULTURL = 'https://vault.azure.net';
@@ -41,18 +42,13 @@ var services = [];
 var jobs = [];
 //Parse the Mongo and update the variable.
 var statusObject = {
-  status: '',
-  color:'',
+  status: 'All good',
+  color: 'green',
 };
 var service = {
   description: '',
   running: '',
   total: ''
-};
-service = {
-  description: 'h',
-  running: 4,
-  total: 4
 };
 services.push(service);
 var job = {
@@ -93,6 +89,56 @@ function set_cumulatedValues() {
   view.summary.ready = lv_ready;
   view.summary.released = lv_released;
   view.summary.scheduled = lv_scheduled;
+  if (lv_aborted === 0) {
+    view.status.color = 'limegreen';
+    view.status.status = 'No failed jobs. status is GREEN'
+  } else {
+    view.status.color = 'red';
+    view.status.status = 'Atleast one job failed. status is RED'
+
+  }
+
+}
+
+function set_status(input) {
+  // const A = 'Aborted';
+  // const Y = 'Ready';
+  // const P = 'Scheduled';
+  // const S = 'Released';
+  // const R = 'Running';
+  // const F = 'Finished';
+  // const Z = 'Putactive';
+  // const X = 'Unknown State';  
+
+  switch (input) {
+    case 'A':
+      return A;
+      break;
+    case 'Y':
+      return Y;
+      break;
+    case 'P':
+      return P;
+      break;
+    case 'S':
+      return S;
+      break;
+    case 'R':
+      return R;
+      break;
+    case 'F':
+      return F;
+      break;
+    case 'Z':
+      return Z;
+      break;
+    case 'X':
+      return X;
+      break;
+
+    default:
+      break;
+  }
 }
 // *****************************************************************************************************
 // Get the SendGrid Key.   
@@ -134,7 +180,6 @@ function getDBstring() {
   request(options, function (error, response, body) {
     if (response.statusCode === 200) {
       dbConn = JSON.parse(body).value;
-      console.log(dbConn);
       // If both the keys for retrieved , call the DB for data.
       options = {
         method: 'GET',
@@ -218,14 +263,16 @@ function getDBstring() {
           }
         });
         var sapJobs = sapContent[0].jobs;
-        var lv_count = 1;
+        var lv_count = 0;
         sapJobs.forEach(element => {
           lv_count = lv_count + 1;
-          jobs.push( {  sno: lv_count ,  description: element.jobname ,  status: element.status } );  
+          jobs.push({
+            sno: lv_count,
+            description: element.jobname,
+            status: set_status(element.status)
+          });
         });
-
-const htmlOutput = mjml2html(`<mjml>
-
+        var htmlOutput = mjml2html(`<mjml>
   <mj-head>
     <mj-attributes>
     <mj-section border="solid" ></mj-section>
@@ -234,8 +281,8 @@ const htmlOutput = mjml2html(`<mjml>
   <mj-body background-color="white" width="1200px" border="solid">
     <mj-section>
       <mj-column>
-        <mj-text color = "{{view.status.color}}">
-          <h3>{{ view.status.status }}</h3>
+        <mj-text color = "{{ status.color }}">
+          <h3>{{ status.status }}</h3>
          </mj-text>
       </mj-column>
     </mj-section>
@@ -245,19 +292,19 @@ const htmlOutput = mjml2html(`<mjml>
           <tr>
             <td style="padding: 0 15px 0 0;">Running</h3>
             </td>
-            <td style="padding: 0 15px;">{{ view.summary.running }}</td>
+            <td style="padding: 0 15px;">{{ summary.running }}</td>
           </tr>
           <tr>
             <td style="padding: 0 15px 0 0;">Ready</td>
-            <td style="padding: 0 15px;">{{ view.summary.ready }}</td>
+            <td style="padding: 0 15px;">{{ summary.ready }}</td>
           </tr>
           <tr>
             <td style="padding: 0 15px 0 0;">Scheduled</td>
-            <td style="padding: 0 15px;">{{ view.summary.scheduled }}</td>
+            <td style="padding: 0 15px;">{{ summary.scheduled }}</td>
           </tr>
           <tr>
             <td style="padding: 0 15px 0 0;">Released</td>
-            <td style="padding: 0 15px;">{{ view.summary.released }}</td>
+            <td style="padding: 0 15px;">{{ summary.released }}</td>
           </tr>
         </mj-table>
       </mj-column>
@@ -265,15 +312,15 @@ const htmlOutput = mjml2html(`<mjml>
         <mj-table>
           <tr>
             <td style="padding: 0 15px 0 0;">Finished</td>
-            <td style="padding: 0 15px;">{{ view.summary.finished }}</td>
+            <td style="padding: 0 15px;">{{ summary.finished }}</td>
           </tr>
           <tr>
             <td style="padding: 0 15px 0 0;">Aborted</td>
-            <td style="padding: 0 15px;">{{ view.summary.aborted }}</td>
+            <td style="padding: 0 15px;">{{ summary.aborted }}</td>
           </tr>
           <tr>
             <td style="padding: 0 15px 0 0;">Putactive</td>
-            <td style="padding: 0 15px;">{{ view.summary.putactive }}</td>
+            <td style="padding: 0 15px;">{{ summary.putactive }}</td>
           </tr>
         </mj-table>
       </mj-column>
@@ -298,41 +345,13 @@ const htmlOutput = mjml2html(`<mjml>
             <td style="padding: 0 15px;">Total</td>
             <td style="padding: 0 15px;">Pending</td>
           </tr>
-         <tr>
-            <td style="padding: 0 15px;">{{ view.byservice[0].description }}</td>
-            <td style="padding: 0 15px;">{{ view.byservice[0].running }}</td>
-            <td style="padding: 0 15px;">{{ view.byservice[0].total }}</td>
-          </tr>
+          {{#byservice}}
           <tr>
-            <td style="padding: 0 15px;">{{ view.byservice[1].description }}</td>
-            <td style="padding: 0 15px;">{{ view.byservice[1].running }}</td>
-            <td style="padding: 0 15px;">{{ view.byservice[1].total }}</td>
+            <td style="padding: 0 15px;">{{ description }}</td>
+            <td style="padding: 0 15px;">{{ running }}</td>
+            <td style="padding: 0 15px;">{{ total }}</td>
           </tr>
-          <tr>
-            <td style="padding: 0 15px;">{{ view.byservice[2].description }} }}</td>
-            <td style="padding: 0 15px;">{{ view.byservice[2].running }}</td>
-            <td style="padding: 0 15px;">{{ view.byservice[2].total }}</td>
-          </tr>
-          <tr>
-            <td style="padding: 0 15px;">{{ view.byservice[3].description }} }}</td>
-            <td style="padding: 0 15px;">{{ view.byservice[3].running }}</td>
-            <td style="padding: 0 15px;">{{ view.byservice[3].total }}</td>
-          </tr>
-          <tr>
-            <td style="padding: 0 15px;">{{ view.byservice[4].description }} }}</td>
-            <td style="padding: 0 15px;">{{ view.byservice[4].running }}</td>
-            <td style="padding: 0 15px;">{{ view.byservice[4].total }}</td>
-          </tr>
-          <tr>
-            <td style="padding: 0 15px;">{{ view.byservice[5].description }} }}</td>
-            <td style="padding: 0 15px;">{{ view.byservice[5].running }}</td>
-            <td style="padding: 0 15px;">{{ view.byservice[5].total }}</td>
-          </tr>
-          <tr>
-            <td style="padding: 0 15px;">{{ view.byservice[6].description }} }}</td>
-            <td style="padding: 0 15px;">{{ view.byservice[6].running }}</td>
-            <td style="padding: 0 15px;">{{ view.byservice[6].total }}</td>
-          </tr>
+         {{/byservice}}
         </mj-table>
       </mj-column>
       <mj-column>
@@ -349,123 +368,28 @@ const htmlOutput = mjml2html(`<mjml>
                     <h5>Vamsi Venkata Krishna Kante (Redmond)</h4>
                       <h5>Sayan Saha (India )</h4>
                         <mj-text>
-                        </mj-text>mj-column>
+                        </mj-text>
+                        </mj-column>
 
     </mj-section>
     <mj-section>
       <mj-column>
         <mj-text align="left">
-          <h4>STATUS OF 20 CRITICAL JOBS LISTED BELOW</h4>
-        </mj-text>
+          <h4>FOLLOWING JOBS ARE MONITORED BY TRACKER </h4>
+          <h5> **Tracker triggers email update every 4 hours</h5>
+           </mj-text>
         <mj-table >
+          {{#criticaljobs}} 
           <tr style="text-align:left">
-            <td style="padding: 0 100px 0 0;">{{ view.criticaljobs[0].sno }}</td>
-            <td style="padding: 0 15px;">{{ view.criticaljobs[0].description }}</td>
-            <td style="padding: 0 15px;">{{ view.criticaljobs[0].status }}</td>
+            <td style="padding: 0 100px 0 0;">{{ sno }}</td>
+            <td style="padding: 0 15px;">{{ description }}</td>
+            <td style="padding: 0 15px;">{{ status }}</td>
           </tr>
-          <tr style="text-align:left">
-          <td style="padding: 0 100px 0 0;">{{ view.criticaljobs[1].sno }}</td>
-          <td style="padding: 0 15px;">{{ view.criticaljobs[1].description }}</td>
-          <td style="padding: 0 15px;">{{ view.criticaljobs[1].status }}</td>
-        </tr>
-          <tr style="text-align:left">
-          <td style="padding: 0 100px 0 0;">{{ view.criticaljobs[2].sno }}</td>
-          <td style="padding: 0 15px;">{{ view.criticaljobs[2].description }}</td>
-          <td style="padding: 0 15px;">{{ view.criticaljobs[2].status }}</td>
-        </tr>
-          <tr style="text-align:left">
-          <td style="padding: 0 100px 0 0;">{{ view.criticaljobs[3].sno }}</td>
-          <td style="padding: 0 15px;">{{ view.criticaljobs[3].description }}</td>
-          <td style="padding: 0 15px;">{{ view.criticaljobs[3].status }}</td>
-        </tr>
-          <tr style="text-align:left">
-          <td style="padding: 0 100px 0 0;">{{ view.criticaljobs[4].sno }}</td>
-          <td style="padding: 0 15px;">{{ view.criticaljobs[4].description }}</td>
-          <td style="padding: 0 15px;">{{ view.criticaljobs[4].status }}</td>
-        </tr>
-          <tr style="text-align:left">
-          <td style="padding: 0 100px 0 0;">{{ view.criticaljobs[5].sno }}</td>
-          <td style="padding: 0 15px;">{{ view.criticaljobs[5].description }}</td>
-          <td style="padding: 0 15px;">{{ view.criticaljobs[5].status }}</td>
-        </tr>
-          <tr style="text-align:left">
-          <td style="padding: 0 100px 0 0;">{{ view.criticaljobs[6].sno }}</td>
-          <td style="padding: 0 15px;">{{ view.criticaljobs[6].description }}</td>
-          <td style="padding: 0 15px;">{{ view.criticaljobs[6].status }}</td>
-        </tr>
-          <tr style="text-align:left">
-          <td style="padding: 0 100px 0 0;">{{ view.criticaljobs[7].sno }}</td>
-          <td style="padding: 0 15px;">{{ view.criticaljobs[7].description }}</td>
-          <td style="padding: 0 15px;">{{ view.criticaljobs[7].status }}</td>
-        </tr>
-          <tr style="text-align:left">
-          <td style="padding: 0 100px 0 0;">{{ view.criticaljobs[8].sno }}</td>
-          <td style="padding: 0 15px;">{{ view.criticaljobs[8].description }}</td>
-          <td style="padding: 0 15px;">{{ view.criticaljobs[8].status }}</td>
-        </tr>
-          <tr style="text-align:left">
-          <td style="padding: 0 100px 0 0;">{{ view.criticaljobs[9].sno }}</td>
-          <td style="padding: 0 15px;">{{ view.criticaljobs[9].description }}</td>
-          <td style="padding: 0 15px;">{{ view.criticaljobs[9].status }}</td>
-        </tr>
-          <tr style="text-align:left">
-          <td style="padding: 0 100px 0 0;">{{ view.criticaljobs[10].sno }}</td>
-          <td style="padding: 0 15px;">{{ view.criticaljobs[10].description }}</td>
-          <td style="padding: 0 15px;">{{ view.criticaljobs[10].status }}</td>
-        </tr>
-          <tr style="text-align:left">
-          <td style="padding: 0 100px 0 0;">{{ view.criticaljobs[11].sno }}</td>
-          <td style="padding: 0 15px;">{{ view.criticaljobs[11].description }}</td>
-          <td style="padding: 0 15px;">{{ view.criticaljobs[11].status }}</td>
-        </tr>
-          <tr style="text-align:left">
-          <td style="padding: 0 100px 0 0;">{{ view.criticaljobs[12].sno }}</td>
-          <td style="padding: 0 15px;">{{ view.criticaljobs[12].description }}</td>
-          <td style="padding: 0 15px;">{{ view.criticaljobs[12].status }}</td>
-        </tr>
-          <tr style="text-align:left">
-          <td style="padding: 0 100px 0 0;">{{ view.criticaljobs[13].sno }}</td>
-          <td style="padding: 0 15px;">{{ view.criticaljobs[13].description }}</td>
-          <td style="padding: 0 15px;">{{ view.criticaljobs[13].status }}</td>
-        </tr>
-          <tr style="text-align:left">
-          <td style="padding: 0 100px 0 0;">{{ view.criticaljobs[14].sno }}</td>
-          <td style="padding: 0 15px;">{{ view.criticaljobs[14].description }}</td>
-          <td style="padding: 0 15px;">{{ view.criticaljobs[14].status }}</td>
-        </tr>
-          <tr style="text-align:left">
-          <td style="padding: 0 100px 0 0;">{{ view.criticaljobs[15].sno }}</td>
-          <td style="padding: 0 15px;">{{ view.criticaljobs[15].description }}</td>
-          <td style="padding: 0 15px;">{{ view.criticaljobs[15].status }}</td>
-        </tr>
-          <tr style="text-align:left">
-          <td style="padding: 0 100px 0 0;">{{ view.criticaljobs[16].sno }}</td>
-          <td style="padding: 0 15px;">{{ view.criticaljobs[16].description }}</td>
-          <td style="padding: 0 15px;">{{ view.criticaljobs[16].status }}</td>
-        </tr>
-          <tr style="text-align:left">
-          <td style="padding: 0 100px 0 0;">{{ view.criticaljobs[17].sno }}</td>
-          <td style="padding: 0 15px;">{{ view.criticaljobs[17].description }}</td>
-          <td style="padding: 0 15px;">{{ view.criticaljobs[17].status }}</td>
-        </tr>
-          <tr style="text-align:left">
-          <td style="padding: 0 100px 0 0;">{{ view.criticaljobs[18].sno }}</td>
-          <td style="padding: 0 15px;">{{ view.criticaljobs[18].description }}</td>
-          <td style="padding: 0 15px;">{{ view.criticaljobs[18].status }}</td>
-        </tr>
-          <tr style="text-align:left">
-          <td style="padding: 0 100px 0 0;">{{ view.criticaljobs[19].sno }}</td>
-          <td style="padding: 0 15px;">{{ view.criticaljobs[19].description }}</td>
-          <td style="padding: 0 15px;">{{ view.criticaljobs[19].status }}</td>
-        </tr>
-
+          {{/criticaljobs}}
         </mj-table>
-
       </mj-column>
-
     </mj-section>
     <mj-section>
-
       <mj-column>
         <mj-text>
           To engage support operations please create a ticket through service now LINK .If support cannot resolve a urgent issue in timely manner follow the escalation path below:
@@ -477,17 +401,116 @@ const htmlOutput = mjml2html(`<mjml>
           Email Escl8now or Call +1 425-70
         </mj-text>
       </mj-column>
-
-
     </mj-section>
-
   </mj-body>
-
-
 </mjml>
-`, view ) ;       
-        console.log(htmlOutput);
-        
+`, {
+          validationLevel: 'skip',
+          minify: true
+        });
+
+        var output = Mustache.render(htmlOutput.html, view);
+        // send the email out for intented recipients.
+        sgMail.setApiKey(sendAPIkey);
+        var d1 = new Date();
+        var year = d1.getFullYear();
+        var month = d1.getMonth();
+        var fiscal_year;
+        var Q;
+        var P;
+        var fy = year;
+        switch (month) {
+          case 0:
+            fy = year;
+            fiscal_year = Fiscal(fy, 'Q3', 'P1');
+            break;
+          case 1:
+            fy = year;
+            fiscal_year = Fiscal(fy, 'Q3', 'P2');
+            break;
+          case 2:
+            fy = year;
+            fiscal_year = Fiscal(fy, 'Q3', 'P3');
+            break;
+          case 3:
+            fy = year;
+            fiscal_year = Fiscal(fy, 'Q4', 'P1');
+            break;
+          case 4:
+            fy = year;
+            fiscal_year = Fiscal(fy, 'Q4', 'P2');
+            break;
+          case 5:
+            fy = year;
+            fiscal_year = Fiscal(fy, 'Q4', 'P3');
+            break;
+          case 6:
+            fy = year + 1;
+            fiscal_year = Fiscal(fy, 'Q1', 'P1');
+            break;
+          case 7:
+            fy = year + 1;
+            fiscal_year = Fiscal(fy, 'Q1', 'P2');
+            break;
+          case 8:
+            fy = year + 1;
+            fiscal_year = Fiscal(fy, 'Q1', 'P3');
+            break;
+          case 9:
+            fy = year + 1;
+            fiscal_year = Fiscal(fy, 'Q2', 'P1');
+            break;
+          case 10:
+            fy = year + 1;
+            fiscal_year = Fiscal(fy, 'Q2', 'P2');
+            break;
+          case 11:
+            fy = year + 1;
+            fiscal_year = Fiscal(fy, 'Q2', 'P3');
+            break;
+          default:
+            break;
+        }
+
+        function Fiscal(fy, Q, P) {
+          var date = new Date();
+          return 'Fiscal Year  ' + fy + ' ' + Q + ' ' + P + ' Close' + ' [SAP FICO]' + ' ' + date.toString();
+        }
+
+
+
+        const emails = [{
+            to: 'sapurana@microsoft.com',
+            from: 'sasidharp@gmail.com',
+            subject: fiscal_year,
+            html: output,
+          },
+          {
+            to: 'saradas@microsoft.com',
+            from: 'sasidharp@gmail.com',
+            subject: fiscal_year,
+            html: output,
+          },
+          {
+            to: 'vcheruk@microsoft.com',
+            from: 'sasidharp@gmail.com',
+            subject: fiscal_year,
+            html: output,
+          },
+          {
+            to: 'Satyavathi.VDSS@microsoft.com',
+            from: 'sasidharp@gmail.com',
+            subject: fiscal_year,
+            html: output,
+          },
+          {
+            to: 'Sameer.Singh@microsoft.com',
+            from: 'sasidharp@gmail.com',
+            subject: fiscal_year,
+            html: output,
+          },
+        ];
+        sgMail.send(emails);
       });
     } else {
       console.log('No permission to view Secret');
