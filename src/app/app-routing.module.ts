@@ -5,11 +5,12 @@ import { TableDisplayComponent } from './table-display/table-display.component';
 import { AppComponent } from './app.component';
 import { CharterComponent } from './charter/charter.component';
 import { CharterTableViewComponent } from './charter-table-view/charter-table-view.component';
+import { LandingpageComponent } from './landingpage/landingpage.component';
 
 const routes: Routes = [
   { path: 'table/:id', component: TableDisplayComponent },
   { path: 'tabular', component: CharterTableViewComponent },
-  { path: '', component: CharterComponent }
+  { path: '', component: LandingpageComponent }
 ];
 
 @NgModule({

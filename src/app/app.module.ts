@@ -25,6 +25,7 @@ import { Customjobstatus } from './customJobstatus';
 import { Customsubarea } from './customSubarea';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig, MatDialogModule, MatDialogTitle } from '@angular/material/dialog';
 import { DialogComponent } from './dialog/dialog.component';
+import { LandingpageComponent } from './landingpage/landingpage.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { DialogComponent } from './dialog/dialog.component';
     CustomTimepipe,
     Customjobstatus,
     Customsubarea,
-    DialogComponent
+    DialogComponent,
+    LandingpageComponent
   ],
   imports: [
     BrowserModule,

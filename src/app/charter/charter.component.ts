@@ -80,20 +80,20 @@ export class CharterComponent implements OnInit {
     this.doughnutChartLabels.push('PutActive');
     this.doughnutChartLabels.push('Finished');
     this.doughnutChartLabels.push('Aborted');
-    this.messageservice.invalidate_data(); // reset cache
+//  this.messageservice.invalidate_data(); // reset cache
     this.jobService.getJobs().subscribe(returnData => this.resetStatus(returnData));
 
   }
 
   private get_fresh_data() {
-    this.messageservice.invalidate_data(); // reset cache
+//  this.messageservice.invalidate_data(); // reset cache
     this.jobService.getJobs().subscribe(returnData => this.resetStatus(returnData));
   }
   private add_counter() {
     this.timer = this.timer - 1000;
     this.display = this.timer / 1000;
     if (this.timer === 0) {
-      this.timer = 10000;
+      this.timer = 100000;
     }
   }
 

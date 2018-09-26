@@ -376,8 +376,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _table_display_table_display_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./table-display/table-display.component */ "./src/app/table-display/table-display.component.ts");
-/* harmony import */ var _charter_charter_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./charter/charter.component */ "./src/app/charter/charter.component.ts");
-/* harmony import */ var _charter_table_view_charter_table_view_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./charter-table-view/charter-table-view.component */ "./src/app/charter-table-view/charter-table-view.component.ts");
+/* harmony import */ var _charter_table_view_charter_table_view_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./charter-table-view/charter-table-view.component */ "./src/app/charter-table-view/charter-table-view.component.ts");
+/* harmony import */ var _landingpage_landingpage_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./landingpage/landingpage.component */ "./src/app/landingpage/landingpage.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -391,8 +391,8 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 var routes = [
     { path: 'table/:id', component: _table_display_table_display_component__WEBPACK_IMPORTED_MODULE_2__["TableDisplayComponent"] },
-    { path: 'tabular', component: _charter_table_view_charter_table_view_component__WEBPACK_IMPORTED_MODULE_4__["CharterTableViewComponent"] },
-    { path: '', component: _charter_charter_component__WEBPACK_IMPORTED_MODULE_3__["CharterComponent"] }
+    { path: 'tabular', component: _charter_table_view_charter_table_view_component__WEBPACK_IMPORTED_MODULE_3__["CharterTableViewComponent"] },
+    { path: '', component: _landingpage_landingpage_component__WEBPACK_IMPORTED_MODULE_4__["LandingpageComponent"] }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -428,7 +428,7 @@ module.exports = ".example-fill-remaining-space {\r\n    /* This fills the remai
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-toolbar class=\"mat-elevation-z8\" color =\"warn\" >\r\n    <p><span>FINANCE CLOSURE JOB STATUS </span></p>\r\n    <span class=\"example-fill-remaining-space\"></span>\r\n    <p><button mat-button (click)=\"toggleTabular()\"> {{ button_text }} </button>\r\n    </p>\r\n    <!-- <button mat-stroked-button color=\"warn\">Tabular View</button> -->\r\n</mat-toolbar>\r\n<br>\r\n<!-- <app-charter>{{title}}></app-charter> -->\r\n<!-- <br>\r\n<br> -->\r\n<router-outlet></router-outlet>\r\n<!-- <app-messages></app-messages> -->\r\n <p class=\"small\">contact:sapurana/saradas/sameersi </p>\r\n\r\n      "
+module.exports = "<mat-toolbar class=\"mat-elevation-z8\" color =\"warn\" >\r\n    <p><span> Critical Job Montior </span></p>\r\n    <span class=\"example-fill-remaining-space\"></span>\r\n    <p><button mat-button (click)=\"toggleTabular()\"> {{ button_text }} </button>\r\n    </p>\r\n    <!-- <button mat-stroked-button color=\"warn\">Tabular View</button> -->\r\n</mat-toolbar>\r\n<br>\r\n<!-- <app-charter>{{title}}></app-charter> -->\r\n<!-- <br>\r\n<br> -->\r\n<router-outlet></router-outlet>\r\n<!-- <app-messages></app-messages> -->\r\n <p class=\"small\">contact sapurana to activate for your service area </p>\r\n\r\n      "
 
 /***/ }),
 
@@ -528,12 +528,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _customSubarea__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./customSubarea */ "./src/app/customSubarea.ts");
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/esm5/dialog.es5.js");
 /* harmony import */ var _dialog_dialog_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./dialog/dialog.component */ "./src/app/dialog/dialog.component.ts");
+/* harmony import */ var _landingpage_landingpage_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./landingpage/landingpage.component */ "./src/app/landingpage/landingpage.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -575,7 +577,8 @@ var AppModule = /** @class */ (function () {
                 _CustomTimepipe__WEBPACK_IMPORTED_MODULE_21__["CustomTimepipe"],
                 _customJobstatus__WEBPACK_IMPORTED_MODULE_22__["Customjobstatus"],
                 _customSubarea__WEBPACK_IMPORTED_MODULE_23__["Customsubarea"],
-                _dialog_dialog_component__WEBPACK_IMPORTED_MODULE_25__["DialogComponent"]
+                _dialog_dialog_component__WEBPACK_IMPORTED_MODULE_25__["DialogComponent"],
+                _landingpage_landingpage_component__WEBPACK_IMPORTED_MODULE_26__["LandingpageComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -786,19 +789,19 @@ var CharterComponent = /** @class */ (function () {
         this.doughnutChartLabels.push('PutActive');
         this.doughnutChartLabels.push('Finished');
         this.doughnutChartLabels.push('Aborted');
-        this.messageservice.invalidate_data(); // reset cache
+        //  this.messageservice.invalidate_data(); // reset cache
         this.jobService.getJobs().subscribe(function (returnData) { return _this.resetStatus(returnData); });
     };
     CharterComponent.prototype.get_fresh_data = function () {
         var _this = this;
-        this.messageservice.invalidate_data(); // reset cache
+        //  this.messageservice.invalidate_data(); // reset cache
         this.jobService.getJobs().subscribe(function (returnData) { return _this.resetStatus(returnData); });
     };
     CharterComponent.prototype.add_counter = function () {
         this.timer = this.timer - 1000;
         this.display = this.timer / 1000;
         if (this.timer === 0) {
-            this.timer = 10000;
+            this.timer = 100000;
         }
     };
     CharterComponent.prototype.resetStatus = function (xJobs) {
@@ -1260,6 +1263,69 @@ var JobserviceService = /** @class */ (function () {
         __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"], _message_service__WEBPACK_IMPORTED_MODULE_2__["MessageService"]])
     ], JobserviceService);
     return JobserviceService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/landingpage/landingpage.component.css":
+/*!*******************************************************!*\
+  !*** ./src/app/landingpage/landingpage.component.css ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/landingpage/landingpage.component.html":
+/*!********************************************************!*\
+  !*** ./src/app/landingpage/landingpage.component.html ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<mat-grid-list cols=\"2\" rowHeight=\"2:1\">\n  <mat-grid-tile><button mat-button>FI Dashboard </button></mat-grid-tile>\n  <mat-grid-tile><button mat-button>HR Dashboard </button></mat-grid-tile>\n  <mat-grid-tile>This is test </mat-grid-tile>\n  <mat-grid-tile>this is test </mat-grid-tile>\n</mat-grid-list>\n"
+
+/***/ }),
+
+/***/ "./src/app/landingpage/landingpage.component.ts":
+/*!******************************************************!*\
+  !*** ./src/app/landingpage/landingpage.component.ts ***!
+  \******************************************************/
+/*! exports provided: LandingpageComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LandingpageComponent", function() { return LandingpageComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var LandingpageComponent = /** @class */ (function () {
+    function LandingpageComponent() {
+    }
+    LandingpageComponent.prototype.ngOnInit = function () {
+    };
+    LandingpageComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-landingpage',
+            template: __webpack_require__(/*! ./landingpage.component.html */ "./src/app/landingpage/landingpage.component.html"),
+            styles: [__webpack_require__(/*! ./landingpage.component.css */ "./src/app/landingpage/landingpage.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], LandingpageComponent);
+    return LandingpageComponent;
 }());
 
 
