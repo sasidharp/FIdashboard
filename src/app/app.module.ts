@@ -26,6 +26,7 @@ import { Customsubarea } from './customSubarea';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig, MatDialogModule, MatDialogTitle } from '@angular/material/dialog';
 import { DialogComponent } from './dialog/dialog.component';
 import { LandingpageComponent } from './landingpage/landingpage.component';
+import { HRcharterComponent } from './hrcharter/hrcharter.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { LandingpageComponent } from './landingpage/landingpage.component';
     Customjobstatus,
     Customsubarea,
     DialogComponent,
-    LandingpageComponent
+    LandingpageComponent,
+    HRcharterComponent
   ],
   imports: [
     BrowserModule,

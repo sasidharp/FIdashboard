@@ -1276,7 +1276,7 @@ var JobserviceService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = "mat-grid-tile {\r\n    background: lightpink;\r\n  }\r\n  "
 
 /***/ }),
 
@@ -1287,7 +1287,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-grid-list cols=\"2\" rowHeight=\"2:1\">\n  <mat-grid-tile><button mat-button>FI Dashboard </button></mat-grid-tile>\n  <mat-grid-tile><button mat-button>HR Dashboard </button></mat-grid-tile>\n  <mat-grid-tile>This is test </mat-grid-tile>\n  <mat-grid-tile>this is test </mat-grid-tile>\n</mat-grid-list>\n"
+module.exports = "<mat-grid-list cols=\"2\" rowHeight=\"2:1\">\n  <mat-grid-tile><button mat-button >FI Dashboard </button></mat-grid-tile>\n  <mat-grid-tile><button mat-button>HR Dashboard </button></mat-grid-tile>\n  <mat-grid-tile>This is test </mat-grid-tile>\n  <mat-grid-tile>this is test </mat-grid-tile>\n</mat-grid-list>\n"
 
 /***/ }),
 
