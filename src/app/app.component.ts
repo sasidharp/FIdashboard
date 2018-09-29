@@ -17,10 +17,10 @@ export class AppComponent {
   toggleTabular() {
     if (this.button_text === 'Chart') {
       this.button_text = 'Tabular';
-      this.router.navigate(['/']);
+      this.router.navigate(['/fi']);
     } else {
       this.button_text = 'Chart';
-      this.router.navigate(['/tabular']);
+      this.router.navigate(['/hr']);
     }
   }
 }

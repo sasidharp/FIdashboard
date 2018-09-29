@@ -1,3 +1,83 @@
-<p>
-  hrcharter works!
-</p>
+<br>
+<h1 align="center" class="thick">SAP Human Resources U1 / U2 / other areas </h1>
+<h4 align="center" class="thick"> {{ d1 }} </h4>
+<mat-grid-list cols="4" rowHeight="1:.75">
+    <mat-grid-tile>
+        <mat-grid-tile-header style="background : ivory">
+            <p class="thick"> {{ S1 }} </p>
+        </mat-grid-tile-header>
+        <div style="width: 90%">
+            <canvas baseChart [data]="doughnutChartData_s1" [labels]="doughnutChartLabels" [chartType]="doughnutChartType" (chartHover)="chartHovered($event)"
+                (chartClick)="showChardata($event ,'S1')" [options]="barChartOptions">
+            </canvas>
+        </div>
+        <mat-grid-tile-footer style="background : ivory ">
+            <p class="thick"> </p>
+        </mat-grid-tile-footer>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <mat-grid-tile-header style="background : ivory">
+            <p class="thick">  {{ S2 }} </p>
+        </mat-grid-tile-header>
+        <div style="width: 90%">
+            <canvas baseChart [data]="doughnutChartData_s2" [labels]="doughnutChartLabels" [chartType]="doughnutChartType" (chartHover)="chartHovered($event)"
+                (chartClick)="showChardata($event , 'S2') " [options]="barChartOptions">
+            </canvas>
+        </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <mat-grid-tile-header style="background : ivory">
+            <p class="thick">  {{ S3 }} </p>
+        </mat-grid-tile-header>
+        <div style="width: 90%">
+            <canvas baseChart [data]="doughnutChartData_s3" [labels]="doughnutChartLabels" [chartType]="doughnutChartType" (chartHover)="chartHovered($event)"
+                (chartClick)="showChardata($event , 'S3')" [options]="barChartOptions">
+            </canvas>
+        </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <mat-grid-tile-header style="background : ivory">
+            <p class="thick">  {{ S4 }} </p>
+        </mat-grid-tile-header>
+        <div style="width: 90%">
+            <canvas baseChart [data]="doughnutChartData_s4" [labels]="doughnutChartLabels" [chartType]="doughnutChartType" (chartHover)="chartHovered($event)"
+                (chartClick)="showChardata($event , 'S4')" [options]="barChartOptions">
+            </canvas>
+        </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <mat-grid-tile-header style="background : ivory">
+            <p class="thick">  {{ S5 }} </p>
+        </mat-grid-tile-header>
+        <div style="width: 90%">
+            <canvas baseChart [data]="doughnutChartData_s5" [labels]="doughnutChartLabels" [chartType]="doughnutChartType" (chartHover)="chartHovered($event)"
+                (chartClick)="showChardata($event , 'S5')" [options]="barChartOptions">
+            </canvas>
+        </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <mat-grid-tile-header style="background : ivory">
+            <p class="thick">  {{ S6 }} </p>
+        </mat-grid-tile-header>
+        <div style="width: 90%">
+            <canvas baseChart [data]="doughnutChartData_s6" [labels]="doughnutChartLabels" [chartType]="doughnutChartType" (chartHover)="chartHovered($event)"
+                (chartClick)="showChardata($event , 'S6')" [options]="barChartOptions">
+            </canvas>
+        </div>
+    </mat-grid-tile>
+   <mat-grid-tile>
+        <mat-grid-tile-header style="background : ivory">
+            <p class="thick">  {{ S8 }} </p>
+        </mat-grid-tile-header>
+        <div style="width: 90%">
+            <canvas baseChart [data]="doughnutChartData_s6" [labels]="doughnutChartLabels" [chartType]="doughnutChartType" (chartHover)="chartHovered($event)"
+                (chartClick)="showChardata($event , 'S6')" [options]="barChartOptions">
+            </canvas>
+        </div>
+
+
+    </mat-grid-tile>
+
+</mat-grid-list>
+<br>
+<br>

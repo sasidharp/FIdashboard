@@ -376,8 +376,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _table_display_table_display_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./table-display/table-display.component */ "./src/app/table-display/table-display.component.ts");
-/* harmony import */ var _charter_table_view_charter_table_view_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./charter-table-view/charter-table-view.component */ "./src/app/charter-table-view/charter-table-view.component.ts");
-/* harmony import */ var _landingpage_landingpage_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./landingpage/landingpage.component */ "./src/app/landingpage/landingpage.component.ts");
+/* harmony import */ var _charter_charter_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./charter/charter.component */ "./src/app/charter/charter.component.ts");
+/* harmony import */ var _charter_table_view_charter_table_view_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./charter-table-view/charter-table-view.component */ "./src/app/charter-table-view/charter-table-view.component.ts");
+/* harmony import */ var _landingpage_landingpage_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./landingpage/landingpage.component */ "./src/app/landingpage/landingpage.component.ts");
+/* harmony import */ var _hrcharter_hrcharter_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./hrcharter/hrcharter.component */ "./src/app/hrcharter/hrcharter.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -389,10 +391,14 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
+
 var routes = [
     { path: 'table/:id', component: _table_display_table_display_component__WEBPACK_IMPORTED_MODULE_2__["TableDisplayComponent"] },
-    { path: 'tabular', component: _charter_table_view_charter_table_view_component__WEBPACK_IMPORTED_MODULE_3__["CharterTableViewComponent"] },
-    { path: '', component: _landingpage_landingpage_component__WEBPACK_IMPORTED_MODULE_4__["LandingpageComponent"] }
+    { path: 'tabular', component: _charter_table_view_charter_table_view_component__WEBPACK_IMPORTED_MODULE_4__["CharterTableViewComponent"] },
+    { path: '', component: _landingpage_landingpage_component__WEBPACK_IMPORTED_MODULE_5__["LandingpageComponent"] },
+    { path: 'fi', component: _charter_charter_component__WEBPACK_IMPORTED_MODULE_3__["CharterComponent"] },
+    { path: 'hr', component: _hrcharter_hrcharter_component__WEBPACK_IMPORTED_MODULE_6__["HRcharterComponent"] },
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -428,7 +434,7 @@ module.exports = ".example-fill-remaining-space {\r\n    /* This fills the remai
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-toolbar class=\"mat-elevation-z8\" color =\"warn\" >\r\n    <p><span> Critical Job Montior </span></p>\r\n    <span class=\"example-fill-remaining-space\"></span>\r\n    <p><button mat-button (click)=\"toggleTabular()\"> {{ button_text }} </button>\r\n    </p>\r\n    <!-- <button mat-stroked-button color=\"warn\">Tabular View</button> -->\r\n</mat-toolbar>\r\n<br>\r\n<!-- <app-charter>{{title}}></app-charter> -->\r\n<!-- <br>\r\n<br> -->\r\n<router-outlet></router-outlet>\r\n<!-- <app-messages></app-messages> -->\r\n <p class=\"small\">contact sapurana to activate for your service area </p>\r\n\r\n      "
+module.exports = "<mat-toolbar class=\"mat-elevation-z8\" color =\"warn\" >\r\n    <p><span> Critical Job Montior </span></p>\r\n    <span class=\"example-fill-remaining-space\"></span>\r\n    <p><button mat-button (click)=\"toggleTabular()\"> {{ button_text }} </button>\r\n    </p>\r\n    <!-- <button mat-stroked-button color=\"warn\">Tabular View</button> -->\r\n</mat-toolbar>\r\n<br>\r\n<!-- <app-charter>{{title}}></app-charter> -->\r\n<!-- <br>\r\n<br> -->\r\n<router-outlet></router-outlet>\r\n<!-- <app-messages></app-messages> -->\r\n <p class=\"thick\">contact sapurana to activate for your service area </p>\r\n\r\n      "
 
 /***/ }),
 
@@ -469,11 +475,11 @@ var AppComponent = /** @class */ (function () {
     AppComponent.prototype.toggleTabular = function () {
         if (this.button_text === 'Chart') {
             this.button_text = 'Tabular';
-            this.router.navigate(['/']);
+            this.router.navigate(['/fi']);
         }
         else {
             this.button_text = 'Chart';
-            this.router.navigate(['/tabular']);
+            this.router.navigate(['/hr']);
         }
     };
     AppComponent = __decorate([
@@ -529,12 +535,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_material_dialog__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! @angular/material/dialog */ "./node_modules/@angular/material/esm5/dialog.es5.js");
 /* harmony import */ var _dialog_dialog_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./dialog/dialog.component */ "./src/app/dialog/dialog.component.ts");
 /* harmony import */ var _landingpage_landingpage_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./landingpage/landingpage.component */ "./src/app/landingpage/landingpage.component.ts");
+/* harmony import */ var _hrcharter_hrcharter_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./hrcharter/hrcharter.component */ "./src/app/hrcharter/hrcharter.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -578,7 +586,8 @@ var AppModule = /** @class */ (function () {
                 _customJobstatus__WEBPACK_IMPORTED_MODULE_22__["Customjobstatus"],
                 _customSubarea__WEBPACK_IMPORTED_MODULE_23__["Customsubarea"],
                 _dialog_dialog_component__WEBPACK_IMPORTED_MODULE_25__["DialogComponent"],
-                _landingpage_landingpage_component__WEBPACK_IMPORTED_MODULE_26__["LandingpageComponent"]
+                _landingpage_landingpage_component__WEBPACK_IMPORTED_MODULE_26__["LandingpageComponent"],
+                _hrcharter_hrcharter_component__WEBPACK_IMPORTED_MODULE_27__["HRcharterComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -698,7 +707,7 @@ module.exports = "mat-grid-tile {\r\n    background:ivory;\r\n  }\r\n  \r\n  p.t
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-grid-list cols=\"4\" rowHeight=\"1:.75\">\r\n\r\n    <mat-grid-tile>\r\n        <mat-grid-tile-header style=\"background : ivory\">\r\n            <p class=\"thick\"> {{ S1 }} </p>\r\n        </mat-grid-tile-header>\r\n        <div style=\"width: 90%\">\r\n            <canvas baseChart [data]=\"doughnutChartData_s1\" [labels]=\"doughnutChartLabels\" [chartType]=\"doughnutChartType\" (chartHover)=\"chartHovered($event)\"\r\n                (chartClick)=\"showChardata($event ,'S1')\" [options]=\"barChartOptions\">\r\n            </canvas>\r\n        </div>\r\n        <mat-grid-tile-footer style=\"background : ivory \">\r\n            <p class=\"thick\"> </p>\r\n        </mat-grid-tile-footer>\r\n    </mat-grid-tile>\r\n    <mat-grid-tile>\r\n        <mat-grid-tile-header style=\"background : ivory\">\r\n            <p class=\"thick\">  {{ S2 }} </p>\r\n        </mat-grid-tile-header>\r\n        <div style=\"width: 90%\">\r\n            <canvas baseChart [data]=\"doughnutChartData_s2\" [labels]=\"doughnutChartLabels\" [chartType]=\"doughnutChartType\" (chartHover)=\"chartHovered($event)\"\r\n                (chartClick)=\"showChardata($event , 'S2') \" [options]=\"barChartOptions\">\r\n            </canvas>\r\n        </div>\r\n    </mat-grid-tile>\r\n    <mat-grid-tile>\r\n        <mat-grid-tile-header style=\"background : ivory\">\r\n            <p class=\"thick\">  {{ S3 }} </p>\r\n        </mat-grid-tile-header>\r\n        <div style=\"width: 90%\">\r\n            <canvas baseChart [data]=\"doughnutChartData_s3\" [labels]=\"doughnutChartLabels\" [chartType]=\"doughnutChartType\" (chartHover)=\"chartHovered($event)\"\r\n                (chartClick)=\"showChardata($event , 'S3')\" [options]=\"barChartOptions\">\r\n            </canvas>\r\n        </div>\r\n    </mat-grid-tile>\r\n    <mat-grid-tile>\r\n        <mat-grid-tile-header style=\"background : ivory\">\r\n            <p class=\"thick\">  {{ S4 }} </p>\r\n        </mat-grid-tile-header>\r\n        <div style=\"width: 90%\">\r\n            <canvas baseChart [data]=\"doughnutChartData_s4\" [labels]=\"doughnutChartLabels\" [chartType]=\"doughnutChartType\" (chartHover)=\"chartHovered($event)\"\r\n                (chartClick)=\"showChardata($event , 'S4')\" [options]=\"barChartOptions\">\r\n            </canvas>\r\n        </div>\r\n    </mat-grid-tile>\r\n    <mat-grid-tile>\r\n        <mat-grid-tile-header style=\"background : ivory\">\r\n            <p class=\"thick\">  {{ S5 }} </p>\r\n        </mat-grid-tile-header>\r\n        <div style=\"width: 90%\">\r\n            <canvas baseChart [data]=\"doughnutChartData_s5\" [labels]=\"doughnutChartLabels\" [chartType]=\"doughnutChartType\" (chartHover)=\"chartHovered($event)\"\r\n                (chartClick)=\"showChardata($event , 'S5')\" [options]=\"barChartOptions\">\r\n            </canvas>\r\n        </div>\r\n    </mat-grid-tile>\r\n    <mat-grid-tile>\r\n        <mat-grid-tile-header style=\"background : ivory\">\r\n            <p class=\"thick\">  {{ S6 }} </p>\r\n        </mat-grid-tile-header>\r\n        <div style=\"width: 90%\">\r\n            <canvas baseChart [data]=\"doughnutChartData_s6\" [labels]=\"doughnutChartLabels\" [chartType]=\"doughnutChartType\" (chartHover)=\"chartHovered($event)\"\r\n                (chartClick)=\"showChardata($event , 'S6')\" [options]=\"barChartOptions\">\r\n            </canvas>\r\n        </div>\r\n    </mat-grid-tile>\r\n    <mat-grid-tile>\r\n        <mat-grid-tile-header style=\"background : ivory\">\r\n            <p class=\"thick\">  {{ S7 }} </p>\r\n        </mat-grid-tile-header>\r\n        <div style=\"width: 90%\">\r\n            <canvas baseChart [data]=\"doughnutChartData_s7\" [labels]=\"doughnutChartLabels\" [chartType]=\"doughnutChartType\" (chartHover)=\"chartHovered($event)\"\r\n                (chartClick)=\"showChardata($event ,'S7')\" [options]=\"barChartOptions\">\r\n            </canvas>\r\n        </div>\r\n\r\n    </mat-grid-tile>\r\n    <mat-grid-tile>\r\n        <mat-grid-tile-header style=\"background : ivory\">\r\n            <p class=\"thick\">  {{ S8 }} </p>\r\n        </mat-grid-tile-header>\r\n        <div>\r\n            <mat-progress-bar mode=\"determinate\" value = \"{{ progress }} \"></mat-progress-bar>\r\n           <p class=\"thick\"> Last updated at </p>\r\n            <p class=\"thick\"> {{ d1 }} </p>\r\n        </div>\r\n    </mat-grid-tile>\r\n\r\n</mat-grid-list>\r\n<br>\r\n<br>\r\n"
+module.exports = "<br>\r\n<h1 align=\"center\" class=\"thick\">SAP Finance Monthly clousure </h1>\r\n<h4 align=\"center\" class=\"thick\"> {{ d1 }} </h4>\r\n<mat-grid-list cols=\"4\" rowHeight=\"1:.75\">\r\n\r\n    <mat-grid-tile>\r\n        <mat-grid-tile-header style=\"background : ivory\">\r\n            <p class=\"thick\"> {{ S1 }} </p>\r\n        </mat-grid-tile-header>\r\n        <div style=\"width: 90%\">\r\n            <canvas baseChart [data]=\"doughnutChartData_s1\" [labels]=\"doughnutChartLabels\" [chartType]=\"doughnutChartType\" (chartHover)=\"chartHovered($event)\"\r\n                (chartClick)=\"showChardata($event ,'S1')\" [options]=\"barChartOptions\">\r\n            </canvas>\r\n        </div>\r\n        <mat-grid-tile-footer style=\"background : ivory \">\r\n            <p class=\"thick\"> </p>\r\n        </mat-grid-tile-footer>\r\n    </mat-grid-tile>\r\n    <mat-grid-tile>\r\n        <mat-grid-tile-header style=\"background : ivory\">\r\n            <p class=\"thick\">  {{ S2 }} </p>\r\n        </mat-grid-tile-header>\r\n        <div style=\"width: 90%\">\r\n            <canvas baseChart [data]=\"doughnutChartData_s2\" [labels]=\"doughnutChartLabels\" [chartType]=\"doughnutChartType\" (chartHover)=\"chartHovered($event)\"\r\n                (chartClick)=\"showChardata($event , 'S2') \" [options]=\"barChartOptions\">\r\n            </canvas>\r\n        </div>\r\n    </mat-grid-tile>\r\n    <mat-grid-tile>\r\n        <mat-grid-tile-header style=\"background : ivory\">\r\n            <p class=\"thick\">  {{ S3 }} </p>\r\n        </mat-grid-tile-header>\r\n        <div style=\"width: 90%\">\r\n            <canvas baseChart [data]=\"doughnutChartData_s3\" [labels]=\"doughnutChartLabels\" [chartType]=\"doughnutChartType\" (chartHover)=\"chartHovered($event)\"\r\n                (chartClick)=\"showChardata($event , 'S3')\" [options]=\"barChartOptions\">\r\n            </canvas>\r\n        </div>\r\n    </mat-grid-tile>\r\n    <mat-grid-tile>\r\n        <mat-grid-tile-header style=\"background : ivory\">\r\n            <p class=\"thick\">  {{ S4 }} </p>\r\n        </mat-grid-tile-header>\r\n        <div style=\"width: 90%\">\r\n            <canvas baseChart [data]=\"doughnutChartData_s4\" [labels]=\"doughnutChartLabels\" [chartType]=\"doughnutChartType\" (chartHover)=\"chartHovered($event)\"\r\n                (chartClick)=\"showChardata($event , 'S4')\" [options]=\"barChartOptions\">\r\n            </canvas>\r\n        </div>\r\n    </mat-grid-tile>\r\n    <mat-grid-tile>\r\n        <mat-grid-tile-header style=\"background : ivory\">\r\n            <p class=\"thick\">  {{ S5 }} </p>\r\n        </mat-grid-tile-header>\r\n        <div style=\"width: 90%\">\r\n            <canvas baseChart [data]=\"doughnutChartData_s5\" [labels]=\"doughnutChartLabels\" [chartType]=\"doughnutChartType\" (chartHover)=\"chartHovered($event)\"\r\n                (chartClick)=\"showChardata($event , 'S5')\" [options]=\"barChartOptions\">\r\n            </canvas>\r\n        </div>\r\n    </mat-grid-tile>\r\n    <mat-grid-tile>\r\n        <mat-grid-tile-header style=\"background : ivory\">\r\n            <p class=\"thick\">  {{ S6 }} </p>\r\n        </mat-grid-tile-header>\r\n        <div style=\"width: 90%\">\r\n            <canvas baseChart [data]=\"doughnutChartData_s6\" [labels]=\"doughnutChartLabels\" [chartType]=\"doughnutChartType\" (chartHover)=\"chartHovered($event)\"\r\n                (chartClick)=\"showChardata($event , 'S6')\" [options]=\"barChartOptions\">\r\n            </canvas>\r\n        </div>\r\n    </mat-grid-tile>\r\n    <mat-grid-tile>\r\n        <mat-grid-tile-header style=\"background : ivory\">\r\n            <p class=\"thick\">  {{ S7 }} </p>\r\n        </mat-grid-tile-header>\r\n        <div style=\"width: 90%\">\r\n            <canvas baseChart [data]=\"doughnutChartData_s7\" [labels]=\"doughnutChartLabels\" [chartType]=\"doughnutChartType\" (chartHover)=\"chartHovered($event)\"\r\n                (chartClick)=\"showChardata($event ,'S7')\" [options]=\"barChartOptions\">\r\n            </canvas>\r\n        </div>\r\n\r\n    </mat-grid-tile>\r\n    <mat-grid-tile>\r\n        <mat-grid-tile-header style=\"background : ivory\">\r\n            <p class=\"thick\">  {{ S8 }} </p>\r\n        </mat-grid-tile-header>\r\n        <div>\r\n            <mat-progress-bar mode=\"determinate\" value = \"{{ progress }} \"></mat-progress-bar>\r\n           <p class=\"thick\"> Last updated at </p>\r\n            <p class=\"thick\"> {{ d1 }} </p>\r\n        </div>\r\n    </mat-grid-tile>\r\n\r\n</mat-grid-list>\r\n<br>\r\n<br>\r\n"
 
 /***/ }),
 
@@ -1197,6 +1206,278 @@ var DialogComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/hrcharter/hrcharter.component.css":
+/*!***************************************************!*\
+  !*** ./src/app/hrcharter/hrcharter.component.css ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "mat-grid-tile {\r\n    background:ivory;\r\n  }\r\n  \r\n  p.thick {\r\n    font-weight: bold;\r\n    font-family: Roboto, \"Helvetica Neue\", sans-serif;\r\n    font-size: 15px;\r\n    color:black;\r\n    text-align: center;\r\n    \r\n}"
+
+/***/ }),
+
+/***/ "./src/app/hrcharter/hrcharter.component.html":
+/*!****************************************************!*\
+  !*** ./src/app/hrcharter/hrcharter.component.html ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<br>\n<h1 align=\"center\" class=\"thick\">SAP Human Resources U1 / U2 / other areas </h1>\n<h4 align=\"center\" class=\"thick\"> {{ d1 }} </h4>\n<mat-grid-list cols=\"4\" rowHeight=\"1:.75\">\n    <mat-grid-tile>\n        <mat-grid-tile-header style=\"background : ivory\">\n            <p class=\"thick\"> {{ S1 }} </p>\n        </mat-grid-tile-header>\n        <div style=\"width: 90%\">\n            <canvas baseChart [data]=\"doughnutChartData_s1\" [labels]=\"doughnutChartLabels\" [chartType]=\"doughnutChartType\" (chartHover)=\"chartHovered($event)\"\n                (chartClick)=\"showChardata($event ,'S1')\" [options]=\"barChartOptions\">\n            </canvas>\n        </div>\n        <mat-grid-tile-footer style=\"background : ivory \">\n            <p class=\"thick\"> </p>\n        </mat-grid-tile-footer>\n    </mat-grid-tile>\n    <mat-grid-tile>\n        <mat-grid-tile-header style=\"background : ivory\">\n            <p class=\"thick\">  {{ S2 }} </p>\n        </mat-grid-tile-header>\n        <div style=\"width: 90%\">\n            <canvas baseChart [data]=\"doughnutChartData_s2\" [labels]=\"doughnutChartLabels\" [chartType]=\"doughnutChartType\" (chartHover)=\"chartHovered($event)\"\n                (chartClick)=\"showChardata($event , 'S2') \" [options]=\"barChartOptions\">\n            </canvas>\n        </div>\n    </mat-grid-tile>\n    <mat-grid-tile>\n        <mat-grid-tile-header style=\"background : ivory\">\n            <p class=\"thick\">  {{ S3 }} </p>\n        </mat-grid-tile-header>\n        <div style=\"width: 90%\">\n            <canvas baseChart [data]=\"doughnutChartData_s3\" [labels]=\"doughnutChartLabels\" [chartType]=\"doughnutChartType\" (chartHover)=\"chartHovered($event)\"\n                (chartClick)=\"showChardata($event , 'S3')\" [options]=\"barChartOptions\">\n            </canvas>\n        </div>\n    </mat-grid-tile>\n    <mat-grid-tile>\n        <mat-grid-tile-header style=\"background : ivory\">\n            <p class=\"thick\">  {{ S4 }} </p>\n        </mat-grid-tile-header>\n        <div style=\"width: 90%\">\n            <canvas baseChart [data]=\"doughnutChartData_s4\" [labels]=\"doughnutChartLabels\" [chartType]=\"doughnutChartType\" (chartHover)=\"chartHovered($event)\"\n                (chartClick)=\"showChardata($event , 'S4')\" [options]=\"barChartOptions\">\n            </canvas>\n        </div>\n    </mat-grid-tile>\n    <mat-grid-tile>\n        <mat-grid-tile-header style=\"background : ivory\">\n            <p class=\"thick\">  {{ S5 }} </p>\n        </mat-grid-tile-header>\n        <div style=\"width: 90%\">\n            <canvas baseChart [data]=\"doughnutChartData_s5\" [labels]=\"doughnutChartLabels\" [chartType]=\"doughnutChartType\" (chartHover)=\"chartHovered($event)\"\n                (chartClick)=\"showChardata($event , 'S5')\" [options]=\"barChartOptions\">\n            </canvas>\n        </div>\n    </mat-grid-tile>\n    <mat-grid-tile>\n        <mat-grid-tile-header style=\"background : ivory\">\n            <p class=\"thick\">  {{ S6 }} </p>\n        </mat-grid-tile-header>\n        <div style=\"width: 90%\">\n            <canvas baseChart [data]=\"doughnutChartData_s6\" [labels]=\"doughnutChartLabels\" [chartType]=\"doughnutChartType\" (chartHover)=\"chartHovered($event)\"\n                (chartClick)=\"showChardata($event , 'S6')\" [options]=\"barChartOptions\">\n            </canvas>\n        </div>\n    </mat-grid-tile>\n   <mat-grid-tile>\n        <mat-grid-tile-header style=\"background : ivory\">\n            <p class=\"thick\">  {{ S8 }} </p>\n        </mat-grid-tile-header>\n        <div style=\"width: 90%\">\n            <canvas baseChart [data]=\"doughnutChartData_s6\" [labels]=\"doughnutChartLabels\" [chartType]=\"doughnutChartType\" (chartHover)=\"chartHovered($event)\"\n                (chartClick)=\"showChardata($event , 'S6')\" [options]=\"barChartOptions\">\n            </canvas>\n        </div>\n\n\n    </mat-grid-tile>\n\n</mat-grid-list>\n<br>\n<br>\n"
+
+/***/ }),
+
+/***/ "./src/app/hrcharter/hrcharter.component.ts":
+/*!**************************************************!*\
+  !*** ./src/app/hrcharter/hrcharter.component.ts ***!
+  \**************************************************/
+/*! exports provided: hrlabel_strings, HRcharterComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "hrlabel_strings", function() { return hrlabel_strings; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HRcharterComponent", function() { return HRcharterComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _jobservice_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../jobservice.service */ "./src/app/jobservice.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _message_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../message.service */ "./src/app/message.service.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var ngx_webstorage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ngx-webstorage */ "./node_modules/ngx-webstorage/dist/app.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+var hrlabel_strings;
+(function (hrlabel_strings) {
+    hrlabel_strings["S1"] = "Payroll-U1-Day1 ";
+    hrlabel_strings["S2"] = "Payroll-U1-Day2";
+    hrlabel_strings["S3"] = "Payroll-U1-Day3";
+    hrlabel_strings["S4"] = "Payroll-U3-Day1";
+    hrlabel_strings["S5"] = "Payroll-U3-Day2";
+    hrlabel_strings["S6"] = "Payroll-U3-Day3";
+    hrlabel_strings["S7"] = "HR critical jobs";
+    hrlabel_strings["S8"] = "Overall Status";
+})(hrlabel_strings || (hrlabel_strings = {}));
+var HRcharterComponent = /** @class */ (function () {
+    function HRcharterComponent(jobService, router, messageservice, sessionStorage) {
+        var _this = this;
+        this.jobService = jobService;
+        this.router = router;
+        this.messageservice = messageservice;
+        this.sessionStorage = sessionStorage;
+        this.S1 = hrlabel_strings.S1;
+        this.S2 = hrlabel_strings.S2;
+        this.S3 = hrlabel_strings.S3;
+        this.S4 = hrlabel_strings.S4;
+        this.S5 = hrlabel_strings.S5;
+        this.S6 = hrlabel_strings.S6;
+        this.S7 = hrlabel_strings.S7;
+        this.S8 = hrlabel_strings.S8;
+        this.timer = 10000;
+        this.doughnutChartLabels = [];
+        this.doughnutChartType = 'doughnut';
+        this.barChartOptions = { legend: { position: 'right', labels: { 'fontSize': 10, 'fontStyle': 'bold' } } };
+        this.doughnutChartData_s1 = [1, 1, 1, 1, 1, 1, 1];
+        this.doughnutChartData_s2 = [1, 1, 1, 1, 1, 1, 1];
+        this.doughnutChartData_s3 = [1, 1, 1, 1, 1, 1, 1];
+        this.doughnutChartData_s4 = [1, 1, 1, 1, 1, 1, 1];
+        this.doughnutChartData_s5 = [1, 1, 1, 1, 1, 1, 1];
+        this.doughnutChartData_s6 = [1, 1, 1, 1, 1, 1, 1];
+        this.doughnutChartData_s7 = [1, 1, 1, 1, 1, 1, 1];
+        this.doughnutChartData_s8 = [1, 1, 1, 1, 1, 1, 1];
+        this.dataSource = [];
+        this.d1 = new Date(0);
+        var retrigger$ = Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["interval"])(60000);
+        var secondsTimer$ = Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["interval"])(60000);
+        var subscribe = retrigger$.subscribe(function (val) { return _this.get_fresh_data(); });
+        var timer = secondsTimer$.subscribe(function (val) { return _this.add_counter(); });
+    }
+    HRcharterComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        //  Set the labels
+        this.doughnutChartLabels.push('Running');
+        this.doughnutChartLabels.push('Scheduled');
+        this.doughnutChartLabels.push('Released');
+        this.doughnutChartLabels.push('Ready');
+        this.doughnutChartLabels.push('PutActive');
+        this.doughnutChartLabels.push('Finished');
+        this.doughnutChartLabels.push('Aborted');
+        //  this.messageservice.invalidate_data(); // reset cache
+        this.jobService.getJobs().subscribe(function (returnData) { return _this.resetStatus(returnData); });
+    };
+    HRcharterComponent.prototype.get_fresh_data = function () {
+        var _this = this;
+        //  this.messageservice.invalidate_data(); // reset cache
+        this.jobService.getJobs().subscribe(function (returnData) { return _this.resetStatus(returnData); });
+    };
+    HRcharterComponent.prototype.add_counter = function () {
+        this.timer = this.timer - 1000;
+        this.display = this.timer / 1000;
+        if (this.timer === 0) {
+            this.timer = 100000;
+        }
+    };
+    HRcharterComponent.prototype.resetStatus = function (xJobs) {
+        var _this = this;
+        console.log(xJobs);
+        this.jobs = xJobs[0].job_summary;
+        // this.jobs = JSON.parse(xJobs[0]).job_summary;
+        //     store the date for the table display later
+        this.messageservice.add_jobdata(xJobs[0].jobs);
+        this.messageservice.add_jobsummarydata(this.jobs);
+        this.dataSource = this.jobs;
+        //  Set the data right as per the Webserive
+        this.jobs.forEach(function (element) {
+            switch (element.subprocess) {
+                case 'S1':
+                    _this.doughnutChartData_s1 = [];
+                    _this.doughnutChartData_s1.push(parseInt(element.running, 10));
+                    _this.doughnutChartData_s1.push(parseInt(element.scheduled, 10));
+                    _this.doughnutChartData_s1.push(parseInt(element.released, 10));
+                    _this.doughnutChartData_s1.push(parseInt(element.ready, 10));
+                    _this.doughnutChartData_s1.push(parseInt(element.putactive, 10));
+                    _this.doughnutChartData_s1.push(parseInt(element.finished, 10));
+                    _this.doughnutChartData_s1.push(parseInt(element.aborted, 10));
+                    _this.d1 = new Date(0);
+                    _this.d1.setUTCSeconds(parseInt(element.timestamp, 0));
+                    break;
+                case 'S2':
+                    _this.doughnutChartData_s2 = [];
+                    _this.doughnutChartData_s2.push(parseInt(element.running, 10));
+                    _this.doughnutChartData_s2.push(parseInt(element.scheduled, 10));
+                    _this.doughnutChartData_s2.push(parseInt(element.released, 10));
+                    _this.doughnutChartData_s2.push(parseInt(element.ready, 10));
+                    _this.doughnutChartData_s2.push(parseInt(element.putactive, 10));
+                    _this.doughnutChartData_s2.push(parseInt(element.finished, 10));
+                    _this.doughnutChartData_s2.push(parseInt(element.aborted, 10));
+                    break;
+                case 'S3':
+                    _this.doughnutChartData_s3 = [];
+                    _this.doughnutChartData_s3.push(parseInt(element.running, 10));
+                    _this.doughnutChartData_s3.push(parseInt(element.scheduled, 10));
+                    _this.doughnutChartData_s3.push(parseInt(element.released, 10));
+                    _this.doughnutChartData_s3.push(parseInt(element.ready, 10));
+                    _this.doughnutChartData_s3.push(parseInt(element.putactive, 10));
+                    _this.doughnutChartData_s3.push(parseInt(element.finished, 10));
+                    _this.doughnutChartData_s3.push(parseInt(element.aborted, 10));
+                    break;
+                case 'S4':
+                    _this.doughnutChartData_s4 = [];
+                    _this.doughnutChartData_s4.push(parseInt(element.running, 10));
+                    _this.doughnutChartData_s4.push(parseInt(element.scheduled, 10));
+                    _this.doughnutChartData_s4.push(parseInt(element.released, 10));
+                    _this.doughnutChartData_s4.push(parseInt(element.ready, 10));
+                    _this.doughnutChartData_s4.push(parseInt(element.putactive, 10));
+                    _this.doughnutChartData_s4.push(parseInt(element.finished, 10));
+                    _this.doughnutChartData_s4.push(parseInt(element.aborted, 10));
+                    break;
+                case 'S5':
+                    _this.doughnutChartData_s5 = [];
+                    _this.doughnutChartData_s5.push(parseInt(element.running, 10));
+                    _this.doughnutChartData_s5.push(parseInt(element.scheduled, 10));
+                    _this.doughnutChartData_s5.push(parseInt(element.released, 10));
+                    _this.doughnutChartData_s5.push(parseInt(element.ready, 10));
+                    _this.doughnutChartData_s5.push(parseInt(element.putactive, 10));
+                    _this.doughnutChartData_s5.push(parseInt(element.finished, 10));
+                    _this.doughnutChartData_s5.push(parseInt(element.aborted, 10));
+                    break;
+                case 'S6':
+                    _this.doughnutChartData_s6 = [];
+                    _this.doughnutChartData_s6.push(parseInt(element.running, 10));
+                    _this.doughnutChartData_s6.push(parseInt(element.scheduled, 10));
+                    _this.doughnutChartData_s6.push(parseInt(element.released, 10));
+                    _this.doughnutChartData_s6.push(parseInt(element.ready, 10));
+                    _this.doughnutChartData_s6.push(parseInt(element.putactive, 10));
+                    _this.doughnutChartData_s6.push(parseInt(element.finished, 10));
+                    _this.doughnutChartData_s6.push(parseInt(element.aborted, 10));
+                    break;
+                case 'S7':
+                    _this.doughnutChartData_s7 = [];
+                    _this.doughnutChartData_s7.push(parseInt(element.running, 10));
+                    _this.doughnutChartData_s7.push(parseInt(element.scheduled, 10));
+                    _this.doughnutChartData_s7.push(parseInt(element.released, 10));
+                    _this.doughnutChartData_s7.push(parseInt(element.ready, 10));
+                    _this.doughnutChartData_s7.push(parseInt(element.putactive, 10));
+                    _this.doughnutChartData_s7.push(parseInt(element.finished, 10));
+                    _this.doughnutChartData_s7.push(parseInt(element.aborted, 10));
+                    break;
+                case 'S8':
+                    _this.doughnutChartData_s8 = [];
+                    _this.doughnutChartData_s8.push(parseInt(element.running, 10));
+                    _this.doughnutChartData_s8.push(parseInt(element.scheduled, 10));
+                    _this.doughnutChartData_s8.push(parseInt(element.released, 10));
+                    _this.doughnutChartData_s8.push(parseInt(element.ready, 10));
+                    _this.doughnutChartData_s8.push(parseInt(element.putactive, 10));
+                    _this.doughnutChartData_s8.push(parseInt(element.finished, 10));
+                    _this.doughnutChartData_s8.push(parseInt(element.aborted, 10));
+                    break;
+            }
+        });
+        this.progress = 30;
+    };
+    HRcharterComponent.prototype.showChardata = function (e, charttype) {
+        if (e.active.length > 0) {
+            console.log(e.active[0]._chart.config.data.labels[e.active[0]._index]);
+            switch (e.active[0]._chart.config.data.labels[e.active[0]._index]) {
+                case 'Running':
+                    this.router.navigate(['/table/' + charttype + '-Running']);
+                    break;
+                case 'Ready':
+                    this.router.navigate(['/table/' + charttype + '-Ready']);
+                    break;
+                case 'Scheduled':
+                    this.router.navigate(['/table/' + charttype + '-Scheduled']);
+                    break;
+                case 'Released':
+                    this.router.navigate(['/table/' + charttype + '-Released']);
+                    break;
+                case 'Aborted':
+                    this.router.navigate(['/table/' + charttype + '-Aborted']);
+                    break;
+                case 'Finished':
+                    this.router.navigate(['/table/' + charttype + '-Finished']);
+                    break;
+                case 'Putactive':
+                    this.router.navigate(['/table/' + charttype + '-Putactive']);
+                    break;
+                default:
+                    break;
+            }
+        }
+    };
+    HRcharterComponent.prototype.chartHovered = function (e) {
+    };
+    HRcharterComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-hrcharter',
+            template: __webpack_require__(/*! ./hrcharter.component.html */ "./src/app/hrcharter/hrcharter.component.html"),
+            styles: [__webpack_require__(/*! ./hrcharter.component.css */ "./src/app/hrcharter/hrcharter.component.css")]
+        }),
+        __metadata("design:paramtypes", [_jobservice_service__WEBPACK_IMPORTED_MODULE_1__["JobserviceService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+            _message_service__WEBPACK_IMPORTED_MODULE_3__["MessageService"],
+            ngx_webstorage__WEBPACK_IMPORTED_MODULE_5__["SessionStorageService"]])
+    ], HRcharterComponent);
+    return HRcharterComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/jobservice.service.ts":
 /*!***************************************!*\
   !*** ./src/app/jobservice.service.ts ***!
@@ -1287,7 +1568,7 @@ module.exports = "mat-grid-tile {\r\n    background: lightpink;\r\n  }\r\n  "
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-grid-list cols=\"2\" rowHeight=\"2:1\">\n  <mat-grid-tile><button mat-button >FI Dashboard </button></mat-grid-tile>\n  <mat-grid-tile><button mat-button>HR Dashboard </button></mat-grid-tile>\n  <mat-grid-tile>This is test </mat-grid-tile>\n  <mat-grid-tile>this is test </mat-grid-tile>\n</mat-grid-list>\n"
+module.exports = "<mat-grid-list cols=\"2\" rowHeight=\"2:1\">\n  <mat-grid-tile><button mat-button > FINANCE MONTHLY JOBS </button></mat-grid-tile>\n  <mat-grid-tile><button mat-button> HR PAYROLL U1 JOBS </button></mat-grid-tile>\n  <mat-grid-tile>This is test </mat-grid-tile>\n  <mat-grid-tile>this is test </mat-grid-tile>\n</mat-grid-list>\n"
 
 /***/ }),
 

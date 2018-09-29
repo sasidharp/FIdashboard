@@ -1,0 +1,12 @@
+mat-grid-tile {
+    background:ivory;
+  }
+  
+  p.thick {
+    font-weight: bold;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: 15px;
+    color:black;
+    text-align: center;
+    
+}

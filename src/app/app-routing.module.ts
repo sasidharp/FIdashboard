@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { CharterComponent } from './charter/charter.component';
 import { CharterTableViewComponent } from './charter-table-view/charter-table-view.component';
 import { LandingpageComponent } from './landingpage/landingpage.component';
-
+import { HRcharterComponent } from './hrcharter/hrcharter.component';
 const routes: Routes = [
   { path: 'table/:id', component: TableDisplayComponent },
   { path: 'tabular', component: CharterTableViewComponent },
-  { path: '', component: LandingpageComponent }
+  { path: '', component: LandingpageComponent },
+  { path: 'fi' , component: CharterComponent },
+  { path: 'hr' , component: HRcharterComponent },
 ];
 
 @NgModule({
