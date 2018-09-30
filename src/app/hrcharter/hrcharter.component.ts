@@ -205,28 +205,28 @@ export class HRcharterComponent implements OnInit {
       console.log(e.active[0]._chart.config.data.labels[e.active[0]._index]);
       switch (e.active[0]._chart.config.data.labels[e.active[0]._index]) {
         case 'Running':
-          this.router.navigate(['/table/' + charttype + '-Running']);
-          break;
-        case 'Ready':
-          this.router.navigate(['/table/' + charttype + '-Ready']);
-          break;
-        case 'Scheduled':
-          this.router.navigate(['/table/' + charttype + '-Scheduled']);
-          break;
-        case 'Released':
-          this.router.navigate(['/table/' + charttype + '-Released']);
-          break;
-        case 'Aborted':
-          this.router.navigate(['/table/' + charttype + '-Aborted']);
-          break;
-        case 'Finished':
-          this.router.navigate(['/table/' + charttype + '-Finished']);
-          break;
-        case 'Putactive':
-          this.router.navigate(['/table/' + charttype + '-Putactive']);
-          break;
-        default:
-          break;
+        this.router.navigate(['/table/' + charttype + '-R']);
+        break;
+      case 'Ready':
+        this.router.navigate(['/table/' + charttype + '-Y']);
+        break;
+      case 'Scheduled':
+        this.router.navigate(['/table/' + charttype + '-P']);
+        break;
+      case 'Released':
+        this.router.navigate(['/table/' + charttype + '-S']);
+        break;
+      case 'Aborted':
+        this.router.navigate(['/table/' + charttype + '-A']);
+        break;
+      case 'Finished':
+        this.router.navigate(['/table/' + charttype + '-F']);
+        break;
+      case 'Putactive':
+        this.router.navigate(['/table/' + charttype + '-Z']);
+        break;
+      default:
+        break;
       }
     }
   }

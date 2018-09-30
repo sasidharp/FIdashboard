@@ -46,7 +46,7 @@ export class TableDisplayComponent implements OnInit {
   // Filter the dataSource.
   filter(params: ParamMap) {
     this.dataSource.forEach(element => {
-      if (element.subarea === params.get('id').substr(0, 2)) {
+      if (element.subarea === params.get('id').substr(0, 2) && element.status === params.get('id').substr(3, 1)) {
         this.dataSourceFiltered.push(element);
       }
     });
@@ -64,10 +64,17 @@ export class TableDisplayComponent implements OnInit {
         top: '100px',
         left: '300px'
       },
-      height: '100px',
-      width: '500px',
+      height: '600px',
+      width: '900px',
       // data: this.dData
-      data: { line1: 'line1', line2: 'line2', line3: 'line3' }
+      data: {
+        line1: e.line1,
+        line2: e.line2,
+        line3: e.line3,
+        line4: e.line4,
+        line5: e.line5,
+        line6: e.line6
+      }
     };
     const dialogRef = this.dialog.open(DialogComponent, config);
 

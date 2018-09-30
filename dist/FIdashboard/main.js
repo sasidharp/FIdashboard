@@ -720,7 +720,7 @@ module.exports = "mat-grid-tile {\n    background:ivory;\n  }\n  \n  p.thick {\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<br>\n<h1 align=\"center\" class=\"thick\">SAP Finance Monthly clousure </h1>\n<h4 align=\"center\" class=\"thick\"> {{ d1 }} </h4>\n<mat-grid-list cols=\"4\" rowHeight=\"1:.75\">\n\n    <mat-grid-tile>\n        <mat-grid-tile-header style=\"background : ivory\">\n            <p class=\"thick\"> {{ S1 }} </p>\n        </mat-grid-tile-header>\n        <div style=\"width: 90%\">\n            <canvas baseChart [data]=\"doughnutChartData_s1\" [labels]=\"doughnutChartLabels\" [chartType]=\"doughnutChartType\" (chartHover)=\"chartHovered($event)\"\n                (chartClick)=\"showChardata($event ,'S1')\" [options]=\"barChartOptions\">\n            </canvas>\n        </div>\n        <mat-grid-tile-footer style=\"background : ivory \">\n            <p class=\"thick\"> </p>\n        </mat-grid-tile-footer>\n    </mat-grid-tile>\n    <mat-grid-tile>\n        <mat-grid-tile-header style=\"background : ivory\">\n            <p class=\"thick\">  {{ S2 }} </p>\n        </mat-grid-tile-header>\n        <div style=\"width: 90%\">\n            <canvas baseChart [data]=\"doughnutChartData_s2\" [labels]=\"doughnutChartLabels\" [chartType]=\"doughnutChartType\" (chartHover)=\"chartHovered($event)\"\n                (chartClick)=\"showChardata($event , 'S2') \" [options]=\"barChartOptions\">\n            </canvas>\n        </div>\n    </mat-grid-tile>\n    <mat-grid-tile>\n        <mat-grid-tile-header style=\"background : ivory\">\n            <p class=\"thick\">  {{ S3 }} </p>\n        </mat-grid-tile-header>\n        <div style=\"width: 90%\">\n            <canvas baseChart [data]=\"doughnutChartData_s3\" [labels]=\"doughnutChartLabels\" [chartType]=\"doughnutChartType\" (chartHover)=\"chartHovered($event)\"\n                (chartClick)=\"showChardata($event , 'S3')\" [options]=\"barChartOptions\">\n            </canvas>\n        </div>\n    </mat-grid-tile>\n    <mat-grid-tile>\n        <mat-grid-tile-header style=\"background : ivory\">\n            <p class=\"thick\">  {{ S4 }} </p>\n        </mat-grid-tile-header>\n        <div style=\"width: 90%\">\n            <canvas baseChart [data]=\"doughnutChartData_s4\" [labels]=\"doughnutChartLabels\" [chartType]=\"doughnutChartType\" (chartHover)=\"chartHovered($event)\"\n                (chartClick)=\"showChardata($event , 'S4')\" [options]=\"barChartOptions\">\n            </canvas>\n        </div>\n    </mat-grid-tile>\n    <mat-grid-tile>\n        <mat-grid-tile-header style=\"background : ivory\">\n            <p class=\"thick\">  {{ S5 }} </p>\n        </mat-grid-tile-header>\n        <div style=\"width: 90%\">\n            <canvas baseChart [data]=\"doughnutChartData_s5\" [labels]=\"doughnutChartLabels\" [chartType]=\"doughnutChartType\" (chartHover)=\"chartHovered($event)\"\n                (chartClick)=\"showChardata($event , 'S5')\" [options]=\"barChartOptions\">\n            </canvas>\n        </div>\n    </mat-grid-tile>\n    <mat-grid-tile>\n        <mat-grid-tile-header style=\"background : ivory\">\n            <p class=\"thick\">  {{ S6 }} </p>\n        </mat-grid-tile-header>\n        <div style=\"width: 90%\">\n            <canvas baseChart [data]=\"doughnutChartData_s6\" [labels]=\"doughnutChartLabels\" [chartType]=\"doughnutChartType\" (chartHover)=\"chartHovered($event)\"\n                (chartClick)=\"showChardata($event , 'S6')\" [options]=\"barChartOptions\">\n            </canvas>\n        </div>\n    </mat-grid-tile>\n    <mat-grid-tile>\n        <mat-grid-tile-header style=\"background : ivory\">\n            <p class=\"thick\">  {{ S7 }} </p>\n        </mat-grid-tile-header>\n        <div style=\"width: 90%\">\n            <canvas baseChart [data]=\"doughnutChartData_s7\" [labels]=\"doughnutChartLabels\" [chartType]=\"doughnutChartType\" (chartHover)=\"chartHovered($event)\"\n                (chartClick)=\"showChardata($event ,'S7')\" [options]=\"barChartOptions\">\n            </canvas>\n        </div>\n\n    </mat-grid-tile>\n    <mat-grid-tile>\n        <mat-grid-tile-header style=\"background : ivory\">\n            <p class=\"thick\">  {{ S8 }} </p>\n        </mat-grid-tile-header>\n        <div>\n            <mat-progress-bar mode=\"determinate\" value = \"{{ progress }} \"></mat-progress-bar>\n           <p class=\"thick\"> Last updated at </p>\n            <p class=\"thick\"> {{ d1 }} </p>\n        </div>\n    </mat-grid-tile>\n\n</mat-grid-list>\n<br>\n<br>\n"
+module.exports = "<br>\n<h1 align=\"center\" class=\"thick\">SAP Finance Monthly \\ Daily Critical Jobs </h1>\n<h4 align=\"center\" class=\"thick\"> {{ d1 }} </h4>\n<mat-grid-list cols=\"4\" rowHeight=\"1:.75\">\n\n    <mat-grid-tile>\n        <mat-grid-tile-header style=\"background : ivory\">\n            <p class=\"thick\"> {{ S1 }} </p>\n        </mat-grid-tile-header>\n        <div style=\"width: 90%\">\n            <canvas baseChart [data]=\"doughnutChartData_s1\" [labels]=\"doughnutChartLabels\" [chartType]=\"doughnutChartType\" (chartHover)=\"chartHovered($event)\"\n                (chartClick)=\"showChardata($event ,'S1')\" [options]=\"barChartOptions\">\n            </canvas>\n        </div>\n        <mat-grid-tile-footer style=\"background : ivory \">\n            <p class=\"thick\"> </p>\n        </mat-grid-tile-footer>\n    </mat-grid-tile>\n    <mat-grid-tile>\n        <mat-grid-tile-header style=\"background : ivory\">\n            <p class=\"thick\">  {{ S2 }} </p>\n        </mat-grid-tile-header>\n        <div style=\"width: 90%\">\n            <canvas baseChart [data]=\"doughnutChartData_s2\" [labels]=\"doughnutChartLabels\" [chartType]=\"doughnutChartType\" (chartHover)=\"chartHovered($event)\"\n                (chartClick)=\"showChardata($event , 'S2') \" [options]=\"barChartOptions\">\n            </canvas>\n        </div>\n    </mat-grid-tile>\n    <mat-grid-tile>\n        <mat-grid-tile-header style=\"background : ivory\">\n            <p class=\"thick\">  {{ S3 }} </p>\n        </mat-grid-tile-header>\n        <div style=\"width: 90%\">\n            <canvas baseChart [data]=\"doughnutChartData_s3\" [labels]=\"doughnutChartLabels\" [chartType]=\"doughnutChartType\" (chartHover)=\"chartHovered($event)\"\n                (chartClick)=\"showChardata($event , 'S3')\" [options]=\"barChartOptions\">\n            </canvas>\n        </div>\n    </mat-grid-tile>\n    <mat-grid-tile>\n        <mat-grid-tile-header style=\"background : ivory\">\n            <p class=\"thick\">  {{ S4 }} </p>\n        </mat-grid-tile-header>\n        <div style=\"width: 90%\">\n            <canvas baseChart [data]=\"doughnutChartData_s4\" [labels]=\"doughnutChartLabels\" [chartType]=\"doughnutChartType\" (chartHover)=\"chartHovered($event)\"\n                (chartClick)=\"showChardata($event , 'S4')\" [options]=\"barChartOptions\">\n            </canvas>\n        </div>\n    </mat-grid-tile>\n    <mat-grid-tile>\n        <mat-grid-tile-header style=\"background : ivory\">\n            <p class=\"thick\">  {{ S5 }} </p>\n        </mat-grid-tile-header>\n        <div style=\"width: 90%\">\n            <canvas baseChart [data]=\"doughnutChartData_s5\" [labels]=\"doughnutChartLabels\" [chartType]=\"doughnutChartType\" (chartHover)=\"chartHovered($event)\"\n                (chartClick)=\"showChardata($event , 'S5')\" [options]=\"barChartOptions\">\n            </canvas>\n        </div>\n    </mat-grid-tile>\n    <mat-grid-tile>\n        <mat-grid-tile-header style=\"background : ivory\">\n            <p class=\"thick\">  {{ S6 }} </p>\n        </mat-grid-tile-header>\n        <div style=\"width: 90%\">\n            <canvas baseChart [data]=\"doughnutChartData_s6\" [labels]=\"doughnutChartLabels\" [chartType]=\"doughnutChartType\" (chartHover)=\"chartHovered($event)\"\n                (chartClick)=\"showChardata($event , 'S6')\" [options]=\"barChartOptions\">\n            </canvas>\n        </div>\n    </mat-grid-tile>\n    <mat-grid-tile>\n        <mat-grid-tile-header style=\"background : ivory\">\n            <p class=\"thick\">  {{ S7 }} </p>\n        </mat-grid-tile-header>\n        <div style=\"width: 90%\">\n            <canvas baseChart [data]=\"doughnutChartData_s7\" [labels]=\"doughnutChartLabels\" [chartType]=\"doughnutChartType\" (chartHover)=\"chartHovered($event)\"\n                (chartClick)=\"showChardata($event ,'S7')\" [options]=\"barChartOptions\">\n            </canvas>\n        </div>\n\n    </mat-grid-tile>\n   \n</mat-grid-list>\n<br>\n<br>\n"
 
 /***/ }),
 
@@ -924,30 +924,38 @@ var CharterComponent = /** @class */ (function () {
         });
         this.progress = 30;
     };
+    // A = 'Aborted',
+    // Y = 'Ready',
+    // P = 'Scheduled',
+    // S = 'Released',
+    // R = 'Running',
+    // F = 'Finished',
+    // Z = 'Putactive',
+    // X = 'Unknown State'
     CharterComponent.prototype.showChardata = function (e, charttype) {
         if (e.active.length > 0) {
             console.log(e.active[0]._chart.config.data.labels[e.active[0]._index]);
             switch (e.active[0]._chart.config.data.labels[e.active[0]._index]) {
                 case 'Running':
-                    this.router.navigate(['/table/' + charttype + '-Running']);
+                    this.router.navigate(['/table/' + charttype + '-R']);
                     break;
                 case 'Ready':
-                    this.router.navigate(['/table/' + charttype + '-Ready']);
+                    this.router.navigate(['/table/' + charttype + '-Y']);
                     break;
                 case 'Scheduled':
-                    this.router.navigate(['/table/' + charttype + '-Scheduled']);
+                    this.router.navigate(['/table/' + charttype + '-P']);
                     break;
                 case 'Released':
-                    this.router.navigate(['/table/' + charttype + '-Released']);
+                    this.router.navigate(['/table/' + charttype + '-S']);
                     break;
                 case 'Aborted':
-                    this.router.navigate(['/table/' + charttype + '-Aborted']);
+                    this.router.navigate(['/table/' + charttype + '-A']);
                     break;
                 case 'Finished':
-                    this.router.navigate(['/table/' + charttype + '-Finished']);
+                    this.router.navigate(['/table/' + charttype + '-F']);
                     break;
                 case 'Putactive':
-                    this.router.navigate(['/table/' + charttype + '-Putactive']);
+                    this.router.navigate(['/table/' + charttype + '-Z']);
                     break;
                 default:
                     break;
@@ -1162,7 +1170,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1 mat-dialog-title>Hi {{data.line1 }}</h1>\n<div mat-dialog-content>\n  <p>{{data.line2}}</p>\n  <!-- <mat-form-field>\n    <input matInput [(ngModel)]=\"data.animal\">\n  </mat-form-field> -->\n</div>\n<!-- <div mat-dialog-actions>\n  <button mat-button (click)=\"onNoClick()\">No Thanks</button>\n  <button mat-button [mat-dialog-close]=\"data.animal\" cdkFocusInitial>Ok</button>\n</div> -->\n"
+module.exports = "<h1 mat-dialog-title>JOB LOG FOR THE SELECTED ROW</h1>\n<div mat-dialog-content>\n  <p>{{data.line1}}</p>\n  <p>{{data.line2}}</p>\n  <p>{{data.line3}}</p>\n  <p>{{data.line4}}</p>\n  <p>{{data.line5}}</p>\n  <p>{{data.line6}}</p>\n  <!-- <mat-form-field>\n    <input matInput [(ngModel)]=\"data.animal\">\n  </mat-form-field> -->\n</div>\n<!-- <div mat-dialog-actions>\n  <button mat-button (click)=\"onNoClick()\">No Thanks</button>\n  <button mat-button [mat-dialog-close]=\"data.animal\" cdkFocusInitial>Ok</button>\n</div> -->\n"
 
 /***/ }),
 
@@ -1446,25 +1454,25 @@ var HRcharterComponent = /** @class */ (function () {
             console.log(e.active[0]._chart.config.data.labels[e.active[0]._index]);
             switch (e.active[0]._chart.config.data.labels[e.active[0]._index]) {
                 case 'Running':
-                    this.router.navigate(['/table/' + charttype + '-Running']);
+                    this.router.navigate(['/table/' + charttype + '-R']);
                     break;
                 case 'Ready':
-                    this.router.navigate(['/table/' + charttype + '-Ready']);
+                    this.router.navigate(['/table/' + charttype + '-Y']);
                     break;
                 case 'Scheduled':
-                    this.router.navigate(['/table/' + charttype + '-Scheduled']);
+                    this.router.navigate(['/table/' + charttype + '-P']);
                     break;
                 case 'Released':
-                    this.router.navigate(['/table/' + charttype + '-Released']);
+                    this.router.navigate(['/table/' + charttype + '-S']);
                     break;
                 case 'Aborted':
-                    this.router.navigate(['/table/' + charttype + '-Aborted']);
+                    this.router.navigate(['/table/' + charttype + '-A']);
                     break;
                 case 'Finished':
-                    this.router.navigate(['/table/' + charttype + '-Finished']);
+                    this.router.navigate(['/table/' + charttype + '-F']);
                     break;
                 case 'Putactive':
-                    this.router.navigate(['/table/' + charttype + '-Putactive']);
+                    this.router.navigate(['/table/' + charttype + '-Z']);
                     break;
                 default:
                     break;
@@ -1797,7 +1805,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"example-container mat-elevation-z8\">\n  <mat-table #table [dataSource]=\"dataSource\">\n\n    <!--- Note that these columns can be defined in any order.\n          The actual rendered columns are set as a property on the row definition\" -->\n\n    <!-- Position Column -->\n    <ng-container matColumnDef=\"subarea\">\n      <mat-header-cell *matHeaderCellDef> Subarea </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"> {{element.subarea | customsubarea }} </mat-cell>\n    </ng-container>\n\n    <!-- Name Column -->\n    <ng-container matColumnDef=\"jobname\">\n      <mat-header-cell *matHeaderCellDef> Job Name </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"> {{ element.jobname }} </mat-cell>\n    </ng-container>\n\n    <!-- Weight Column -->\n    <ng-container matColumnDef=\"jobcount\">\n      <mat-header-cell *matHeaderCellDef> Job Count </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"> {{ element.jobcount }} </mat-cell>\n    </ng-container>\n\n    Symbol Column -->\n    <ng-container matColumnDef=\"sdlstrdt\">\n      <mat-header-cell *matHeaderCellDef> Scheduled start date </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"> {{ element.sdlstrdt | customdate }} </mat-cell>\n    </ng-container>\n\n    <ng-container matColumnDef=\"sdlstrttm\">\n      <mat-header-cell *matHeaderCellDef> Schdeuled start time </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"> {{ element.sdlstrttm | customtime }} </mat-cell>\n    </ng-container>\n\n    Symbol Column -->\n    <ng-container matColumnDef=\"strtdate\">\n      <mat-header-cell *matHeaderCellDef> Start Date </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"> {{ element.strtdate | customdate }} </mat-cell>\n    </ng-container>\n\n    <ng-container matColumnDef=\"strttime\">\n      <mat-header-cell *matHeaderCellDef> Start time </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"> {{ element.strttime | customtime }} </mat-cell>\n    </ng-container>\n\n    Symbol Column -->\n    <ng-container matColumnDef=\"enddate\">\n      <mat-header-cell *matHeaderCellDef> End date </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"> {{ element.enddate | customdate }} </mat-cell>\n    </ng-container>\n\n    <ng-container matColumnDef=\"endtime\">\n      <mat-header-cell *matHeaderCellDef> End time </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"> {{element.endtime | customtime }} </mat-cell>\n    </ng-container>\n\n    <ng-container matColumnDef=\"sdldate\">\n      <mat-header-cell *matHeaderCellDef> Scheduled date </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"> {{element.sdldate | customdate }} </mat-cell>\n    </ng-container>\n\n    <ng-container matColumnDef=\"sdltime\">\n      <mat-header-cell *matHeaderCellDef> Schdeuled time </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"> {{element.sdltime | customtime }} </mat-cell>\n    </ng-container>\n\n    <ng-container matColumnDef=\"status\">\n      <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"> {{element.status | customjob }} </mat-cell>\n    </ng-container>\n\n    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n    <mat-row (click)=\"openDialog(row)\" *matRowDef=\"let row; columns: displayedColumns;\" ></mat-row>\n  </mat-table>\n</div>\n\n\n<!-- Copyright 2018 Google Inc. All Rights Reserved.\n    Use of this source code is governed by an MIT-style license that\n    can be found in the LICENSE file at http://angular.io/license -->"
+module.exports = "<div class=\"example-container mat-elevation-z8\">\n  <mat-table #table [dataSource]=\"dataSourceFiltered\">\n\n    <!--- Note that these columns can be defined in any order.\n          The actual rendered columns are set as a property on the row definition\" -->\n\n    <!-- Position Column -->\n    <ng-container matColumnDef=\"subarea\">\n      <mat-header-cell *matHeaderCellDef> Subarea </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"> {{element.subarea | customsubarea }} </mat-cell>\n    </ng-container>\n\n    <!-- Name Column -->\n    <ng-container matColumnDef=\"jobname\">\n      <mat-header-cell *matHeaderCellDef> Job Name </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"> {{ element.jobname }} </mat-cell>\n    </ng-container>\n\n    <!-- Weight Column -->\n    <ng-container matColumnDef=\"jobcount\">\n      <mat-header-cell *matHeaderCellDef> Job Count </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"> {{ element.jobcount }} </mat-cell>\n    </ng-container>\n\n    Symbol Column -->\n    <ng-container matColumnDef=\"sdlstrdt\">\n      <mat-header-cell *matHeaderCellDef> Scheduled start date </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"> {{ element.sdlstrdt | customdate }} </mat-cell>\n    </ng-container>\n\n    <ng-container matColumnDef=\"sdlstrttm\">\n      <mat-header-cell *matHeaderCellDef> Schdeuled start time </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"> {{ element.sdlstrttm | customtime }} </mat-cell>\n    </ng-container>\n\n    Symbol Column -->\n    <ng-container matColumnDef=\"strtdate\">\n      <mat-header-cell *matHeaderCellDef> Start Date </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"> {{ element.strtdate | customdate }} </mat-cell>\n    </ng-container>\n\n    <ng-container matColumnDef=\"strttime\">\n      <mat-header-cell *matHeaderCellDef> Start time </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"> {{ element.strttime | customtime }} </mat-cell>\n    </ng-container>\n\n    Symbol Column -->\n    <ng-container matColumnDef=\"enddate\">\n      <mat-header-cell *matHeaderCellDef> End date </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"> {{ element.enddate | customdate }} </mat-cell>\n    </ng-container>\n\n    <ng-container matColumnDef=\"endtime\">\n      <mat-header-cell *matHeaderCellDef> End time </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"> {{element.endtime | customtime }} </mat-cell>\n    </ng-container>\n\n    <ng-container matColumnDef=\"sdldate\">\n      <mat-header-cell *matHeaderCellDef> Scheduled date </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"> {{element.sdldate | customdate }} </mat-cell>\n    </ng-container>\n\n    <ng-container matColumnDef=\"sdltime\">\n      <mat-header-cell *matHeaderCellDef> Schdeuled time </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"> {{element.sdltime | customtime }} </mat-cell>\n    </ng-container>\n\n    <ng-container matColumnDef=\"status\">\n      <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"> {{element.status | customjob }} </mat-cell>\n    </ng-container>\n\n    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n    <mat-row (click)=\"openDialog(row)\" *matRowDef=\"let row; columns: displayedColumns;\" ></mat-row>\n  </mat-table>\n</div>\n\n\n<!-- Copyright 2018 Google Inc. All Rights Reserved.\n    Use of this source code is governed by an MIT-style license that\n    can be found in the LICENSE file at http://angular.io/license -->"
 
 /***/ }),
 
@@ -1865,7 +1873,7 @@ var TableDisplayComponent = /** @class */ (function () {
     TableDisplayComponent.prototype.filter = function (params) {
         var _this = this;
         this.dataSource.forEach(function (element) {
-            if (element.subarea === params.get('id').substr(0, 2)) {
+            if (element.subarea === params.get('id').substr(0, 2) && element.status === params.get('id').substr(3, 1)) {
                 _this.dataSourceFiltered.push(element);
             }
         });
@@ -1883,10 +1891,17 @@ var TableDisplayComponent = /** @class */ (function () {
                 top: '100px',
                 left: '300px'
             },
-            height: '100px',
-            width: '500px',
+            height: '600px',
+            width: '900px',
             // data: this.dData
-            data: { line1: 'line1', line2: 'line2', line3: 'line3' }
+            data: {
+                line1: e.line1,
+                line2: e.line2,
+                line3: e.line3,
+                line4: e.line4,
+                line5: e.line5,
+                line6: e.line6
+            }
         };
         var dialogRef = this.dialog.open(_dialog_dialog_component__WEBPACK_IMPORTED_MODULE_5__["DialogComponent"], config);
         dialogRef.afterClosed().subscribe(function (result) {

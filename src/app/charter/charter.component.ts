@@ -200,30 +200,39 @@ export class CharterComponent implements OnInit {
     this.progress = 30;
   }
 
+  // A = 'Aborted',
+  // Y = 'Ready',
+  // P = 'Scheduled',
+  // S = 'Released',
+  // R = 'Running',
+  // F = 'Finished',
+  // Z = 'Putactive',
+  // X = 'Unknown State'
+
   showChardata(e: any, charttype: string) {
     if (e.active.length > 0) {
       console.log(e.active[0]._chart.config.data.labels[e.active[0]._index]);
       switch (e.active[0]._chart.config.data.labels[e.active[0]._index]) {
         case 'Running':
-          this.router.navigate(['/table/' + charttype + '-Running']);
+          this.router.navigate(['/table/' + charttype + '-R']);
           break;
         case 'Ready':
-          this.router.navigate(['/table/' + charttype + '-Ready']);
+          this.router.navigate(['/table/' + charttype + '-Y']);
           break;
         case 'Scheduled':
-          this.router.navigate(['/table/' + charttype + '-Scheduled']);
+          this.router.navigate(['/table/' + charttype + '-P']);
           break;
         case 'Released':
-          this.router.navigate(['/table/' + charttype + '-Released']);
+          this.router.navigate(['/table/' + charttype + '-S']);
           break;
         case 'Aborted':
-          this.router.navigate(['/table/' + charttype + '-Aborted']);
+          this.router.navigate(['/table/' + charttype + '-A']);
           break;
         case 'Finished':
-          this.router.navigate(['/table/' + charttype + '-Finished']);
+          this.router.navigate(['/table/' + charttype + '-F']);
           break;
         case 'Putactive':
-          this.router.navigate(['/table/' + charttype + '-Putactive']);
+          this.router.navigate(['/table/' + charttype + '-Z']);
           break;
         default:
           break;

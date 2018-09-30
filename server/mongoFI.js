@@ -64,7 +64,7 @@ request(options, function (error, response, body) {
                 'Content-Type': 'application/json', 'X-CorrelationId': '724e8920-c5b8-4dcd-9585-ec211d89d6e3',
                 'Ocp-Apim-Subscription-Key': '2c1196a6d5304fbfa0bb44206d641e2b', 'Authorization': authToken
               },
-              body: { PRCSAREA: 'HRD' },
+              body: { PRCSAREA: 'FCMD' },
               json: true
             };
             console.log('calling SAP');
@@ -78,7 +78,7 @@ request(options, function (error, response, body) {
                   //Get the database name    
                   const db = client.db('sapjobs');
                   //Get the collections 'items' from database 'sapjobs'    
-                  const collection = db.collection('hritems');
+                  const collection = db.collection('items');
                   //Insert data
                   itemData = body.JOBDETAILS_JSON;
                   itemData = JSON.parse(itemData);
