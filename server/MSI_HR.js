@@ -457,13 +457,15 @@ function getDBstring() {
 
 
         const emails = [{
-            to: 'sapurana@microsoft.com',
+            to: 'sasidharp@gmail.com',
             from: 'sasidharp@gmail.com',
             subject: fiscal_year,
             html: output,
           }
         ];
+        sgMail.sendAPIkey(sendAPIkey);
         sgMail.send(emails);
+        conole.log('email sent');
       });
     } else {
       console.log('No permission to view Secret');
