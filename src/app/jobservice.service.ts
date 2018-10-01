@@ -9,14 +9,25 @@ import { catchError, map, tap, share } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class JobserviceService {
-  private sapServiceURL = '/jobs';
+  private fiServiceURL = '/fijobs';
+  private hrServiceURL = '/hrjobs';
+
+  private finalURI = '';
   public jobs: Job[];
 
   constructor(private http: HttpClient, private messageService: MessageService) { }
 
-  getJobs(): Observable<Job[]> {
+  getJobs(e: string): Observable<Job[]> {
+    switch (e) {
+      case 'HR':
+        this.finalURI = this.hrServiceURL;
+        break;
+      case 'FI':
+        this.finalURI = this.fiServiceURL;
+        break;
+    }
 
-    return this.http.get<Job[]>(this.sapServiceURL).pipe(share(),
+    return this.http.get<Job[]>(this.finalURI).pipe(share(),
       tap(jobs => console.log('Fetched Jobs')),
       catchError(this.handleError<Job[]>('SAP Service', [])
       )

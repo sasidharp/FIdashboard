@@ -9,7 +9,7 @@ var distDir = __dirname + "/dist/FIdashboard";
 app.use(express.static(distDir));
 const MongoClient = require('mongodb').MongoClient;
 //fetch the latest data .
-app.get('/jobs',function(err,res){
+app.get('/fijobs',function(err,res){
   /*  This code will get the entries from SAP and pushes into Mongo DB*/
   //Use connect method to connect to the server
   MongoClient.connect(url, function(err, client) {  
@@ -26,6 +26,23 @@ app.get('/jobs',function(err,res){
     
   });
 })
+app.get('/hrjobs',function(err,res){
+    /*  This code will get the entries from SAP and pushes into Mongo DB*/
+    //Use connect method to connect to the server
+    MongoClient.connect(url, function(err, client) {  
+        if (err != null ) { return 'Could not connect. Exiting'};
+    //Get the database name    
+        const db = client.db('sapjobs');
+    //Get the collections 'items' from database 'sapjobs'    
+        const collection = db.collection('hritems');
+    //Insert data
+         collection.find({}).sort({_id:-1}).limit(1).toArray(function(err, results) {
+          res.send(results);
+          client.close( );
+          });
+      
+    });
+  })
 // redo
 app.get('/*',function( req ,res ){
     console.log(distDir);

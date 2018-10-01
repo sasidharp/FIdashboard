@@ -81,13 +81,13 @@ export class HRcharterComponent implements OnInit {
     this.doughnutChartLabels.push('Finished');
     this.doughnutChartLabels.push('Aborted');
 //  this.messageservice.invalidate_data(); // reset cache
-    this.jobService.getJobs().subscribe(returnData => this.resetStatus(returnData));
+    this.jobService.getJobs('HR').subscribe(returnData => this.resetStatus(returnData));
 
   }
 
   private get_fresh_data() {
 //  this.messageservice.invalidate_data(); // reset cache
-    this.jobService.getJobs().subscribe(returnData => this.resetStatus(returnData));
+    this.jobService.getJobs('HR').subscribe(returnData => this.resetStatus(returnData));
   }
   private add_counter() {
     this.timer = this.timer - 1000;
