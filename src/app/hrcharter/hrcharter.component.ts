@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 import { MessageService } from '../message.service';
 import { Observable, interval } from 'rxjs';
 import { DataSource } from '@angular/cdk/table';
-import {LocalStorageService, SessionStorageService} from 'ngx-webstorage';
+import { LocalStorageService, SessionStorageService } from 'ngx-webstorage';
 export enum hrlabel_strings {
   S1 = 'Payroll-U1-Day1 ',
   S2 = 'Payroll-U1-Day2',
@@ -42,6 +42,9 @@ export class HRcharterComponent implements OnInit {
   public timestamp;
   public timer = 10000;
   public display;
+  
+  public show = true;
+  public displayDate = false;
 
   public doughnutChartLabels: string[] = [];
   public doughnutChartType = 'doughnut';
@@ -58,6 +61,7 @@ export class HRcharterComponent implements OnInit {
   public dataSource: Job[] = [];
   public d1 = new Date(0);
   public progress;
+  
 
 
   constructor(private jobService: JobserviceService,
@@ -80,13 +84,13 @@ export class HRcharterComponent implements OnInit {
     this.doughnutChartLabels.push('PutActive');
     this.doughnutChartLabels.push('Finished');
     this.doughnutChartLabels.push('Aborted');
-//  this.messageservice.invalidate_data(); // reset cache
+    //  this.messageservice.invalidate_data(); // reset cache
     this.jobService.getJobs('HR').subscribe(returnData => this.resetStatus(returnData));
 
   }
 
   private get_fresh_data() {
-//  this.messageservice.invalidate_data(); // reset cache
+    //  this.messageservice.invalidate_data(); // reset cache
     this.jobService.getJobs('HR').subscribe(returnData => this.resetStatus(returnData));
   }
   private add_counter() {
@@ -98,6 +102,8 @@ export class HRcharterComponent implements OnInit {
   }
 
   public resetStatus(xJobs: any): void {
+    this.show = false;
+    this.displayDate = true;
     console.log(xJobs);
     this.jobs = xJobs[0].job_summary;
     // this.jobs = JSON.parse(xJobs[0]).job_summary;
@@ -205,28 +211,28 @@ export class HRcharterComponent implements OnInit {
       console.log(e.active[0]._chart.config.data.labels[e.active[0]._index]);
       switch (e.active[0]._chart.config.data.labels[e.active[0]._index]) {
         case 'Running':
-        this.router.navigate(['/table/' + charttype + '-R']);
-        break;
-      case 'Ready':
-        this.router.navigate(['/table/' + charttype + '-Y']);
-        break;
-      case 'Scheduled':
-        this.router.navigate(['/table/' + charttype + '-P']);
-        break;
-      case 'Released':
-        this.router.navigate(['/table/' + charttype + '-S']);
-        break;
-      case 'Aborted':
-        this.router.navigate(['/table/' + charttype + '-A']);
-        break;
-      case 'Finished':
-        this.router.navigate(['/table/' + charttype + '-F']);
-        break;
-      case 'Putactive':
-        this.router.navigate(['/table/' + charttype + '-Z']);
-        break;
-      default:
-        break;
+          this.router.navigate(['/table/' + charttype + '-R']);
+          break;
+        case 'Ready':
+          this.router.navigate(['/table/' + charttype + '-Y']);
+          break;
+        case 'Scheduled':
+          this.router.navigate(['/table/' + charttype + '-P']);
+          break;
+        case 'Released':
+          this.router.navigate(['/table/' + charttype + '-S']);
+          break;
+        case 'Aborted':
+          this.router.navigate(['/table/' + charttype + '-A']);
+          break;
+        case 'Finished':
+          this.router.navigate(['/table/' + charttype + '-F']);
+          break;
+        case 'Putactive':
+          this.router.navigate(['/table/' + charttype + '-Z']);
+          break;
+        default:
+          break;
       }
     }
   }

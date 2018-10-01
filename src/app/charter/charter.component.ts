@@ -42,6 +42,8 @@ export class CharterComponent implements OnInit {
   public timestamp;
   public timer = 10000;
   public display;
+  public show = true;
+  public displayDate = false;
 
   public doughnutChartLabels: string[] = [];
   public doughnutChartType = 'doughnut';
@@ -98,7 +100,9 @@ export class CharterComponent implements OnInit {
   }
 
   public resetStatus(xJobs: any): void {
-    console.log(xJobs);
+    this.show = false;
+    this.displayDate = true;
+    // console.log(xJobs);
     this.jobs = xJobs[0].job_summary;
     // this.jobs = JSON.parse(xJobs[0]).job_summary;
     //     store the date for the table display later

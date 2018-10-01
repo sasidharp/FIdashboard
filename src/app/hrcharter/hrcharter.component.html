@@ -1,6 +1,8 @@
 <br>
 <h1 align="center" class="thick">SAP Human Resources U1 / U2 / other areas </h1>
-<h4 align="center" class="thick"> {{ d1 }} </h4>
+<div *ngIf=displayDate align="center" class="thick"> <h4> {{ d1 }}  </h4></div>
+ 
+
 <mat-grid-list cols="4" rowHeight="1:.75">
     <mat-grid-tile>
         <mat-grid-tile-header style="background : ivory">
@@ -17,7 +19,7 @@
     </mat-grid-tile>
     <mat-grid-tile>
         <mat-grid-tile-header style="background : ivory">
-            <p class="thick">  {{ S2 }} </p>
+            <p class="thick"> {{ S2 }} </p>
         </mat-grid-tile-header>
         <div style="width: 90%">
             <canvas baseChart [data]="doughnutChartData_s2" [labels]="doughnutChartLabels" [chartType]="doughnutChartType" (chartHover)="chartHovered($event)"
@@ -27,7 +29,7 @@
     </mat-grid-tile>
     <mat-grid-tile>
         <mat-grid-tile-header style="background : ivory">
-            <p class="thick">  {{ S3 }} </p>
+            <p class="thick"> {{ S3 }} </p>
         </mat-grid-tile-header>
         <div style="width: 90%">
             <canvas baseChart [data]="doughnutChartData_s3" [labels]="doughnutChartLabels" [chartType]="doughnutChartType" (chartHover)="chartHovered($event)"
@@ -37,7 +39,7 @@
     </mat-grid-tile>
     <mat-grid-tile>
         <mat-grid-tile-header style="background : ivory">
-            <p class="thick">  {{ S4 }} </p>
+            <p class="thick"> {{ S4 }} </p>
         </mat-grid-tile-header>
         <div style="width: 90%">
             <canvas baseChart [data]="doughnutChartData_s4" [labels]="doughnutChartLabels" [chartType]="doughnutChartType" (chartHover)="chartHovered($event)"
@@ -47,7 +49,7 @@
     </mat-grid-tile>
     <mat-grid-tile>
         <mat-grid-tile-header style="background : ivory">
-            <p class="thick">  {{ S5 }} </p>
+            <p class="thick"> {{ S5 }} </p>
         </mat-grid-tile-header>
         <div style="width: 90%">
             <canvas baseChart [data]="doughnutChartData_s5" [labels]="doughnutChartLabels" [chartType]="doughnutChartType" (chartHover)="chartHovered($event)"
@@ -57,7 +59,7 @@
     </mat-grid-tile>
     <mat-grid-tile>
         <mat-grid-tile-header style="background : ivory">
-            <p class="thick">  {{ S6 }} </p>
+            <p class="thick"> {{ S6 }} </p>
         </mat-grid-tile-header>
         <div style="width: 90%">
             <canvas baseChart [data]="doughnutChartData_s6" [labels]="doughnutChartLabels" [chartType]="doughnutChartType" (chartHover)="chartHovered($event)"
@@ -65,17 +67,18 @@
             </canvas>
         </div>
     </mat-grid-tile>
-   <mat-grid-tile>
+    <mat-grid-tile>
         <mat-grid-tile-header style="background : ivory">
-            <p class="thick">  {{ S8 }} </p>
+            <p class="thick"> {{ S8 }} </p>
         </mat-grid-tile-header>
         <div style="width: 90%">
             <canvas baseChart [data]="doughnutChartData_s6" [labels]="doughnutChartLabels" [chartType]="doughnutChartType" (chartHover)="chartHovered($event)"
                 (chartClick)="showChardata($event , 'S6')" [options]="barChartOptions">
             </canvas>
         </div>
-
-
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <div *ngIf=show class="loader"></div>
     </mat-grid-tile>
 
 </mat-grid-list>

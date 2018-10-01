@@ -27,7 +27,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig, MatDialogMod
 import { DialogComponent } from './dialog/dialog.component';
 import { LandingpageComponent } from './landingpage/landingpage.component';
 import { HRcharterComponent } from './hrcharter/hrcharter.component';
-
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,6 +46,7 @@ import { HRcharterComponent } from './hrcharter/hrcharter.component';
   imports: [
     BrowserModule,
     MatToolbarModule,
+    MatProgressSpinnerModule,
     MatIconModule,
     MatGridListModule,
     ChartsModule,
