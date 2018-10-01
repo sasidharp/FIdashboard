@@ -26,7 +26,7 @@ export class JobserviceService {
         this.finalURI = this.fiServiceURL;
         break;
     }
-
+   
     return this.http.get<Job[]>(this.finalURI).pipe(share(),
       tap(jobs => console.log('Fetched Jobs')),
       catchError(this.handleError<Job[]>('SAP Service', [])
