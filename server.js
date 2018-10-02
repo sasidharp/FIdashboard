@@ -21,10 +21,12 @@ app.use(express.static(distDir));
 const MongoClient = require('mongodb').MongoClient;
 //fetch the latest data .
 app.get('/fijobs', function (err, res) {
+
     var options = {
         method: 'GET', url: `${process.env["MSI_ENDPOINT"]}/?resource=${MSI_KEY_VAULTURL}&api-version=${API_VER}`,
         headers: { 'Secret': process.env["MSI_SECRET"] }
     };
+
     request(options, function (error, response, body) {
         authToken = ('Bearer ' + JSON.parse(body).access_token);
         var options = {
@@ -49,36 +51,37 @@ app.get('/fijobs', function (err, res) {
                     });
                 });
             } else {
+                res.send(500, 'Internal error. Problem with MongoString');
                 console.log('No permission to view Secret');
                 return;
             }
         });
     })
-
-    app.get('/hrjobs', function (err, res) {
-        /*  This code will get the entries from SAP and pushes into Mongo DB*/
-        //Use connect method to connect to the server
-        MongoClient.connect(url, function (err, client) {
-            if (err != null) { return 'Could not connect. Exiting' };
-            //Get the database name    
-            const db = client.db('sapjobs');
-            //Get the collections 'items' from database 'sapjobs'    
-            const collection = db.collection('hritems');
-            //Insert data
-            collection.find({}).sort({ _id: -1 }).limit(1).toArray(function (err, results) {
-                res.send(results);
-                client.close();
-            });
-
+});
+app.get('/hrjobs', function (err, res) {
+    /*  This code will get the entries from SAP and pushes into Mongo DB*/
+    //Use connect method to connect to the server
+    MongoClient.connect(url, function (err, client) {
+        if (err != null) { return 'Could not connect. Exiting' };
+        //Get the database name    
+        const db = client.db('sapjobs');
+        //Get the collections 'items' from database 'sapjobs'    
+        const collection = db.collection('hritems');
+        //Insert data
+        collection.find({}).sort({ _id: -1 }).limit(1).toArray(function (err, results) {
+            res.send(results);
+            client.close();
         });
-    })
-    // redo
-    app.get('/*', function (req, res) {
-        console.log(distDir);
-        res.sendFile(path.join(distDir + '/index.html'))
-    })
 
-    var server = app.listen(process.env.PORT | 3000, function (req, res) {
-        var port = server.address().port;
-        console.log('App running on 3000');
     });
+})
+// redo
+app.get('/*', function (req, res) {
+    console.log(distDir);
+    res.sendFile(path.join(distDir + '/index.html'))
+})
+
+var server = app.listen(process.env.PORT | 3000, function (req, res) {
+    var port = server.address().port;
+    console.log('App running on 3000');
+});
