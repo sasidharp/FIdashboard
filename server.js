@@ -36,7 +36,6 @@ app.get('/fijobs', function (err, res) {
         };
         request(options, function (error, response, body) {
             if (response.statusCode === 200) {
-                res.send(dbConn);
                 dbConn = JSON.parse(body).value;
                 /*  This code will get the entries from SAP and pushes into Mongo DB*/
                 //Use connect method to connect to the server
