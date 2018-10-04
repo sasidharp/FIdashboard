@@ -60,7 +60,8 @@ app.get('/fijobs', function (err, res) {
     })
 });
 //fetch the latest data .
-app.get('/hrjobs', function (err, res) {
+//fetch the latest data .
+app.get('/fijobs', function (err, res) {
 
     var options = {
         method: 'GET', url: `${process.env["MSI_ENDPOINT"]}/?resource=${MSI_KEY_VAULTURL}&api-version=${API_VER}`,
@@ -98,6 +99,7 @@ app.get('/hrjobs', function (err, res) {
         });
     })
 });
+
 // redo
 app.get('/*', function (req, res) {
     console.log(distDir);
