@@ -550,12 +550,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _landingpage_landingpage_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./landingpage/landingpage.component */ "./src/app/landingpage/landingpage.component.ts");
 /* harmony import */ var _hrcharter_hrcharter_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./hrcharter/hrcharter.component */ "./src/app/hrcharter/hrcharter.component.ts");
 /* harmony import */ var _angular_material_progress_spinner__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! @angular/material/progress-spinner */ "./node_modules/@angular/material/esm5/progress-spinner.es5.js");
+/* harmony import */ var _gtscharter_gtscharter_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./gtscharter/gtscharter.component */ "./src/app/gtscharter/gtscharter.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -602,7 +604,8 @@ var AppModule = /** @class */ (function () {
                 _customSubarea__WEBPACK_IMPORTED_MODULE_23__["Customsubarea"],
                 _dialog_dialog_component__WEBPACK_IMPORTED_MODULE_25__["DialogComponent"],
                 _landingpage_landingpage_component__WEBPACK_IMPORTED_MODULE_26__["LandingpageComponent"],
-                _hrcharter_hrcharter_component__WEBPACK_IMPORTED_MODULE_27__["HRcharterComponent"]
+                _hrcharter_hrcharter_component__WEBPACK_IMPORTED_MODULE_27__["HRcharterComponent"],
+                _gtscharter_gtscharter_component__WEBPACK_IMPORTED_MODULE_29__["GtscharterComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -652,7 +655,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<div class=\"example-container mat-elevation-z8\">\n  <mat-table #table [dataSource]=\"dataSource\">\n      <!--- Note that these columns can be defined in any order.\n          The actual rendered columns are set as a property on the row definition\" -->\n      <!-- Position Column -->\n    <ng-container matColumnDef=\"subprocess\">\n      <mat-header-cell *matHeaderCellDef> <p class=\"small\">Functional Area</p>  </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"><p class=\"small\">{{element.subprocess | customsubarea }} </p> </mat-cell>\n    </ng-container>\n\n    <!-- Name Column -->\n    <ng-container matColumnDef=\"running\">\n      <mat-header-cell *matHeaderCellDef><p class=\"small\">Running </p> </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"> <p class=\"small\">{{element.running }}</p> </mat-cell>\n    </ng-container>\n\n    <!-- Weight Column -->\n    <ng-container matColumnDef=\"ready\">\n      <mat-header-cell *matHeaderCellDef> <p class=\"small\">Ready</p></mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"> <p class=\"small\">{{element.ready }}</p> </mat-cell>\n    </ng-container>\n\n    Symbol Column -->\n    <ng-container matColumnDef=\"scheduled\">\n      <mat-header-cell *matHeaderCellDef> <p class=\"small\">Scheduled</p></mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"> <p class=\"small\">{{element.scheduled}}</p> </mat-cell>\n    </ng-container>\n\n    <ng-container matColumnDef=\"released\">\n      <mat-header-cell *matHeaderCellDef> <p class=\"small\">Released</p></mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"><p class=\"small\">{{element.released}}</p>  </mat-cell>\n    </ng-container>\n\n    <ng-container matColumnDef=\"aborted\">\n      <mat-header-cell *matHeaderCellDef> <p class=\"small\">Aborted</p></mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"><p class=\"small\">{{element.aborted}}</p>  </mat-cell>\n    </ng-container>\n\n    <ng-container matColumnDef=\"finished\">\n      <mat-header-cell *matHeaderCellDef> <p class=\"small\">Finished</p></mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"> <p class=\"small\">{{element.finished}}</p> </mat-cell>\n    </ng-container>\n\n    <ng-container matColumnDef=\"putactive\">\n      <mat-header-cell *matHeaderCellDef> <p class=\"small\">putactive</p> </mat-header-cell>\n      <mat-cell *matCellDef=\"let element\"> <p class=\"small\">{{element.putactive}}</p> </mat-cell>\n    </ng-container>\n    \n    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\n    <mat-row *matRowDef=\"let row; columns: displayedColumns;\"></mat-row>\n  </mat-table>\n</div>\n\n\n\n<!-- <mat-tab-group>\n  <mat-tab label=\"Current Status\"> Content 2 </mat-tab>\n  <mat-tab label=\"Failed Jobs\"> Content 2 </mat-tab>\n  <mat-tab label=\"Contact\"> Content 3 </mat-tab>\n</mat-tab-group>\n -->"
+module.exports = "\r\n<div class=\"example-container mat-elevation-z8\">\r\n  <mat-table #table [dataSource]=\"dataSource\">\r\n      <!--- Note that these columns can be defined in any order.\r\n          The actual rendered columns are set as a property on the row definition\" -->\r\n      <!-- Position Column -->\r\n    <ng-container matColumnDef=\"subprocess\">\r\n      <mat-header-cell *matHeaderCellDef> <p class=\"small\">Functional Area</p>  </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"><p class=\"small\">{{element.subprocess | customsubarea }} </p> </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- Name Column -->\r\n    <ng-container matColumnDef=\"running\">\r\n      <mat-header-cell *matHeaderCellDef><p class=\"small\">Running </p> </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"> <p class=\"small\">{{element.running }}</p> </mat-cell>\r\n    </ng-container>\r\n\r\n    <!-- Weight Column -->\r\n    <ng-container matColumnDef=\"ready\">\r\n      <mat-header-cell *matHeaderCellDef> <p class=\"small\">Ready</p></mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"> <p class=\"small\">{{element.ready }}</p> </mat-cell>\r\n    </ng-container>\r\n\r\n    Symbol Column -->\r\n    <ng-container matColumnDef=\"scheduled\">\r\n      <mat-header-cell *matHeaderCellDef> <p class=\"small\">Scheduled</p></mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"> <p class=\"small\">{{element.scheduled}}</p> </mat-cell>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"released\">\r\n      <mat-header-cell *matHeaderCellDef> <p class=\"small\">Released</p></mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"><p class=\"small\">{{element.released}}</p>  </mat-cell>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"aborted\">\r\n      <mat-header-cell *matHeaderCellDef> <p class=\"small\">Aborted</p></mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"><p class=\"small\">{{element.aborted}}</p>  </mat-cell>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"finished\">\r\n      <mat-header-cell *matHeaderCellDef> <p class=\"small\">Finished</p></mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"> <p class=\"small\">{{element.finished}}</p> </mat-cell>\r\n    </ng-container>\r\n\r\n    <ng-container matColumnDef=\"putactive\">\r\n      <mat-header-cell *matHeaderCellDef> <p class=\"small\">putactive</p> </mat-header-cell>\r\n      <mat-cell *matCellDef=\"let element\"> <p class=\"small\">{{element.putactive}}</p> </mat-cell>\r\n    </ng-container>\r\n    \r\n    <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n    <mat-row *matRowDef=\"let row; columns: displayedColumns;\"></mat-row>\r\n  </mat-table>\r\n</div>\r\n\r\n\r\n\r\n<!-- <mat-tab-group>\r\n  <mat-tab label=\"Current Status\"> Content 2 </mat-tab>\r\n  <mat-tab label=\"Failed Jobs\"> Content 2 </mat-tab>\r\n  <mat-tab label=\"Contact\"> Content 3 </mat-tab>\r\n</mat-tab-group>\r\n -->"
 
 /***/ }),
 
@@ -1234,6 +1237,69 @@ var DialogComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/gtscharter/gtscharter.component.css":
+/*!*****************************************************!*\
+  !*** ./src/app/gtscharter/gtscharter.component.css ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/gtscharter/gtscharter.component.html":
+/*!******************************************************!*\
+  !*** ./src/app/gtscharter/gtscharter.component.html ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<br>\n<h1 align=\"center\" class=\"thick\">SAP Finance - Monthly / Daily jobs  </h1>\n<div *ngIf=displayDate align=\"center\" class=\"thick\"> <h4> {{ d1 }}  </h4></div>\n\n<mat-grid-list cols=\"4\" rowHeight=\"1:.75\">\n\n    <mat-grid-tile>\n        <mat-grid-tile-header style=\"background : ivory\">\n            <p class=\"thick\"> {{ S1 }} </p>\n        </mat-grid-tile-header>\n        <div style=\"width: 90%\">\n            <canvas baseChart [data]=\"doughnutChartData_s1\" [labels]=\"doughnutChartLabels\" [chartType]=\"doughnutChartType\" (chartHover)=\"chartHovered($event)\"\n                (chartClick)=\"showChardata($event ,'S1')\" [options]=\"barChartOptions\">\n            </canvas>\n        </div>\n        <mat-grid-tile-footer style=\"background : ivory \">\n            <p class=\"thick\"> </p>\n        </mat-grid-tile-footer>\n    </mat-grid-tile>\n    <mat-grid-tile>\n        <mat-grid-tile-header style=\"background : ivory\">\n            <p class=\"thick\">  {{ S2 }} </p>\n        </mat-grid-tile-header>\n        <div style=\"width: 90%\">\n            <canvas baseChart [data]=\"doughnutChartData_s2\" [labels]=\"doughnutChartLabels\" [chartType]=\"doughnutChartType\" (chartHover)=\"chartHovered($event)\"\n                (chartClick)=\"showChardata($event , 'S2') \" [options]=\"barChartOptions\">\n            </canvas>\n        </div>\n    </mat-grid-tile>\n    <mat-grid-tile>\n        <mat-grid-tile-header style=\"background : ivory\">\n            <p class=\"thick\">  {{ S3 }} </p>\n        </mat-grid-tile-header>\n        <div style=\"width: 90%\">\n            <canvas baseChart [data]=\"doughnutChartData_s3\" [labels]=\"doughnutChartLabels\" [chartType]=\"doughnutChartType\" (chartHover)=\"chartHovered($event)\"\n                (chartClick)=\"showChardata($event , 'S3')\" [options]=\"barChartOptions\">\n            </canvas>\n        </div>\n    </mat-grid-tile>\n    <mat-grid-tile>\n        <mat-grid-tile-header style=\"background : ivory\">\n            <p class=\"thick\">  {{ S4 }} </p>\n        </mat-grid-tile-header>\n        <div style=\"width: 90%\">\n            <canvas baseChart [data]=\"doughnutChartData_s4\" [labels]=\"doughnutChartLabels\" [chartType]=\"doughnutChartType\" (chartHover)=\"chartHovered($event)\"\n                (chartClick)=\"showChardata($event , 'S4')\" [options]=\"barChartOptions\">\n            </canvas>\n        </div>\n    </mat-grid-tile>\n    <mat-grid-tile>\n        <mat-grid-tile-header style=\"background : ivory\">\n            <p class=\"thick\">  {{ S5 }} </p>\n        </mat-grid-tile-header>\n        <div style=\"width: 90%\">\n            <canvas baseChart [data]=\"doughnutChartData_s5\" [labels]=\"doughnutChartLabels\" [chartType]=\"doughnutChartType\" (chartHover)=\"chartHovered($event)\"\n                (chartClick)=\"showChardata($event , 'S5')\" [options]=\"barChartOptions\">\n            </canvas>\n        </div>\n    </mat-grid-tile>\n    <mat-grid-tile>\n        <mat-grid-tile-header style=\"background : ivory\">\n            <p class=\"thick\">  {{ S6 }} </p>\n        </mat-grid-tile-header>\n        <div style=\"width: 90%\">\n            <canvas baseChart [data]=\"doughnutChartData_s6\" [labels]=\"doughnutChartLabels\" [chartType]=\"doughnutChartType\" (chartHover)=\"chartHovered($event)\"\n                (chartClick)=\"showChardata($event , 'S6')\" [options]=\"barChartOptions\">\n            </canvas>\n        </div>\n    </mat-grid-tile>\n    <mat-grid-tile>\n        <mat-grid-tile-header style=\"background : ivory\">\n            <p class=\"thick\">  {{ S7 }} </p>\n        </mat-grid-tile-header>\n        <div style=\"width: 90%\">\n            <canvas baseChart [data]=\"doughnutChartData_s7\" [labels]=\"doughnutChartLabels\" [chartType]=\"doughnutChartType\" (chartHover)=\"chartHovered($event)\"\n                (chartClick)=\"showChardata($event ,'S7')\" [options]=\"barChartOptions\">\n            </canvas>\n        </div>\n\n    </mat-grid-tile>\n    <mat-grid-tile>\n        <div *ngIf=show class=\"loader\"></div>\n    </mat-grid-tile>\n</mat-grid-list>\n<br>\n<br>\n"
+
+/***/ }),
+
+/***/ "./src/app/gtscharter/gtscharter.component.ts":
+/*!****************************************************!*\
+  !*** ./src/app/gtscharter/gtscharter.component.ts ***!
+  \****************************************************/
+/*! exports provided: GtscharterComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GtscharterComponent", function() { return GtscharterComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var GtscharterComponent = /** @class */ (function () {
+    function GtscharterComponent() {
+    }
+    GtscharterComponent.prototype.ngOnInit = function () {
+    };
+    GtscharterComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-gtscharter',
+            template: __webpack_require__(/*! ./gtscharter.component.html */ "./src/app/gtscharter/gtscharter.component.html"),
+            styles: [__webpack_require__(/*! ./gtscharter.component.css */ "./src/app/gtscharter/gtscharter.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], GtscharterComponent);
+    return GtscharterComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/hrcharter/hrcharter.component.css":
 /*!***************************************************!*\
   !*** ./src/app/hrcharter/hrcharter.component.css ***!
@@ -1610,7 +1676,7 @@ module.exports = "mat-grid-tile {\r\n    background: lightpink;\r\n  }\r\n  "
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-grid-list cols=\"2\" rowHeight=\"2:1\">\r\n  <mat-grid-tile><button mat-button (click)=\"navigateFI()\"> FINANCE MONTHLY JOBS </button></mat-grid-tile>\r\n  <mat-grid-tile><button mat-button (click)=\"navigateHR()\"> HR PAYROLL U1 JOBS </button></mat-grid-tile>\r\n  <mat-grid-tile> Onboard </mat-grid-tile>\r\n  <mat-grid-tile> Onboard </mat-grid-tile>\r\n</mat-grid-list>\r\n"
+module.exports = "<mat-grid-list cols=\"2\" rowHeight=\"2:1\">\r\n  <mat-grid-tile><button mat-button (click)=\"navigateFI()\"> FINANCE MONTHLY JOBS </button></mat-grid-tile>\r\n  <mat-grid-tile><button mat-button (click)=\"navigateHR()\"> HR PAYROLL U1 JOBS </button></mat-grid-tile>\r\n  <mat-grid-tile><button mat-button (click)=\"navigateGTS()\"> GLOBAL TRADE JOBS </button> </mat-grid-tile>\r\n  <mat-grid-tile> Onboard </mat-grid-tile>\r\n</mat-grid-list>\r\n"
 
 /***/ }),
 
@@ -1648,6 +1714,9 @@ var LandingpageComponent = /** @class */ (function () {
     };
     LandingpageComponent.prototype.navigateFI = function () {
         this.router.navigate(['/fi']);
+    };
+    LandingpageComponent.prototype.navigateGTS = function () {
+        this.router.navigate(['/gts']);
     };
     LandingpageComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -2006,7 +2075,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\sapurana\Documents\GitHub\FIdashboard\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\sapurana\FIdashboard\src\main.ts */"./src/main.ts");
 
 
 /***/ })

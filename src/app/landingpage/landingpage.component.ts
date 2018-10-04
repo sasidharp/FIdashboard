@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {MatButtonModule} from '@angular/material/button';
-import {MatGridListModule} from '@angular/material/grid-list';
+import { MatButtonModule } from '@angular/material/button';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { Router, ParamMap } from '@angular/router';
 @Component({
   selector: 'app-landingpage',
@@ -9,14 +9,18 @@ import { Router, ParamMap } from '@angular/router';
 })
 export class LandingpageComponent implements OnInit {
 
-  constructor( private router: Router) { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
-  navigateHR(){
+  navigateHR() {
     this.router.navigate(['/hr']);
   }
-  navigateFI(){
+  navigateFI() {
     this.router.navigate(['/fi']);
   }
+  navigateGTS() {
+    this.router.navigate(['/gts']);
+  }
+
 }

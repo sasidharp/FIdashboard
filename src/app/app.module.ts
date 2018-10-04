@@ -28,6 +28,7 @@ import { DialogComponent } from './dialog/dialog.component';
 import { LandingpageComponent } from './landingpage/landingpage.component';
 import { HRcharterComponent } from './hrcharter/hrcharter.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { GtscharterComponent } from './gtscharter/gtscharter.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +42,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     Customsubarea,
     DialogComponent,
     LandingpageComponent,
-    HRcharterComponent
+    HRcharterComponent,
+    GtscharterComponent
   ],
   imports: [
     BrowserModule,
