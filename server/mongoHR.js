@@ -49,9 +49,13 @@ request(options, function (error, response, body) {
         options = {
           method: 'POST', url: 'https://login.microsoftonline.com/72f988bf-86f1-41af-91ab-2d7cd011db47/oauth2/token',
           headers: { 'content-type': 'application/x-www-form-urlencoded' },
+          // form: {
+          //   client_id: '36dc8d43-ad4b-40bb-8d4d-b100b59c10ea', client_secret: sapClientsecret,
+          //   resource: 'https://microsoft.onmicrosoft.com/dSAPWSAADApp', grant_type: 'client_credentials'
+          // }
           form: {
             client_id: '36dc8d43-ad4b-40bb-8d4d-b100b59c10ea', client_secret: sapClientsecret,
-            resource: 'https://microsoft.onmicrosoft.com/dSAPWSAADApp', grant_type: 'client_credentials'
+            resource: 'https://microsoft.onmicrosoft.com/tSAPWSAADApp', grant_type: 'client_credentials'
           }
         };
         request(options, function (error, response, body) {
@@ -59,10 +63,10 @@ request(options, function (error, response, body) {
             authToken = ('Bearer ' + JSON.parse(body).access_token);
             console.log('Fetched AAD token - For SAP');
             var options = {
-              method: 'POST', url: 'https://sapdevws.trafficmanager.net/MS1/MSFIJobTelemetry/api/Sap/JobDetails',
+              method: 'POST', url: 'https://saptstws.trafficmanager.net/MSG/MSFIJobTelemetry/api/Sap/JobDetails',
               headers: {
                 'Content-Type': 'application/json', 'X-CorrelationId': '724e8920-c5b8-4dcd-9585-ec211d89d6e3',
-                'Ocp-Apim-Subscription-Key': '2c1196a6d5304fbfa0bb44206d641e2b', 'Authorization': authToken
+                'Ocp-Apim-Subscription-Key': 'c55ddee3fc0643eab5534af29776892c', 'Authorization': authToken
               },
               body: { PRCSAREA: 'HRD' },
               json: true
