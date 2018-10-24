@@ -55,7 +55,7 @@ request(options, function (error, response, body) {
           // }
           form: {
             client_id: '36dc8d43-ad4b-40bb-8d4d-b100b59c10ea', client_secret: sapClientsecret,
-            resource: 'https://microsoft.onmicrosoft.com/tSAPWSAADApp', grant_type: 'client_credentials'
+            resource: 'https://tSAPWSAADApp', grant_type: 'client_credentials'
           }
         };
         request(options, function (error, response, body) {
